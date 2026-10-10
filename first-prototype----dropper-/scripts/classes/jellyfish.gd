@@ -1,7 +1,7 @@
 extends Node2D
 class_name JellyFish
 
-@export var bounce_velocity : int = - 90
+@export var bounce_velocity : int = 90
 
 
 func _ready() -> void:

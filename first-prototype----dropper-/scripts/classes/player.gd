@@ -29,7 +29,7 @@ func reset() -> void:
 	upside_down = false
 	
 func apply_vertical_impulse(impulse_value):
-	linear_velocity.y = impulse_value
+	linear_velocity.y = -1 * impulse_value * (1 - 2 * int(upside_down))
 
 func _ready() -> void:
 	reversed_camera_pos = camera.position
