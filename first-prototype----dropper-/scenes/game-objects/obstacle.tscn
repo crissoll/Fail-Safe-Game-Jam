@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://boiq8madn315w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u25ut"]
+size = Vector2(16, 16)
 
 [node name="obstacle" type="StaticBody2D" unique_id=1329070235]
 

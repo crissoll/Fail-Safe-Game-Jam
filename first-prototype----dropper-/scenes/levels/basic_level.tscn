@@ -1,24 +1,27 @@
 [gd_scene format=3 uid="uid://cxcjo8nolsj38"]
 
-[ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://player.tscn" id="1_m3wy8"]
-[ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://obstacle.tscn" id="2_0e48y"]
-[ext_resource type="Script" uid="uid://co0gxbvtwug1x" path="res://end.gd" id="3_56njm"]
+[ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://scenes/player.tscn" id="1_m3wy8"]
+[ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="2_0e48y"]
+[ext_resource type="PackedScene" uid="uid://ds6067ev8qkh7" path="res://scenes/levels/empty_level.tscn" id="3_56njm"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u25ut"]
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tn7vo"]
+scenes/1/scene = ExtResource("2_0e48y")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m03m6"]
-size = Vector2(347, 20)
+[sub_resource type="TileSet" id="TileSet_u25ut"]
+sources/1 = SubResource("TileSetScenesCollectionSource_tn7vo")
 
-[node name="Node2D" type="Node2D" unique_id=1478944514]
+[node name="BasicLevel" type="Node2D" unique_id=1478944514]
 
-[node name="player" parent="." unique_id=440862904 node_paths=PackedStringArray("start_pos", "start_pos_reversed") instance=ExtResource("1_m3wy8")]
+[node name="player" parent="." unique_id=440862904 instance=ExtResource("1_m3wy8")]
 position = Vector2(149, 33)
 gravity_scale = 0.0
-start_pos = NodePath("../StartPos")
-start_pos_reversed = NodePath("../StartPos2")
 camera_change_speed = 600.0
 
+[node name="Fixed Obstacles" type="TileMapLayer" parent="." unique_id=1618841191]
+tile_set = SubResource("TileSet_u25ut")
+
 [node name="obstacles" type="Node2D" parent="." unique_id=1045298879]
+position = Vector2(-151, -156)
 
 [node name="obstacle" parent="obstacles" unique_id=1329070235 instance=ExtResource("2_0e48y")]
 position = Vector2(18, 135)
@@ -63,33 +66,7 @@ scale = Vector2(5.014598, 1.521738)
 position = Vector2(238.00002, 1478.0001)
 scale = Vector2(5.014598, 1.521738)
 
-[node name="wall left" type="StaticBody2D" parent="." unique_id=2021084275]
-position = Vector2(1, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall left" unique_id=530807796]
-rotation = 1.5707964
-shape = SubResource("WorldBoundaryShape2D_u25ut")
-
-[node name="wall righy" type="StaticBody2D" parent="." unique_id=342380187]
-position = Vector2(292, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall righy" unique_id=598503542]
-rotation = -1.5707964
-shape = SubResource("WorldBoundaryShape2D_u25ut")
-
-[node name="StartPos" type="Node2D" parent="." unique_id=2074917508]
-position = Vector2(147, 30)
-
-[node name="StartPos2" type="Node2D" parent="." unique_id=1994496452]
-position = Vector2(170, 1730)
-
-[node name="end" type="Area2D" parent="." unique_id=1529614054]
-position = Vector2(14, 1780)
-script = ExtResource("3_56njm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="end" unique_id=2065335476]
-position = Vector2(163.5, 0)
-shape = SubResource("RectangleShape2D_m03m6")
-debug_color = Color(0.98500437, 0, 0.34261805, 0.41960785)
-
-[connection signal="body_entered" from="end" to="end" method="_on_body_entered"]
+[node name="EmptyLevel" parent="." unique_id=2117120648 node_paths=PackedStringArray("player") instance=ExtResource("3_56njm")]
+width = 346.395
+height = 1590.165
+player = NodePath("../player")
