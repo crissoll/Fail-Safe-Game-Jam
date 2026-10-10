@@ -34,8 +34,8 @@ debug_color = Color(0.98500437, 0, 0.34261805, 0.41960785)
 
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=674436663]
 position = Vector2(-200, 0)
-collision_layer = 8
-collision_mask = 0
+collision_layer = 2
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1805657116]
 rotation = 1.5707964

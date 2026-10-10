@@ -22,7 +22,7 @@ position = Vector2(149, 33)
 gravity_scale = 0.0
 camera_change_speed = 600.0
 
-[node name="Fixed Obstacles" type="TileMapLayer" parent="." unique_id=1618841191]
+[node name="FixedObstacles" type="TileMapLayer" parent="." unique_id=1618841191]
 tile_set = SubResource("TileSet_u25ut")
 
 [node name="obstacles" type="Node2D" parent="." unique_id=1045298879]
