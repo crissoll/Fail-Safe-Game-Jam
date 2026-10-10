@@ -12,6 +12,11 @@ sources/1 = SubResource("TileSetScenesCollectionSource_tn7vo")
 
 [node name="BasicLevel" type="Node2D" unique_id=1478944514]
 
+[node name="EmptyLevel" parent="." unique_id=2117120648 node_paths=PackedStringArray("player") instance=ExtResource("3_56njm")]
+width = 372.615
+height = 1450.585
+player = NodePath("../player")
+
 [node name="player" parent="." unique_id=440862904 instance=ExtResource("1_m3wy8")]
 position = Vector2(149, 33)
 gravity_scale = 0.0
@@ -65,8 +70,3 @@ scale = Vector2(5.014598, 1.521738)
 [node name="obstacle11" parent="obstacles" unique_id=116788389 instance=ExtResource("2_0e48y")]
 position = Vector2(238.00002, 1478.0001)
 scale = Vector2(5.014598, 1.521738)
-
-[node name="EmptyLevel" parent="." unique_id=2117120648 node_paths=PackedStringArray("player") instance=ExtResource("3_56njm")]
-width = 346.395
-height = 1590.165
-player = NodePath("../player")
