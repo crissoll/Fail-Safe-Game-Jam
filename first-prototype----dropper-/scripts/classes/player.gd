@@ -28,6 +28,11 @@ func reset() -> void:
 		camera.position.y *= -1
 	upside_down = false
 	
+	#every time the level resets, jellyfish are visible and monitoring again
+	for i:JellyFish in get_tree().get_nodes_in_group("Jellyfish"):
+		i.visible = true
+		i.area_2d.set_deferred("monitoring", true)
+	
 func apply_vertical_impulse(impulse_value):
 	linear_velocity.y = -1 * impulse_value * (1 - 2 * int(upside_down))
 

@@ -4,14 +4,14 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_usvy1"]
 
-[node name="Jellyfish" type="Node2D" unique_id=1929911465]
+[node name="Jellyfish" type="Node2D" unique_id=1929911465 groups=["Jellyfish"]]
 script = ExtResource("1_7esg0")
 
-[node name="StaticBody2D" type="Area2D" parent="." unique_id=1595808726]
+[node name="Area2D" type="Area2D" parent="." unique_id=1595808726]
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1734178472]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1734178472]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_usvy1")
 
-[connection signal="body_entered" from="StaticBody2D" to="." method="_on_static_body_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
