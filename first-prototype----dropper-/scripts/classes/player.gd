@@ -27,21 +27,25 @@ func reset() -> void:
 	if(upside_down):
 		camera.position.y *= -1
 	upside_down = false
+	
+func apply_vertical_impulse(impulse_value):
+	linear_velocity.y = impulse_value
 
 func _ready() -> void:
 	reversed_camera_pos = camera.position
 	reversed_camera_pos.y *= -1
 	
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if (reverse_camera):
 		camera.position.y -= camera_change_speed * delta
 		if(camera.position.y < reversed_camera_pos.y):
 			reverse_camera = false
 			camera.position = reversed_camera_pos
 		return
+		
 	if Input.is_action_just_pressed(&"ui_accept"):
 		reset()
-	var mov_vec := Input.get_axis(&"ui_left",&"ui_right")
+	var mov_vec := Input.get_axis(&"left",&"right")
 	linear_velocity.x = (mov_vec * move_speed)
 	
 	if(abs(linear_velocity.y) < max_y_speed):

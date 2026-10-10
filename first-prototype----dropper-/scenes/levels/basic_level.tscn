@@ -3,9 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://scenes/player.tscn" id="1_m3wy8"]
 [ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://ds6067ev8qkh7" path="res://scenes/levels/empty_level.tscn" id="3_56njm"]
+[ext_resource type="PackedScene" uid="uid://bfda0qeec7nmx" path="res://scenes/game-objects/jellyfish.tscn" id="4_7fkf7"]
+[ext_resource type="Script" uid="uid://dvu8e3616qcd1" path="res://scripts/autoloads/game_manager.gd" id="4_kuyue"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tn7vo"]
 scenes/1/scene = ExtResource("2_0e48y")
+scenes/2/scene = ExtResource("4_7fkf7")
 
 [sub_resource type="TileSet" id="TileSet_u25ut"]
 sources/1 = SubResource("TileSetScenesCollectionSource_tn7vo")
@@ -23,6 +26,7 @@ gravity_scale = 0.0
 camera_change_speed = 600.0
 
 [node name="FixedObstacles" type="TileMapLayer" parent="." unique_id=1618841191]
+tile_map_data = PackedByteArray(0, 0, 1, 0, 15, 0, 1, 0, 0, 0, 0, 0, 2, 0, 254, 255, 31, 0, 1, 0, 0, 0, 0, 0, 2, 0)
 tile_set = SubResource("TileSet_u25ut")
 
 [node name="obstacles" type="Node2D" parent="." unique_id=1045298879]
@@ -70,3 +74,7 @@ scale = Vector2(5.014598, 1.521738)
 [node name="obstacle11" parent="obstacles" unique_id=116788389 instance=ExtResource("2_0e48y")]
 position = Vector2(238.00002, 1478.0001)
 scale = Vector2(5.014598, 1.521738)
+
+[node name="GameManager" type="Node2D" parent="." unique_id=326495801]
+script = ExtResource("4_kuyue")
+bounce_velocity = -80
