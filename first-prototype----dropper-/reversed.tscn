@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://btcbj7a8kad8a"]
+
+[ext_resource type="PackedScene" uid="uid://cxcjo8nolsj38" path="res://basic_level.tscn" id="1_umtby"]
+
+[node name="Node2D" type="Node2D" unique_id=1464411225]
+
+[node name="Node2D" parent="." unique_id=1478944514 instance=ExtResource("1_umtby")]

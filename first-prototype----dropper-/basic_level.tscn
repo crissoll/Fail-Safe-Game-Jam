@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cxcjo8nolsj38"]
+
+[ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://player.tscn" id="1_m3wy8"]
+[ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://obstacle.tscn" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://co0gxbvtwug1x" path="res://end.gd" id="3_56njm"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u25ut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m03m6"]
+size = Vector2(347, 20)
+
+[node name="Node2D" type="Node2D" unique_id=1478944514]
+
+[node name="player" parent="." unique_id=440862904 node_paths=PackedStringArray("start_pos", "start_pos_reversed") instance=ExtResource("1_m3wy8")]
+position = Vector2(149, 33)
+gravity_scale = 0.0
+start_pos = NodePath("../StartPos")
+start_pos_reversed = NodePath("../StartPos2")
+camera_change_speed = 600.0
+
+[node name="obstacles" type="Node2D" parent="." unique_id=1045298879]
+
+[node name="obstacle" parent="obstacles" unique_id=1329070235 instance=ExtResource("2_0e48y")]
+position = Vector2(18, 135)
+
+[node name="obstacle2" parent="obstacles" unique_id=1093625297 instance=ExtResource("2_0e48y")]
+position = Vector2(221.99998, 341.00003)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle3" parent="obstacles" unique_id=1866614278 instance=ExtResource("2_0e48y")]
+position = Vector2(68.999985, 408)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle4" parent="obstacles" unique_id=730771513 instance=ExtResource("2_0e48y")]
+position = Vector2(245, 503.00003)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle5" parent="obstacles" unique_id=1399169903 instance=ExtResource("2_0e48y")]
+position = Vector2(77.99997, 684)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle6" parent="obstacles" unique_id=529170945 instance=ExtResource("2_0e48y")]
+position = Vector2(257, 800.00006)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle7" parent="obstacles" unique_id=706114660 instance=ExtResource("2_0e48y")]
+position = Vector2(82.999985, 936.00006)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle8" parent="obstacles" unique_id=2048784173 instance=ExtResource("2_0e48y")]
+position = Vector2(117, 1089)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle9" parent="obstacles" unique_id=805563233 instance=ExtResource("2_0e48y")]
+position = Vector2(239, 1324)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle10" parent="obstacles" unique_id=503316536 instance=ExtResource("2_0e48y")]
+position = Vector2(81.99997, 1430.0001)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle11" parent="obstacles" unique_id=116788389 instance=ExtResource("2_0e48y")]
+position = Vector2(238.00002, 1478.0001)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="wall left" type="StaticBody2D" parent="." unique_id=2021084275]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall left" unique_id=530807796]
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_u25ut")
+
+[node name="wall righy" type="StaticBody2D" parent="." unique_id=342380187]
+position = Vector2(292, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall righy" unique_id=598503542]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_u25ut")
+
+[node name="StartPos" type="Node2D" parent="." unique_id=2074917508]
+position = Vector2(147, 30)
+
+[node name="StartPos2" type="Node2D" parent="." unique_id=1994496452]
+position = Vector2(170, 1730)
+
+[node name="end" type="Area2D" parent="." unique_id=1529614054]
+position = Vector2(14, 1780)
+script = ExtResource("3_56njm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="end" unique_id=2065335476]
+position = Vector2(163.5, 0)
+shape = SubResource("RectangleShape2D_m03m6")
+debug_color = Color(0.98500437, 0, 0.34261805, 0.41960785)
+
+[connection signal="body_entered" from="end" to="end" method="_on_body_entered"]
