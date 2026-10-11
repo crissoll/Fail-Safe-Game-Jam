@@ -17,8 +17,7 @@ var reversed_camera_pos : Vector2
 		
 func reverse_fall() -> void:
 	upside_down = true
-	linear_velocity.y = 0
-	linear_velocity.y *= -1
+	linear_velocity = Vector2.ZERO
 	reverse_camera = true
 	
 func reset() -> void:
