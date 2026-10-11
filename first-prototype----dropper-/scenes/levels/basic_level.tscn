@@ -23,6 +23,7 @@ player = NodePath("../player")
 [node name="player" parent="." unique_id=440862904 instance=ExtResource("1_m3wy8")]
 position = Vector2(149, 33)
 gravity_scale = 0.0
+camera_change_speed = 600.0
 
 [node name="FixedObstacles" type="TileMapLayer" parent="." unique_id=1618841191]
 tile_map_data = PackedByteArray(0, 0, 1, 0, 15, 0, 1, 0, 0, 0, 0, 0, 2, 0, 254, 255, 31, 0, 1, 0, 0, 0, 0, 0, 2, 0)
