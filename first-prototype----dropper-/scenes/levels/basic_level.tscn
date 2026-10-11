@@ -77,4 +77,3 @@ scale = Vector2(5.014598, 1.521738)
 
 [node name="GameManager" type="Node2D" parent="." unique_id=326495801]
 script = ExtResource("4_kuyue")
-bounce_velocity = -80
