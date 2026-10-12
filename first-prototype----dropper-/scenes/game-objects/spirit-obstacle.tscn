@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d3f76t3h7lvo8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u25ut"]
+size = Vector2(16, 16)
+
+[node name="obstacle" type="StaticBody2D" unique_id=1329070235]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=285459030]
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_u25ut")
+debug_color = Color(0.062357135, 0.6328114, 0.43239224, 0.41960785)
