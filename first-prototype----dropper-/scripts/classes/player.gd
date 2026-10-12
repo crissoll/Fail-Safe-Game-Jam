@@ -2,7 +2,11 @@ class_name Player
 extends RigidBody2D
 
 @export var move_speed := 10.0
+
 @export var max_y_speed := 400.0
+@export var min_y_speed := 200.0
+
+@export var brake_strength := 300.0
 @export var g := 200.0
 
 var spawn_pos : Vector2
@@ -73,7 +77,11 @@ func _physics_process(delta: float) -> void:
 	
 	var mov_vec := Input.get_axis(&"left",&"right")
 	linear_velocity.x = (mov_vec * move_speed)
-	if(abs(linear_velocity.y) < max_y_speed):
+	
+	if Input.is_action_pressed(&"slow_down"):
+		if(abs(linear_velocity.y) > min_y_speed && abs(linear_velocity.y) < max_y_speed ):
+			linear_velocity.y -=  brake_strength * delta
+	elif(abs(linear_velocity.y) < max_y_speed):
 		linear_velocity.y += (1 - 2 * int(upside_down)) * g * delta
 
 	if(get_contact_count()):
