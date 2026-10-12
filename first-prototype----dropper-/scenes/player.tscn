@@ -19,3 +19,18 @@ shape = SubResource("CircleShape2D_u25ut")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=824191862]
 position = Vector2(4, 266)
+
+[node name="Paraglider" type="Polygon2D" parent="." unique_id=1485162993]
+visible = false
+polygon = PackedVector2Array(-15, 0, -14, -7, -9, -13, 0, -15, 8, -13, 13, -7, 15, 0)
+
+[node name="Star" type="Polygon2D" parent="." unique_id=1854112994]
+visible = false
+color = Color(1, 1, 0.19607843, 1)
+polygon = PackedVector2Array(0, -16, -4, -7, -13, -4, -4, -3, 0, 6, 3, -3, 11, -6, 2, -7)
+
+[node name="TempStaminaLabel" type="Label" parent="." unique_id=131832886]
+offset_left = -6.0
+offset_top = -7.0
+offset_right = 34.0
+offset_bottom = 16.0
