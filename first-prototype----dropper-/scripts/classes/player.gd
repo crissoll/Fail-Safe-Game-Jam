@@ -14,6 +14,7 @@ var upside_down := false
 var reverse_camera := false
 var reversed_camera_pos : Vector2
 
+var spirit := false
 		
 func reverse_fall() -> void:
 	upside_down = true
@@ -26,6 +27,8 @@ func reset() -> void:
 	if(upside_down):
 		camera.position.y *= -1
 	upside_down = false
+	spirit = false
+	update_spirit_form()
 	
 	#every time the level resets, jellyfish are visible and monitoring again
 	for i:JellyFish in get_tree().get_nodes_in_group("Jellyfish"):
@@ -34,6 +37,21 @@ func reset() -> void:
 	
 func apply_vertical_impulse(impulse_value):
 	linear_velocity.y = -1 * impulse_value * (1 - 2 * int(upside_down))
+
+func update_spirit_form() ->void:
+	if(spirit):
+		$CollisionShape2D.debug_color = Color.GREEN
+	else:
+		$CollisionShape2D.debug_color = Color.BLUE
+func switch_dimension() -> void:
+	spirit = !spirit
+	print(spirit)
+	
+	set_collision_mask_value(1,!spirit)
+	set_collision_mask_value(5,spirit)
+	update_spirit_form()
+	
+		
 
 func _ready() -> void:
 	reversed_camera_pos = camera.position
@@ -46,12 +64,15 @@ func _physics_process(delta: float) -> void:
 			reverse_camera = false
 			camera.position = reversed_camera_pos
 		return
-		
-	if Input.is_action_just_pressed(&"ui_accept"):
+	if Input.is_action_just_pressed(&"reset_level"):
 		reset()
+		return
+	
+	if Input.is_action_just_pressed(&"switch_dimension"):
+		switch_dimension()
+	
 	var mov_vec := Input.get_axis(&"left",&"right")
 	linear_velocity.x = (mov_vec * move_speed)
-	
 	if(abs(linear_velocity.y) < max_y_speed):
 		linear_velocity.y += (1 - 2 * int(upside_down)) * g * delta
 
