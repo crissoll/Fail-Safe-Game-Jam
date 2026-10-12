@@ -32,6 +32,8 @@ extends Node2D
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
+		width = width
+		height = height
 		return
 	player.spawn_pos = spawn_marker.position
 	player.reset()
