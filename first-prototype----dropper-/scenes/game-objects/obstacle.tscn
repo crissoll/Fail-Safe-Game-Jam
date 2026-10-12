@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://boiq8madn315w"]
 
+[ext_resource type="Script" uid="uid://cikl756ql5glf" path="res://scripts/classes/obstacle.gd" id="1_r1dap"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u25ut"]
 size = Vector2(16, 16)
 
-[node name="obstacle" type="StaticBody2D" unique_id=1329070235]
+[node name="obstacle" type="Area2D" unique_id=1118835633]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_r1dap")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=285459030]
 rotation = -1.5707964

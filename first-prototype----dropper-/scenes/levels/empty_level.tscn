@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lb7lilwrqt06" path="res://scripts/classes/level.gd" id="1_h2s0c"]
 [ext_resource type="Script" uid="uid://co0gxbvtwug1x" path="res://scripts/classes/player_flip_area.gd" id="2_jdsy5"]
+[ext_resource type="Script" uid="uid://cikl756ql5glf" path="res://scripts/classes/obstacle.gd" id="3_1yjtr"]
 [ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="3_jdsy5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m03m6"]
@@ -24,7 +25,7 @@ color = Color(0.17825022, 0.11137282, 0.38750875, 1)
 [node name="FlipPlayerArea" type="Area2D" parent="." unique_id=283427393]
 position = Vector2(0, 4000)
 collision_layer = 0
-collision_mask = 8
+collision_mask = 24
 script = ExtResource("2_jdsy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipPlayerArea" unique_id=765597352]
@@ -32,10 +33,12 @@ position = Vector2(-6, 29)
 shape = SubResource("RectangleShape2D_m03m6")
 debug_color = Color(0.98500437, 0, 0.34261805, 0.41960785)
 
-[node name="LeftWall" type="StaticBody2D" parent="." unique_id=674436663]
+[node name="LeftWall" type="Area2D" parent="." unique_id=123936769]
 position = Vector2(-200, 0)
-collision_layer = 2
-collision_mask = 8
+collision_layer = 0
+collision_mask = 24
+script = ExtResource("3_1yjtr")
+metadata/_custom_type_script = "uid://cikl756ql5glf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1805657116]
 rotation = 1.5707964
@@ -49,10 +52,12 @@ offset_bottom = -200.33902
 scale = Vector2(1, 1000)
 color = Color(0.2716817, 0.2716817, 0.2716817, 1)
 
-[node name="RightWall" type="StaticBody2D" parent="." unique_id=1963964952]
+[node name="RightWall" type="Area2D" parent="." unique_id=679402046]
 position = Vector2(200, 0)
 collision_layer = 2
 collision_mask = 8
+script = ExtResource("3_1yjtr")
+metadata/_custom_type_script = "uid://cikl756ql5glf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=901147639]
 rotation = -1.5707964
@@ -72,6 +77,7 @@ gizmo_extents = 32.9
 [node name="obstacle" parent="." unique_id=1329070235 instance=ExtResource("3_jdsy5")]
 position = Vector2(0, -253)
 scale = Vector2(100, 1)
+collision_mask = 24
 
 [connection signal="body_entered" from="FlipPlayerArea" to="FlipPlayerArea" method="_on_body_entered"]
 [connection signal="player_entered" from="FlipPlayerArea" to="." method="_on_reverse_area_player_entered"]
