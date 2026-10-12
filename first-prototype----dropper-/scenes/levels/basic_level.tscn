@@ -24,7 +24,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_m7iyv")
 
 [node name="EmptyLevel" parent="." unique_id=2117120648 node_paths=PackedStringArray("player") instance=ExtResource("3_56njm")]
 width = 372.615
-height = 1450.585
+height = 1572.15
 player = NodePath("../player")
 
 [node name="player" parent="." unique_id=440862904 instance=ExtResource("1_m3wy8")]

@@ -50,9 +50,8 @@ func update_spirit_form() ->void:
 func switch_dimension() -> void:
 	spirit = !spirit
 	print(spirit)
-	
-	set_collision_mask_value(1,!spirit)
-	set_collision_mask_value(5,spirit)
+	set_collision_layer_value(4,!spirit)
+	set_collision_layer_value(5,spirit)
 	update_spirit_form()
 	
 		
@@ -84,5 +83,5 @@ func _physics_process(delta: float) -> void:
 	elif(abs(linear_velocity.y) < max_y_speed):
 		linear_velocity.y += (1 - 2 * int(upside_down)) * g * delta
 
-	if(get_contact_count()):
-		reset()
+func apply_damage():
+	reset()

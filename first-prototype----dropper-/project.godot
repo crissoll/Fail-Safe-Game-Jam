@@ -58,7 +58,7 @@ slow_down={
 2d_physics/layer_2="walls"
 2d_physics/layer_3="insta-death"
 2d_physics/layer_4="player"
-2d_physics/layer_5="spirit-obstacle"
+2d_physics/layer_5="spirit"
 
 [physics]
 

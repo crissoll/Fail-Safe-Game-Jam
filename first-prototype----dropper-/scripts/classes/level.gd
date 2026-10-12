@@ -4,8 +4,8 @@ class_name Level
 extends Node2D
 
 @onready var spawn_marker: Marker2D = $SpawnMarker
-@onready var left_wall: StaticBody2D = $LeftWall
-@onready var right_wall: StaticBody2D = $RightWall
+@onready var left_wall: Obstacle = $LeftWall
+@onready var right_wall: Obstacle = $RightWall
 @onready var flip_player_area: PlayerFlipArea = $FlipPlayerArea
 
 @export var width := 400.0:
@@ -35,6 +35,8 @@ func _ready() -> void:
 		return
 	player.spawn_pos = spawn_marker.position
 	player.reset()
+	
+	
 
 func _on_reverse_area_player_entered(player:Player) -> void:
 	player.reverse_fall()
