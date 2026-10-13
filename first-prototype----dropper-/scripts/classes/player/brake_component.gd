@@ -4,8 +4,10 @@ extends Node
 signal brake_started
 signal brake_ended
 
-@export var paraglider : Polygon2D
 @export var brake_strength := 300.0
+@export var brake_stamina_consumption := 100.0
+
+@export var paraglider : Polygon2D
 @export var stamina_comp : StaminaComponent
 
 ## property used to avoid automatic brake usage on stamina recover while holding

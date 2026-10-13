@@ -16,7 +16,6 @@ extends RigidBody2D
 @export var max_y_speed := 400.0
 @export var min_y_speed := 200.0
 @export var g := 200.0
-@export var brake_stamina_consumption := 100.0
 @export var camera_change_speed := 1000.0
 
 var spawn_pos: Vector2
@@ -61,7 +60,7 @@ func _handle_brake_and_g(delta:float) -> void:
 		if Input.is_action_just_pressed(&"slow_down"):
 			brake_comp.start_braking()
 		
-		stamina_comp.consume(brake_stamina_consumption, delta)
+		stamina_comp.consume(brake_comp.brake_stamina_consumption, delta)
 		_apply_brake_force(delta)
 		return
 	
