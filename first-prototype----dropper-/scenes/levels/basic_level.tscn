@@ -1,11 +1,13 @@
 [gd_scene format=4 uid="uid://cxcjo8nolsj38"]
 
+[ext_resource type="PackedScene" uid="uid://bof75kl6wli8e" path="res://scenes/game-objects/pause_menu.tscn" id="1_1ak8g"]
 [ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://scenes/player.tscn" id="1_m3wy8"]
 [ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://ds6067ev8qkh7" path="res://scenes/levels/empty_level.tscn" id="3_56njm"]
 [ext_resource type="PackedScene" uid="uid://d3f76t3h7lvo8" path="res://scenes/game-objects/spirit-obstacle.tscn" id="3_cv06b"]
 [ext_resource type="PackedScene" uid="uid://bfda0qeec7nmx" path="res://scenes/game-objects/jellyfish.tscn" id="4_7fkf7"]
 [ext_resource type="Script" uid="uid://dvu8e3616qcd1" path="res://scripts/autoloads/game_manager.gd" id="4_kuyue"]
+[ext_resource type="Script" uid="uid://cxm3gc2desgsl" path="res://scripts/classes/move_component.gd" id="7_1ak8g"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m7iyv"]
 resource_name = "Spritual Obstacles"
@@ -22,16 +24,17 @@ sources/0 = SubResource("TileSetScenesCollectionSource_m7iyv")
 
 [node name="BasicLevel" type="Node2D" unique_id=1478944514]
 
-[node name="EmptyLevel" parent="." unique_id=2117120648 node_paths=PackedStringArray("player") instance=ExtResource("3_56njm")]
-width = 372.615
-height = 400.0
-player = NodePath("../player")
+[node name="CanvasLayer" parent="." unique_id=1674361281 instance=ExtResource("1_1ak8g")]
 
 [node name="player" parent="." unique_id=440862904 instance=ExtResource("1_m3wy8")]
 position = Vector2(149, 33)
 gravity_scale = 0.0
-brake_strength = 10000.0
 camera_change_speed = 600.0
+
+[node name="EmptyLevel" parent="." unique_id=2117120648 node_paths=PackedStringArray("player") instance=ExtResource("3_56njm")]
+width = 372.615
+height = 1290.0
+player = NodePath("../player")
 
 [node name="FixedObstacles" type="TileMapLayer" parent="." unique_id=1618841191]
 tile_map_data = PackedByteArray("AAABAA8AAQAAAAAAAgD+/x8AAQAAAAAAAgD7/xsAAAAAAAAAAQD8/xsAAAAAAAAAAQD8/xoAAAAAAAAAAQD9/xoAAAAAAAAAAQD+/xoAAAAAAAAAAQD//xoAAAAAAAAAAQD//xsAAAAAAAAAAQAAABsAAAAAAAAAAQABABsAAAAAAAAAAQABABoAAAAAAAAAAQDy/y4AAAAAAAAAAQDz/y4AAAAAAAAAAQD0/y4AAAAAAAAAAQD1/y4AAAAAAAAAAQD2/y4AAAAAAAAAAQD3/y4AAAAAAAAAAQD4/y4AAAAAAAAAAQDy/zQAAQAAAAAAAQDz/zQAAQAAAAAAAQD0/zQAAQAAAAAAAQD1/zQAAQAAAAAAAQD2/zQAAQAAAAAAAQD3/zQAAQAAAAAAAQD4/zQAAQAAAAAAAQDy/zwAAAAAAAAAAQDz/zwAAAAAAAAAAQD0/zwAAAAAAAAAAQD1/zwAAAAAAAAAAQD2/zwAAAAAAAAAAQD3/zwAAAAAAAAAAQD4/zwAAAAAAAAAAQDy/0QAAQAAAAAAAQDz/0QAAQAAAAAAAQD0/0QAAQAAAAAAAQD1/0QAAQAAAAAAAQD2/0QAAQAAAAAAAQD3/0QAAQAAAAAAAQD4/0QAAQAAAAAAAQDy/0wAAAAAAAAAAQDz/0wAAAAAAAAAAQD0/0wAAAAAAAAAAQD1/0wAAAAAAAAAAQD2/0wAAAAAAAAAAQD3/0wAAAAAAAAAAQD4/0wAAAAAAAAAAQDy/1QAAQAAAAAAAQDz/1QAAQAAAAAAAQD0/1QAAQAAAAAAAQD1/1QAAQAAAAAAAQD2/1QAAQAAAAAAAQD3/1QAAQAAAAAAAQD4/1QAAQAAAAAAAQDy/1oAAAAAAAAAAQDz/1oAAAAAAAAAAQD0/1oAAAAAAAAAAQD1/1oAAAAAAAAAAQD2/1oAAAAAAAAAAQD3/1oAAAAAAAAAAQD4/1oAAAAAAAAAAQDy/2AAAQAAAAAAAQDz/2AAAQAAAAAAAQD0/2AAAQAAAAAAAQD1/2AAAQAAAAAAAQD2/2AAAQAAAAAAAQD3/2AAAQAAAAAAAQD4/2AAAQAAAAAAAQA=")
@@ -44,8 +47,17 @@ position = Vector2(-151, -156)
 position = Vector2(18, 135)
 
 [node name="obstacle2" parent="obstacles" unique_id=1093625297 instance=ExtResource("2_0e48y")]
-position = Vector2(221.99998, 341.00003)
+position = Vector2(248, 332.00003)
 scale = Vector2(5.014598, 1.521738)
+
+[node name="MoveTowardTargetComponent" type="Node2D" parent="obstacles/obstacle2" unique_id=2134719555 node_paths=PackedStringArray("target")]
+script = ExtResource("7_1ak8g")
+target = NodePath("Target")
+metadata/_custom_type_script = "uid://cxm3gc2desgsl"
+
+[node name="Target" type="Node2D" parent="obstacles/obstacle2/MoveTowardTargetComponent" unique_id=1141123725]
+position = Vector2(-44.27075, -22.342896)
+scale = Vector2(0.19941783, 0.65714335)
 
 [node name="obstacle3" parent="obstacles" unique_id=1866614278 instance=ExtResource("2_0e48y")]
 position = Vector2(68.999985, 408)
