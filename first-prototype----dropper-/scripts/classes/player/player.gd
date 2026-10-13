@@ -30,11 +30,6 @@ func _ready() -> void:
 	
 	stamina_comp.stamina_changed.connect(_on_stamina_changed)
 	
-	brake_comp.brake_started.connect(func(): brake_comp.paraglider.show())
-	brake_comp.brake_ended.connect(func(): 
-		brake_comp.paraglider.hide()
-	)
-	
 	health_comp.die.connect(reset)
 
 func _physics_process(delta: float) -> void:
@@ -57,19 +52,22 @@ func _apply_physics(delta: float) -> void:
 	
 	var mov_vec := Input.get_axis(&"left", &"right")
 	linear_velocity.x = (mov_vec * move_speed)
+	_handle_brake_and_g(delta)
 	
+func _handle_brake_and_g(delta:float) -> void:
 	var trying_to_brake = Input.is_action_pressed(&"slow_down")
 	
-	if Input.is_action_just_pressed(&"slow_down") and brake_comp.can_brake():
-		brake_comp.start_braking()
-	
 	if trying_to_brake && brake_comp.can_brake():
-			stamina_comp.consume(brake_stamina_consumption, delta)
-			_apply_brake_force(delta)
-	else: 
-		_apply_gravity(delta)
-		if trying_to_brake:
-			brake_comp.brake_jammed = true
+		if Input.is_action_just_pressed(&"slow_down"):
+			brake_comp.start_braking()
+		
+		stamina_comp.consume(brake_stamina_consumption, delta)
+		_apply_brake_force(delta)
+		return
+	
+	_apply_gravity(delta)
+	if trying_to_brake:
+		brake_comp.brake_jammed = true
 		
 	if Input.is_action_just_released(&"slow_down"):
 		brake_comp.brake_jammed = false
@@ -114,8 +112,7 @@ func reset() -> void:
 	upside_down = false
 	reverse_camera = false
 	
-	if brake_comp.paraglider:
-		brake_comp.paraglider.hide()
+	brake_comp.reset()
 
 	
 	if stamina_comp:

@@ -12,6 +12,14 @@ signal brake_ended
 ## down the brake key
 var brake_jammed := false
 
+func _ready() -> void:
+	if(paraglider == null):
+		return
+	brake_started.connect(func(): paraglider.show())
+	brake_ended.connect(func(): 
+		paraglider.hide()
+	)
+
 func can_brake() -> bool:
 	return !stamina_comp.is_depleted && !brake_jammed
 
@@ -20,3 +28,7 @@ func stop_braking() -> void:
 
 func start_braking() -> void:
 	brake_started.emit()
+
+func reset() -> void:
+	if paraglider:
+		paraglider.hide()
