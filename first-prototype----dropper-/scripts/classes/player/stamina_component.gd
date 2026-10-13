@@ -28,12 +28,12 @@ func consume(amount: float, delta: float) -> void:
 	last_usage = Time.get_ticks_msec()
 	if is_depleted: return
 	current_stamina -= amount * delta
-	stamina_changed.emit(current_stamina)
 	
 	if current_stamina <= 0:
 		current_stamina = 0
 		is_depleted = true
 		stamina_depleted.emit()
+	stamina_changed.emit(current_stamina)
 
 func _recover(delta: float) -> void:
 	if current_stamina < max_stamina:
