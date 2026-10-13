@@ -1,11 +1,13 @@
 [gd_scene format=4 uid="uid://cxcjo8nolsj38"]
 
+[ext_resource type="PackedScene" uid="uid://bof75kl6wli8e" path="res://scenes/game-objects/pause_menu.tscn" id="1_1ak8g"]
 [ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://scenes/player.tscn" id="1_m3wy8"]
 [ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://ds6067ev8qkh7" path="res://scenes/levels/empty_level.tscn" id="3_56njm"]
 [ext_resource type="PackedScene" uid="uid://d3f76t3h7lvo8" path="res://scenes/game-objects/spirit-obstacle.tscn" id="3_cv06b"]
 [ext_resource type="PackedScene" uid="uid://bfda0qeec7nmx" path="res://scenes/game-objects/jellyfish.tscn" id="4_7fkf7"]
 [ext_resource type="Script" uid="uid://dvu8e3616qcd1" path="res://scripts/autoloads/game_manager.gd" id="4_kuyue"]
+[ext_resource type="Script" uid="uid://rcm08q6fdu0u" path="res://scripts/classes/move_obstacle_dx.gd" id="6_m7iyv"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m7iyv"]
 resource_name = "Spritual Obstacles"
@@ -21,6 +23,8 @@ sources/1 = SubResource("TileSetScenesCollectionSource_tn7vo")
 sources/0 = SubResource("TileSetScenesCollectionSource_m7iyv")
 
 [node name="BasicLevel" type="Node2D" unique_id=1478944514]
+
+[node name="CanvasLayer" parent="." unique_id=1674361281 instance=ExtResource("1_1ak8g")]
 
 [node name="EmptyLevel" parent="." unique_id=2117120648 node_paths=PackedStringArray("player") instance=ExtResource("3_56njm")]
 width = 372.615
@@ -44,8 +48,9 @@ position = Vector2(-151, -156)
 position = Vector2(18, 135)
 
 [node name="obstacle2" parent="obstacles" unique_id=1093625297 instance=ExtResource("2_0e48y")]
-position = Vector2(221.99998, 341.00003)
+position = Vector2(248, 332.00003)
 scale = Vector2(5.014598, 1.521738)
+script = ExtResource("6_m7iyv")
 
 [node name="obstacle3" parent="obstacles" unique_id=1866614278 instance=ExtResource("2_0e48y")]
 position = Vector2(68.999985, 408)

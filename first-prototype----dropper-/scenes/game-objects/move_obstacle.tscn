@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d0kk4y2ivg3gy"]
+
+[ext_resource type="Script" uid="uid://ds04df2n2ei74" path="res://scripts/classes/move_obstacle_y_down.gd" id="1_wc03b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u25ut"]
+size = Vector2(16, 16)
+
+[node name="obstacle" type="Area2D" unique_id=1118835633]
+position = Vector2(550, 276)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_wc03b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=285459030]
+position = Vector2(-2, -1)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_u25ut")
