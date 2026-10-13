@@ -4,4 +4,4 @@ extends Area2D
 func _process(delta: float) -> void:
 	for body in get_overlapping_bodies():
 		if body is Player:
-			body.health_comp.die.emit()
+			body.health_comp.apply_damage()

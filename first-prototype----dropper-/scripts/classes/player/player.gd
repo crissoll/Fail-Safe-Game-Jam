@@ -8,7 +8,6 @@ extends RigidBody2D
 @export var health_comp: HealtComponent
 
 #vars
-@onready var paraglider: Polygon2D = $Paraglider
 @onready var star: Polygon2D = $Star
 @onready var camera: Camera2D = $Camera2D
 @onready var temp_stamina_label: Label = $TempStaminaLabel
@@ -32,9 +31,9 @@ func _ready() -> void:
 	
 	stamina_comp.stamina_changed.connect(_on_stamina_changed)
 	
-	brake_comp.brake_started.connect(func(): paraglider.show())
+	brake_comp.brake_started.connect(func(): brake_comp.paraglider.show())
 	brake_comp.brake_ended.connect(func(): 
-		paraglider.hide()
+		brake_comp.paraglider.hide()
 		star.show()
 	)
 	brake_comp.cooldown_ended.connect(func(): star.hide())
@@ -64,7 +63,7 @@ func _apply_physics(delta: float) -> void:
 	
 	var trying_to_brake = Input.is_action_pressed(&"slow_down")
 	
-	#if slow_down is pressed and we can brake (not in cooldown state) and stamina is not depleted -> shows paraglider
+	#if slow_down is pressed and we can brake (not in cooldown state) and stamina is not depleted -> shows brake_comp.paraglider
 	if Input.is_action_just_pressed(&"slow_down") and brake_comp.can_brake() and !stamina_comp.is_depleted:
 		brake_comp.start_braking()
 	
@@ -76,7 +75,7 @@ func _apply_physics(delta: float) -> void:
 		stamina_comp.recover(delta)
 		_apply_gravity(delta)
 		
-	#as soon as we release slow_down or stamina is depleted -> cooldown timer resets and starts decreasing, we show the star and we hide the paraglider
+	#as soon as we release slow_down or stamina is depleted -> cooldown timer resets and starts decreasing, we show the star and we hide the brake_comp.paraglider
 	if Input.is_action_just_released(&"slow_down") or stamina_comp.is_depleted:
 		brake_comp.start_cooldown()
 
@@ -116,8 +115,8 @@ func reset() -> void:
 	upside_down = false
 	reverse_camera = false
 	
-	if paraglider:
-		paraglider.hide()
+	if brake_comp.paraglider:
+		brake_comp.paraglider.hide()
 	if star:
 		star.hide()
 	

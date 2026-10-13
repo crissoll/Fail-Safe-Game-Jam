@@ -5,10 +5,15 @@ signal brake_started
 signal brake_ended
 signal cooldown_ended
 
+@export var paraglider : Polygon2D
 @export var brake_strength := 300.0
 @export var cooldown_time := 0.5
 var current_cooldown := 0.0
 
+
+func _ready() -> void:
+	pass
+	
 func _process(delta: float) -> void:
 	if current_cooldown > 0:
 		current_cooldown -= delta
