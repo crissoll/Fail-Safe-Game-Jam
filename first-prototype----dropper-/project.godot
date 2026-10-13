@@ -24,6 +24,11 @@ GameManager="*uid://dvu8e3616qcd1"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Jellyfish=""
+MoveComponents=""
+
 [input]
 
 left={
