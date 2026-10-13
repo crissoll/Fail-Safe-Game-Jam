@@ -8,7 +8,6 @@ extends RigidBody2D
 @export var health_comp: HealtComponent
 
 #vars
-@onready var star: Polygon2D = $Star
 @onready var camera: Camera2D = $Camera2D
 @onready var temp_stamina_label: Label = $TempStaminaLabel
 
@@ -34,9 +33,7 @@ func _ready() -> void:
 	brake_comp.brake_started.connect(func(): brake_comp.paraglider.show())
 	brake_comp.brake_ended.connect(func(): 
 		brake_comp.paraglider.hide()
-		star.show()
 	)
-	brake_comp.cooldown_ended.connect(func(): star.hide())
 	
 	health_comp.die.connect(reset)
 
@@ -63,21 +60,23 @@ func _apply_physics(delta: float) -> void:
 	
 	var trying_to_brake = Input.is_action_pressed(&"slow_down")
 	
-	#if slow_down is pressed and we can brake (not in cooldown state) and stamina is not depleted -> shows brake_comp.paraglider
-	if Input.is_action_just_pressed(&"slow_down") and brake_comp.can_brake() and !stamina_comp.is_depleted:
+	if Input.is_action_just_pressed(&"slow_down") and brake_comp.can_brake():
 		brake_comp.start_braking()
 	
-	#if we keep pressing slow_down and we can brake (not in cooldown state) and stamina is not depleted -> we consume stamina and we slow down
-	if trying_to_brake and brake_comp.can_brake() and !stamina_comp.is_depleted:
-		stamina_comp.consume(brake_stamina_consumption, delta)
-		_apply_brake_force(delta)
-	else: #in any other cases we are recovering stamina and applying regular gravity
-		stamina_comp.recover(delta)
+	if trying_to_brake && brake_comp.can_brake():
+			stamina_comp.consume(brake_stamina_consumption, delta)
+			_apply_brake_force(delta)
+	else: 
 		_apply_gravity(delta)
+		if trying_to_brake:
+			brake_comp.brake_jammed = true
 		
-	#as soon as we release slow_down or stamina is depleted -> cooldown timer resets and starts decreasing, we show the star and we hide the brake_comp.paraglider
-	if Input.is_action_just_released(&"slow_down") or stamina_comp.is_depleted:
-		brake_comp.start_cooldown()
+	if Input.is_action_just_released(&"slow_down"):
+		brake_comp.brake_jammed = false
+		brake_comp.stop_braking()
+	elif stamina_comp.is_depleted:
+		brake_comp.stop_braking()
+		
 
 func _apply_brake_force(delta: float) -> void:
 	if abs(linear_velocity.y) > min_y_speed and abs(linear_velocity.y) < max_y_speed:
@@ -117,13 +116,11 @@ func reset() -> void:
 	
 	if brake_comp.paraglider:
 		brake_comp.paraglider.hide()
-	if star:
-		star.hide()
+
 	
 	if stamina_comp:
 		stamina_comp.reset()
-	if brake_comp:
-		brake_comp.reset()
+
 	if spirit_comp:
 		spirit_comp.reset(self)
 		
