@@ -71,7 +71,6 @@ func update_spirit_form() ->void:
 		$CollisionShape2D.debug_color = Color.BLUE
 func switch_dimension() -> void:
 	spirit = !spirit
-	print(spirit)
 	
 	update_spirit_form()
 	
@@ -111,7 +110,6 @@ func _physics_process(delta: float) -> void:
 		cur_brake_cooldown = brake_cooldown
 		star.show()
 		paraglider.hide()
-	print(stamina," ",cur_brake_cooldown)
 	
 	if Input.is_action_pressed(&"slow_down") and (stamina > 0) and !stamina_runnout and cur_brake_cooldown <= 0:
 		stamina -= brake_stamina_constumption_per_second * delta

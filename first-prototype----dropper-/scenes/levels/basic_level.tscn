@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3f76t3h7lvo8" path="res://scenes/game-objects/spirit-obstacle.tscn" id="3_cv06b"]
 [ext_resource type="PackedScene" uid="uid://bfda0qeec7nmx" path="res://scenes/game-objects/jellyfish.tscn" id="4_7fkf7"]
 [ext_resource type="Script" uid="uid://dvu8e3616qcd1" path="res://scripts/autoloads/game_manager.gd" id="4_kuyue"]
-[ext_resource type="Script" uid="uid://rcm08q6fdu0u" path="res://scripts/classes/move_obstacle_dx.gd" id="6_m7iyv"]
+[ext_resource type="Script" uid="uid://cxm3gc2desgsl" path="res://scripts/classes/move_component.gd" id="7_1ak8g"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m7iyv"]
 resource_name = "Spritual Obstacles"
@@ -28,7 +28,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_m7iyv")
 
 [node name="EmptyLevel" parent="." unique_id=2117120648 node_paths=PackedStringArray("player") instance=ExtResource("3_56njm")]
 width = 372.615
-height = 400.0
+height = 1290.0
 player = NodePath("../player")
 
 [node name="player" parent="." unique_id=440862904 instance=ExtResource("1_m3wy8")]
@@ -50,7 +50,15 @@ position = Vector2(18, 135)
 [node name="obstacle2" parent="obstacles" unique_id=1093625297 instance=ExtResource("2_0e48y")]
 position = Vector2(248, 332.00003)
 scale = Vector2(5.014598, 1.521738)
-script = ExtResource("6_m7iyv")
+
+[node name="MoveTowardTargetComponent" type="Node2D" parent="obstacles/obstacle2" unique_id=2134719555 node_paths=PackedStringArray("target")]
+script = ExtResource("7_1ak8g")
+target = NodePath("Target")
+metadata/_custom_type_script = "uid://cxm3gc2desgsl"
+
+[node name="Target" type="Node2D" parent="obstacles/obstacle2/MoveTowardTargetComponent" unique_id=1141123725]
+position = Vector2(-44.27075, -22.342896)
+scale = Vector2(0.19941783, 0.65714335)
 
 [node name="obstacle3" parent="obstacles" unique_id=1866614278 instance=ExtResource("2_0e48y")]
 position = Vector2(68.999985, 408)
