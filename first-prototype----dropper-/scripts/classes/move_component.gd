@@ -70,3 +70,4 @@ func reset() -> void:
 	parent.global_position = start_position
 	moving = start_moving_on_load
 	cur_target_position = target_position
+	returning_to_start = false
