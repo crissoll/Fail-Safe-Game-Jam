@@ -45,12 +45,14 @@ offset_bottom = 16.0
 
 [node name="Components" type="Node" parent="." unique_id=972240952]
 
-[node name="BrakeComponent" type="Node" parent="Components" unique_id=1851768807 node_paths=PackedStringArray("paraglider")]
+[node name="BrakeComponent" type="Node" parent="Components" unique_id=1851768807 node_paths=PackedStringArray("paraglider", "stamina_comp")]
 script = ExtResource("2_dqkch")
 paraglider = NodePath("../../Paraglider")
+stamina_comp = NodePath("../StaminaComponent")
 
-[node name="StaminaComponent" type="Node" parent="Components" unique_id=1169024055]
+[node name="StaminaComponent" type="Node" parent="Components" unique_id=1169024055 node_paths=PackedStringArray("player")]
 script = ExtResource("3_qlg0r")
+player = NodePath("../..")
 
 [node name="HealthComponent" type="Node" parent="Components" unique_id=1760932184]
 script = ExtResource("4_tuyoq")

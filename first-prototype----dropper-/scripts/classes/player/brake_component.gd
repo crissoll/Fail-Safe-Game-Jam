@@ -3,32 +3,34 @@ extends Node
 
 signal brake_started
 signal brake_ended
-signal cooldown_ended
+
+@export var brake_strength := 300.0
+@export var brake_stamina_consumption := 100.0
 
 @export var paraglider : Polygon2D
-@export var brake_strength := 300.0
-@export var cooldown_time := 0.5
-var current_cooldown := 0.0
+@export var stamina_comp : StaminaComponent
 
+## property used to avoid automatic brake usage on stamina recover while holding
+## down the brake key
+var brake_jammed := false
 
 func _ready() -> void:
-	pass
-	
-func _process(delta: float) -> void:
-	if current_cooldown > 0:
-		current_cooldown -= delta
-		if current_cooldown <= 0:
-			cooldown_ended.emit()
+	if(paraglider == null):
+		return
+	brake_started.connect(func(): paraglider.show())
+	brake_ended.connect(func(): 
+		paraglider.hide()
+	)
 
 func can_brake() -> bool:
-	return current_cooldown <= 0
+	return !stamina_comp.is_depleted && !brake_jammed
 
-func start_cooldown() -> void:
-	current_cooldown = cooldown_time
+func stop_braking() -> void:
 	brake_ended.emit()
 
 func start_braking() -> void:
 	brake_started.emit()
 
 func reset() -> void:
-	current_cooldown = 0
+	if paraglider:
+		paraglider.hide()
