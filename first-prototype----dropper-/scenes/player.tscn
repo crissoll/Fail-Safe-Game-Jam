@@ -54,8 +54,11 @@ stamina_comp = NodePath("../StaminaComponent")
 script = ExtResource("3_qlg0r")
 player = NodePath("../..")
 
-[node name="HealthComponent" type="Node" parent="Components" unique_id=1760932184]
+[node name="HealthComponent" type="Node" parent="Components" unique_id=1760932184 node_paths=PackedStringArray("player")]
 script = ExtResource("4_tuyoq")
+max_hearts = 5
+invincibility_duration = 1.0
+player = NodePath("../..")
 
 [node name="SpiritComponent" type="Node" parent="Components" unique_id=1616068299 node_paths=PackedStringArray("collision_shape")]
 script = ExtResource("5_qlg0r")

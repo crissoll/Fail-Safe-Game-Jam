@@ -18,6 +18,7 @@ extends RigidBody2D
 @export var g := 200.0
 @export var camera_change_speed := 1000.0
 
+@export var health_label : Label
 var spawn_pos: Vector2
 var upside_down := false
 var reverse_camera := false
@@ -29,7 +30,10 @@ func _ready() -> void:
 	
 	stamina_comp.stamina_changed.connect(_on_stamina_changed)
 	
+	health_comp.health_changed.connect(func(health: int): health_label.text = str(health))
+	health_comp.health_changed.emit(health_comp.hearts)
 	health_comp.die.connect(reset)
+	
 
 func _physics_process(delta: float) -> void:
 	if reverse_camera:
@@ -119,6 +123,7 @@ func reset() -> void:
 
 	if spirit_comp:
 		spirit_comp.reset(self)
-		
+	if health_comp:
+		health_comp.reset()
 	get_tree().call_group(&"Jellyfish", "reset")
 	get_tree().call_group(&"MoveComponents", "reset")

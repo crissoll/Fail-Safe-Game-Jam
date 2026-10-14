@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://chrokuq207ra4" path="res://scenes/game-objects/jellyfish - medium bounce.tscn" id="8_aperb"]
 [ext_resource type="PackedScene" uid="uid://betqyvcv4q1el" path="res://scenes/game-objects/jellyfish - strong bounce.tscn" id="9_4tl2j"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_4tl2j"]
+font_size = 32
+
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m7iyv"]
 resource_name = "Spritual Obstacles"
 scenes/1/scene = ExtResource("3_cv06b")
@@ -37,15 +40,21 @@ script = ExtResource("4_kuyue")
 
 [node name="CanvasLayer" parent="." unique_id=1674361281 instance=ExtResource("1_1ak8g")]
 
+[node name="HealthLabel" type="Label" parent="CanvasLayer" unique_id=1243938716]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_4tl2j")
+
 [node name="EmptyLevel" parent="." unique_id=2117120648 node_paths=PackedStringArray("player") instance=ExtResource("3_56njm")]
 width = 372.615
 height = 1290.0
 player = NodePath("../player")
 
-[node name="player" parent="." unique_id=440862904 instance=ExtResource("1_m3wy8")]
+[node name="player" parent="." unique_id=440862904 node_paths=PackedStringArray("health_label") instance=ExtResource("1_m3wy8")]
 position = Vector2(149, 33)
 gravity_scale = 0.0
 camera_change_speed = 600.0
+health_label = NodePath("../CanvasLayer/HealthLabel")
 
 [node name="Obstacles" type="TileMapLayer" parent="." unique_id=1618841191]
 tile_map_data = PackedByteArray("AAABAA8AAgAAAAAAAQD+/x8AAgAAAAAAAQD7/xsAAAAAAAAAAQD8/xsAAAAAAAAAAQD8/xoAAAAAAAAAAQD9/xoAAAAAAAAAAQD+/xoAAAAAAAAAAQD//xoAAAAAAAAAAQD//xsAAAAAAAAAAQAAABsAAAAAAAAAAQABABsAAAAAAAAAAQABABoAAAAAAAAAAQDy/y4AAAAAAAAAAQDz/y4AAAAAAAAAAQD0/y4AAAAAAAAAAQD1/y4AAAAAAAAAAQD2/y4AAAAAAAAAAQD3/y4AAAAAAAAAAQD4/y4AAAAAAAAAAQDy/zQAAQAAAAAAAQDz/zQAAQAAAAAAAQD0/zQAAQAAAAAAAQD1/zQAAQAAAAAAAQD2/zQAAQAAAAAAAQD3/zQAAQAAAAAAAQD4/zQAAQAAAAAAAQDy/zwAAAAAAAAAAQDz/zwAAAAAAAAAAQD0/zwAAAAAAAAAAQD1/zwAAAAAAAAAAQD2/zwAAAAAAAAAAQD3/zwAAAAAAAAAAQD4/zwAAAAAAAAAAQDy/0QAAQAAAAAAAQDz/0QAAQAAAAAAAQD0/0QAAQAAAAAAAQD1/0QAAQAAAAAAAQD2/0QAAQAAAAAAAQD3/0QAAQAAAAAAAQD4/0QAAQAAAAAAAQDy/0wAAAAAAAAAAQDz/0wAAAAAAAAAAQD0/0wAAAAAAAAAAQD1/0wAAAAAAAAAAQD2/0wAAAAAAAAAAQD3/0wAAAAAAAAAAQD4/0wAAAAAAAAAAQDy/1QAAQAAAAAAAQDz/1QAAQAAAAAAAQD0/1QAAQAAAAAAAQD1/1QAAQAAAAAAAQD2/1QAAQAAAAAAAQD3/1QAAQAAAAAAAQD4/1QAAQAAAAAAAQDy/1oAAAAAAAAAAQDz/1oAAAAAAAAAAQD0/1oAAAAAAAAAAQD1/1oAAAAAAAAAAQD2/1oAAAAAAAAAAQD3/1oAAAAAAAAAAQD4/1oAAAAAAAAAAQDy/2AAAQAAAAAAAQDz/2AAAQAAAAAAAQD0/2AAAQAAAAAAAQD1/2AAAQAAAAAAAQD2/2AAAQAAAAAAAQD3/2AAAQAAAAAAAQD4/2AAAQAAAAAAAQADAB8AAgAAAAAAAQD1/xoAAgAAAAAAAQD1/xwAAgAAAAAAAgD1/x4AAgAAAAAAAwAJACMAAgAAAAAAAwAKABUAAgAAAAAAAwA=")
