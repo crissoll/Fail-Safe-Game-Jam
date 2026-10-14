@@ -1,0 +1,26 @@
+[gd_resource type="TileSet" format=3 uid="uid://drk1jqq2sjpsv"]
+
+[ext_resource type="PackedScene" uid="uid://d3f76t3h7lvo8" path="res://scenes/game-objects/spirit-obstacle.tscn" id="1_nr1i2"]
+[ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="2_s6pe6"]
+[ext_resource type="PackedScene" uid="uid://bfda0qeec7nmx" path="res://scenes/game-objects/jellyfish.tscn" id="3_c0ucp"]
+[ext_resource type="PackedScene" uid="uid://chrokuq207ra4" path="res://scenes/game-objects/jellyfish - medium bounce.tscn" id="4_kp5kf"]
+[ext_resource type="PackedScene" uid="uid://betqyvcv4q1el" path="res://scenes/game-objects/jellyfish - strong bounce.tscn" id="5_py4jg"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m7iyv"]
+resource_name = "Spritual Obstacles"
+scenes/1/scene = ExtResource("1_nr1i2")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tn7vo"]
+resource_name = "Obstacles"
+scenes/1/scene = ExtResource("2_s6pe6")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4tl2j"]
+resource_name = "Jellyfish"
+scenes/1/scene = ExtResource("3_c0ucp")
+scenes/2/scene = ExtResource("4_kp5kf")
+scenes/3/scene = ExtResource("5_py4jg")
+
+[resource]
+sources/1 = SubResource("TileSetScenesCollectionSource_tn7vo")
+sources/0 = SubResource("TileSetScenesCollectionSource_m7iyv")
+sources/2 = SubResource("TileSetScenesCollectionSource_4tl2j")
