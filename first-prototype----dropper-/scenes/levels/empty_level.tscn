@@ -74,10 +74,11 @@ color = Color(0.2716817, 0.2716817, 0.2716817, 1)
 [node name="SpawnMarker" type="Marker2D" parent="." unique_id=599212143]
 gizmo_extents = 32.9
 
-[node name="obstacle" parent="." unique_id=1329070235 instance=ExtResource("3_jdsy5")]
+[node name="End" parent="." unique_id=1329070235 instance=ExtResource("3_jdsy5")]
 position = Vector2(0, -253)
 scale = Vector2(100, 1)
 collision_mask = 24
+damage = 99
 
 [connection signal="body_entered" from="FlipPlayerArea" to="FlipPlayerArea" method="_on_body_entered"]
 [connection signal="player_entered" from="FlipPlayerArea" to="." method="_on_reverse_area_player_entered"]
