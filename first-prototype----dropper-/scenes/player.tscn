@@ -10,15 +10,14 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u25ut"]
 
-[node name="player" type="CharacterBody2D" unique_id=314467872 node_paths=PackedStringArray("stamina_comp", "brake_comp", "spirit_comp", "health_comp")]
+[node name="player" type="CharacterBody2D" unique_id=314467872 node_paths=PackedStringArray("stamina_comp", "brake_comp", "spirit_comp")]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_3vyb7")
+move_speed = 200.0
 stamina_comp = NodePath("Components/StaminaComponent")
 brake_comp = NodePath("Components/BrakeComponent")
 spirit_comp = NodePath("Components/SpiritComponent")
-health_comp = NodePath("Components/HealthComponent")
-move_speed = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1453863984]
 shape = SubResource("CircleShape2D_u25ut")

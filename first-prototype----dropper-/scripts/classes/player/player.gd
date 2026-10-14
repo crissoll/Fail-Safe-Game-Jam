@@ -1,25 +1,30 @@
 class_name Player
 extends CharacterBody2D
 
-#components
-@export var stamina_comp: StaminaComponent
-@export var brake_comp: BrakeComponent
-@export var spirit_comp: SpiritComponent
-@export var health_comp: HealtComponent
+var health_comp: HealtComponent
 
 #vars
 @onready var camera: Camera2D = $Camera2D
 @onready var temp_stamina_label: Label = $TempStaminaLabel
 
-#exports
+## lateral movement speed
 @export var move_speed := 10.0
+## max speed you can reach due to gravity
 @export var max_y_speed := 400.0
+## min speed you can reach by braking
 @export var min_y_speed := 200.0
 @export var g := 200.0
 @export var camera_change_speed := 1000.0
 
 @export var health_label : Label
+
+@export_group("Components")
+@export var stamina_comp: StaminaComponent
+@export var brake_comp: BrakeComponent
+@export var spirit_comp: SpiritComponent
+
 var spawn_pos: Vector2
+
 var upside_down := false
 var reverse_camera := false
 var reversed_camera_pos: Vector2
