@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cxcjo8nolsj38"]
+
+[ext_resource type="Script" uid="uid://dvu8e3616qcd1" path="res://scripts/autoloads/game_manager.gd" id="1_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://scenes/player.tscn" id="2_tipki"]
+[ext_resource type="PackedScene" uid="uid://bof75kl6wli8e" path="res://scenes/game-objects/pause_menu.tscn" id="3_85g3d"]
+[ext_resource type="PackedScene" uid="uid://f80vs5rbluqx" path="res://scenes/levels/basic_level.tscn" id="4_jyhfs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4tl2j"]
+font_size = 32
+
+[node name="Main" type="Node2D" unique_id=1478944514]
+
+[node name="GameManager" type="Node2D" parent="." unique_id=326495801 node_paths=PackedStringArray("player")]
+script = ExtResource("1_o6xl0")
+player = NodePath("../player")
+
+[node name="player" parent="." unique_id=440862904 node_paths=PackedStringArray("health_label") instance=ExtResource("2_tipki")]
+position = Vector2(149, 33)
+camera_change_speed = 600.0
+health_label = NodePath("../CanvasLayer/HealthLabel")
+
+[node name="CanvasLayer" parent="." unique_id=1674361281 instance=ExtResource("3_85g3d")]
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer" unique_id=1243938716]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_4tl2j")
+
+[node name="Level" parent="." unique_id=350627010 instance=ExtResource("4_jyhfs")]

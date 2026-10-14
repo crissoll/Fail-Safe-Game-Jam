@@ -1,6 +1,6 @@
 @tool
 
-class_name Level
+class_name LevelBoundaries
 extends Node2D
 
 @onready var spawn_marker: Marker2D = $SpawnMarker
@@ -26,17 +26,16 @@ extends Node2D
 				return
 			await ready
 		flip_player_area.position.y = height
-		
-@export_category("Nodes")
-@export var player: Player
+
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		width = width
 		height = height
 		return
-	player.spawn_pos = spawn_marker.position
-	player.reset()
+	await GameManager.ready
+	GameManager.player.spawn_pos = spawn_marker.global_position
+	GameManager.player.reset()
 	
 	
 

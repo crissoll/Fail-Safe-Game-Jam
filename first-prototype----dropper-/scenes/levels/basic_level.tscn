@@ -1,93 +1,71 @@
-[gd_scene format=4 uid="uid://cxcjo8nolsj38"]
+[gd_scene format=4 uid="uid://f80vs5rbluqx"]
 
-[ext_resource type="PackedScene" uid="uid://bof75kl6wli8e" path="res://scenes/game-objects/pause_menu.tscn" id="1_1ak8g"]
-[ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://scenes/player.tscn" id="1_m3wy8"]
 [ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://ds6067ev8qkh7" path="res://scenes/levels/empty_level.tscn" id="3_56njm"]
-[ext_resource type="Script" uid="uid://dvu8e3616qcd1" path="res://scripts/autoloads/game_manager.gd" id="4_kuyue"]
 [ext_resource type="TileSet" uid="uid://drk1jqq2sjpsv" path="res://resources/obstacles_tile_set.tres" id="5_m7iyv"]
 [ext_resource type="Script" uid="uid://cxm3gc2desgsl" path="res://scripts/classes/move_component.gd" id="7_1ak8g"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_4tl2j"]
-font_size = 32
+[node name="Level" type="Node2D" unique_id=350627010]
 
-[node name="BasicLevel" type="Node2D" unique_id=1478944514]
-
-[node name="GameManager" type="Node2D" parent="." unique_id=326495801]
-script = ExtResource("4_kuyue")
-
-[node name="player" parent="." unique_id=440862904 node_paths=PackedStringArray("health_label") instance=ExtResource("1_m3wy8")]
-position = Vector2(149, 33)
-camera_change_speed = 600.0
-health_label = NodePath("../CanvasLayer/HealthLabel")
-
-[node name="CanvasLayer" parent="." unique_id=1674361281 instance=ExtResource("1_1ak8g")]
-
-[node name="HealthLabel" type="Label" parent="CanvasLayer" unique_id=1243938716]
-offset_right = 40.0
-offset_bottom = 23.0
-label_settings = SubResource("LabelSettings_4tl2j")
-
-[node name="EmptyLevel" parent="." unique_id=2117120648 node_paths=PackedStringArray("player") instance=ExtResource("3_56njm")]
+[node name="EmptyLevel" parent="." unique_id=2117120648 instance=ExtResource("3_56njm")]
 width = 372.615
 height = 1290.0
-player = NodePath("../player")
 
-[node name="Obstacles" type="TileMapLayer" parent="." unique_id=1618841191]
+[node name="Obstacles" type="TileMapLayer" parent="EmptyLevel" unique_id=1679749912]
 tile_map_data = PackedByteArray("AAABAA8AAgAAAAAAAQD+/x8AAgAAAAAAAQD7/xsAAAAAAAAAAQD8/xsAAAAAAAAAAQD8/xoAAAAAAAAAAQD9/xoAAAAAAAAAAQD+/xoAAAAAAAAAAQD//xoAAAAAAAAAAQD//xsAAAAAAAAAAQAAABsAAAAAAAAAAQABABsAAAAAAAAAAQABABoAAAAAAAAAAQDy/y4AAAAAAAAAAQDz/y4AAAAAAAAAAQD0/y4AAAAAAAAAAQD1/y4AAAAAAAAAAQD2/y4AAAAAAAAAAQD3/y4AAAAAAAAAAQD4/y4AAAAAAAAAAQDy/zQAAQAAAAAAAQDz/zQAAQAAAAAAAQD0/zQAAQAAAAAAAQD1/zQAAQAAAAAAAQD2/zQAAQAAAAAAAQD3/zQAAQAAAAAAAQD4/zQAAQAAAAAAAQDy/zwAAAAAAAAAAQDz/zwAAAAAAAAAAQD0/zwAAAAAAAAAAQD1/zwAAAAAAAAAAQD2/zwAAAAAAAAAAQD3/zwAAAAAAAAAAQD4/zwAAAAAAAAAAQDy/0QAAQAAAAAAAQDz/0QAAQAAAAAAAQD0/0QAAQAAAAAAAQD1/0QAAQAAAAAAAQD2/0QAAQAAAAAAAQD3/0QAAQAAAAAAAQD4/0QAAQAAAAAAAQDy/0wAAAAAAAAAAQDz/0wAAAAAAAAAAQD0/0wAAAAAAAAAAQD1/0wAAAAAAAAAAQD2/0wAAAAAAAAAAQD3/0wAAAAAAAAAAQD4/0wAAAAAAAAAAQDy/1QAAQAAAAAAAQDz/1QAAQAAAAAAAQD0/1QAAQAAAAAAAQD1/1QAAQAAAAAAAQD2/1QAAQAAAAAAAQD3/1QAAQAAAAAAAQD4/1QAAQAAAAAAAQDy/1oAAAAAAAAAAQDz/1oAAAAAAAAAAQD0/1oAAAAAAAAAAQD1/1oAAAAAAAAAAQD2/1oAAAAAAAAAAQD3/1oAAAAAAAAAAQD4/1oAAAAAAAAAAQDy/2AAAQAAAAAAAQDz/2AAAQAAAAAAAQD0/2AAAQAAAAAAAQD1/2AAAQAAAAAAAQD2/2AAAQAAAAAAAQD3/2AAAQAAAAAAAQD4/2AAAQAAAAAAAQADAB8AAgAAAAAAAQD1/xoAAgAAAAAAAQD1/xwAAgAAAAAAAgD1/x4AAgAAAAAAAwAJACMAAgAAAAAAAwAKABUAAgAAAAAAAwA=")
 tile_set = ExtResource("5_m7iyv")
 
-[node name="obstacles" type="Node2D" parent="." unique_id=1045298879]
+[node name="obstacles" type="Node2D" parent="EmptyLevel" unique_id=1516684180]
 position = Vector2(-151, -156)
 
-[node name="obstacle" parent="obstacles" unique_id=1329070235 instance=ExtResource("2_0e48y")]
+[node name="obstacle" parent="EmptyLevel/obstacles" unique_id=1118835633 instance=ExtResource("2_0e48y")]
 position = Vector2(18, 135)
 
-[node name="obstacle2" parent="obstacles" unique_id=1093625297 instance=ExtResource("2_0e48y")]
+[node name="obstacle2" parent="EmptyLevel/obstacles" unique_id=244827808 instance=ExtResource("2_0e48y")]
 position = Vector2(248, 332.00003)
 scale = Vector2(5.014598, 1.521738)
 
-[node name="MoveTowardTargetComponent" type="Node2D" parent="obstacles/obstacle2" unique_id=2134719555 node_paths=PackedStringArray("target")]
+[node name="MoveTowardTargetComponent" type="Node2D" parent="EmptyLevel/obstacles/obstacle2" unique_id=1298483032 node_paths=PackedStringArray("target")]
 script = ExtResource("7_1ak8g")
 target = NodePath("Target")
 metadata/_custom_type_script = "uid://cxm3gc2desgsl"
 
-[node name="Target" type="Node2D" parent="obstacles/obstacle2/MoveTowardTargetComponent" unique_id=1141123725]
+[node name="Target" type="Node2D" parent="EmptyLevel/obstacles/obstacle2/MoveTowardTargetComponent" unique_id=2083420242]
 position = Vector2(-44.27075, -22.342896)
 scale = Vector2(0.19941783, 0.65714335)
 
-[node name="obstacle3" parent="obstacles" unique_id=1866614278 instance=ExtResource("2_0e48y")]
+[node name="obstacle3" parent="EmptyLevel/obstacles" unique_id=593364861 instance=ExtResource("2_0e48y")]
 position = Vector2(68.999985, 408)
 scale = Vector2(5.014598, 1.521738)
 
-[node name="obstacle4" parent="obstacles" unique_id=730771513 instance=ExtResource("2_0e48y")]
+[node name="obstacle4" parent="EmptyLevel/obstacles" unique_id=1323312723 instance=ExtResource("2_0e48y")]
 position = Vector2(245, 503.00003)
 scale = Vector2(5.014598, 1.521738)
 
-[node name="obstacle5" parent="obstacles" unique_id=1399169903 instance=ExtResource("2_0e48y")]
+[node name="obstacle5" parent="EmptyLevel/obstacles" unique_id=1546404022 instance=ExtResource("2_0e48y")]
 position = Vector2(77.99997, 684)
 scale = Vector2(5.014598, 1.521738)
 
-[node name="obstacle6" parent="obstacles" unique_id=529170945 instance=ExtResource("2_0e48y")]
+[node name="obstacle6" parent="EmptyLevel/obstacles" unique_id=1640201930 instance=ExtResource("2_0e48y")]
 position = Vector2(257, 800.00006)
 scale = Vector2(5.014598, 1.521738)
 
-[node name="obstacle7" parent="obstacles" unique_id=706114660 instance=ExtResource("2_0e48y")]
+[node name="obstacle7" parent="EmptyLevel/obstacles" unique_id=1719727455 instance=ExtResource("2_0e48y")]
 position = Vector2(82.999985, 936.00006)
 scale = Vector2(5.014598, 1.521738)
 
-[node name="obstacle8" parent="obstacles" unique_id=2048784173 instance=ExtResource("2_0e48y")]
+[node name="obstacle8" parent="EmptyLevel/obstacles" unique_id=2060222284 instance=ExtResource("2_0e48y")]
 position = Vector2(117, 1089)
 scale = Vector2(5.014598, 1.521738)
 
-[node name="obstacle9" parent="obstacles" unique_id=805563233 instance=ExtResource("2_0e48y")]
+[node name="obstacle9" parent="EmptyLevel/obstacles" unique_id=259527493 instance=ExtResource("2_0e48y")]
 position = Vector2(239, 1324)
 scale = Vector2(5.014598, 1.521738)
 
-[node name="obstacle10" parent="obstacles" unique_id=503316536 instance=ExtResource("2_0e48y")]
+[node name="obstacle10" parent="EmptyLevel/obstacles" unique_id=1205441019 instance=ExtResource("2_0e48y")]
 position = Vector2(81.99997, 1430.0001)
 scale = Vector2(5.014598, 1.521738)
 
-[node name="obstacle11" parent="obstacles" unique_id=116788389 instance=ExtResource("2_0e48y")]
+[node name="obstacle11" parent="EmptyLevel/obstacles" unique_id=494123716 instance=ExtResource("2_0e48y")]
 position = Vector2(238.00002, 1478.0001)
 scale = Vector2(5.014598, 1.521738)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds6067ev8qkh7"]
 
-[ext_resource type="Script" uid="uid://lb7lilwrqt06" path="res://scripts/classes/level.gd" id="1_h2s0c"]
+[ext_resource type="Script" uid="uid://lb7lilwrqt06" path="res://scripts/classes/level_boundaries.gd" id="1_h2s0c"]
 [ext_resource type="Script" uid="uid://co0gxbvtwug1x" path="res://scripts/classes/player_flip_area.gd" id="2_jdsy5"]
 [ext_resource type="Script" uid="uid://cikl756ql5glf" path="res://scripts/classes/obstacle.gd" id="3_1yjtr"]
 [ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="3_jdsy5"]
