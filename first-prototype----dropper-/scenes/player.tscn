@@ -43,9 +43,8 @@ offset_bottom = 16.0
 
 [node name="Components" type="Node" parent="." unique_id=972240952]
 
-[node name="BrakeComponent" type="Node" parent="Components" unique_id=1851768807 node_paths=PackedStringArray("paraglider", "stamina_comp")]
+[node name="BrakeComponent" type="Node" parent="Components" unique_id=1851768807 node_paths=PackedStringArray("stamina_comp")]
 script = ExtResource("2_dqkch")
-paraglider = NodePath("../../Paraglider")
 stamina_comp = NodePath("../StaminaComponent")
 
 [node name="StaminaComponent" type="Node" parent="Components" unique_id=1169024055 node_paths=PackedStringArray("player")]
@@ -69,6 +68,8 @@ player = NodePath("../..")
 script = ExtResource("7_fjrip")
 collision_shape = NodePath("../../CollisionShape2D")
 
+[connection signal="brake_ended" from="Components/BrakeComponent" to="Paraglider" method="hide"]
+[connection signal="brake_started" from="Components/BrakeComponent" to="Paraglider" method="show"]
 [connection signal="invincibility_ended" from="Components/HealthComponent" to="Components/DamageDisplay" method="reappear"]
 [connection signal="invincibility_started" from="Components/HealthComponent" to="Components/DamageDisplay" method="disappear"]
 [connection signal="dimension_switched" from="Components/SpiritComponent" to="Components/SpiritDisplay" method="display_transition"]
