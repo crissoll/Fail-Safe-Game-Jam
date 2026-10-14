@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://chrokuq207ra4"]
+
+[ext_resource type="PackedScene" uid="uid://bfda0qeec7nmx" path="res://scenes/game-objects/jellyfish.tscn" id="1_i0cp0"]
+
+[node name="JellyfishMediumBounce" type="Node2D" unique_id=89049617]
+
+[node name="Jellyfish" parent="." unique_id=1929911465 instance=ExtResource("1_i0cp0")]
+scale = Vector2(1.5, 1.5)
+bounce_velocity = 180

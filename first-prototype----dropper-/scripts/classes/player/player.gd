@@ -120,5 +120,5 @@ func reset() -> void:
 	if spirit_comp:
 		spirit_comp.reset(self)
 		
-	get_tree().call_group("Jellyfish", "reset_jellyfish")
+	get_tree().call_group(&"Jellyfish", "reset")
 	get_tree().call_group(&"MoveComponents", "reset")
