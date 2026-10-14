@@ -19,7 +19,7 @@ func apply_damage(damage:=1):
 	if(float(Time.get_ticks_msec())/1000 - last_damage_time <= invincibility_duration):
 		return
 	
-	player.linear_velocity.y *= velocity_multiplier_on_damage
+	player.velocity.y *= velocity_multiplier_on_damage
 	last_damage_time = float(Time.get_ticks_msec())/1000
 	hearts -= damage;
 	if(hearts <= 0):

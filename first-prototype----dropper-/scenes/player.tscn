@@ -8,13 +8,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u25ut"]
 
-[node name="player" type="RigidBody2D" unique_id=440862904 node_paths=PackedStringArray("stamina_comp", "brake_comp", "spirit_comp", "health_comp")]
+[node name="player" type="CharacterBody2D" unique_id=314467872 node_paths=PackedStringArray("stamina_comp", "brake_comp", "spirit_comp", "health_comp")]
 collision_layer = 8
 collision_mask = 7
-gravity_scale = 0.1
-lock_rotation = true
-contact_monitor = true
-max_contacts_reported = 1
 script = ExtResource("1_3vyb7")
 stamina_comp = NodePath("Components/StaminaComponent")
 brake_comp = NodePath("Components/BrakeComponent")

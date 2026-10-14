@@ -1,5 +1,5 @@
 class_name Player
-extends RigidBody2D
+extends CharacterBody2D
 
 #components
 @export var stamina_comp: StaminaComponent
@@ -54,8 +54,9 @@ func _handle_input() -> void:
 func _apply_physics(delta: float) -> void:
 	
 	var mov_vec := Input.get_axis(&"left", &"right")
-	linear_velocity.x = (mov_vec * move_speed)
+	velocity.x = (mov_vec * move_speed)
 	_handle_brake_and_g(delta)
+	move_and_slide()
 	
 func _handle_brake_and_g(delta:float) -> void:
 	var trying_to_brake = Input.is_action_pressed(&"slow_down")
@@ -80,15 +81,15 @@ func _handle_brake_and_g(delta:float) -> void:
 		
 
 func _apply_brake_force(delta: float) -> void:
-	if abs(linear_velocity.y) > min_y_speed and abs(linear_velocity.y) < max_y_speed:
-		linear_velocity.y -= (1 - 2 * int(upside_down)) * brake_comp.brake_strength * delta
+	if abs(velocity.y) > min_y_speed and abs(velocity.y) < max_y_speed:
+		velocity.y -= (1 - 2 * int(upside_down)) * brake_comp.brake_strength * delta
 
 func _apply_gravity(delta: float) -> void:
-	if abs(linear_velocity.y) < max_y_speed:
-		linear_velocity.y += (1 - 2 * int(upside_down)) * g * delta
+	if abs(velocity.y) < max_y_speed:
+		velocity.y += (1 - 2 * int(upside_down)) * g * delta
 
 func apply_vertical_impulse(impulse_value):
-	linear_velocity.y = -1 * impulse_value * (1 - 2 * int(upside_down))
+	velocity.y = -1 * impulse_value * (1 - 2 * int(upside_down))
 
 func _on_stamina_changed(current: float) -> void:
 	temp_stamina_label.text = str(int(current))
@@ -102,12 +103,12 @@ func _handle_camera_transition(delta: float) -> void:
 
 func reverse_fall() -> void:
 	upside_down = true
-	linear_velocity = Vector2.ZERO
+	velocity = Vector2.ZERO
 	reverse_camera = true
 
 func reset() -> void:
 	global_position = spawn_pos
-	linear_velocity = Vector2.ZERO
+	velocity = Vector2.ZERO
 	
 	if upside_down:
 		if camera:

@@ -52,6 +52,15 @@ offset_bottom = -200.33902
 scale = Vector2(1, 1000)
 color = Color(0.2716817, 0.2716817, 0.2716817, 1)
 
+[node name="RigidBody2D" type="RigidBody2D" parent="LeftWall" unique_id=1858348912]
+position = Vector2(-5, 0)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall/RigidBody2D" unique_id=1798866171]
+position = Vector2(3, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_u25ut")
+
 [node name="RightWall" type="Area2D" parent="." unique_id=679402046]
 position = Vector2(200, 0)
 collision_layer = 2
@@ -70,6 +79,14 @@ offset_right = 1768.0
 offset_bottom = -197.34299
 scale = Vector2(1, 1000)
 color = Color(0.2716817, 0.2716817, 0.2716817, 1)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="RightWall" unique_id=1706093801]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall/RigidBody2D" unique_id=695879814]
+position = Vector2(1, 1)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_u25ut")
 
 [node name="SpawnMarker" type="Marker2D" parent="." unique_id=599212143]
 gizmo_extents = 32.9
