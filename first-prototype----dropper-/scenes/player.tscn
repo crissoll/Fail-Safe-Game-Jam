@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://jycgcoff5opv" path="res://scripts/classes/player/stamina_component.gd" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://bfjwjugpd030u" path="res://scripts/classes/player/health_component.gd" id="4_tuyoq"]
 [ext_resource type="Script" uid="uid://wile04rv4ory" path="res://scripts/classes/player/spirit_component.gd" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://dtjmktvol3mbl" path="res://scripts/classes/player/damage_display_component.gd" id="6_tuyoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u25ut"]
 
@@ -59,3 +60,10 @@ player = NodePath("../..")
 [node name="SpiritComponent" type="Node" parent="Components" unique_id=1616068299 node_paths=PackedStringArray("collision_shape")]
 script = ExtResource("5_qlg0r")
 collision_shape = NodePath("../../CollisionShape2D")
+
+[node name="DamageDisplay" type="Node" parent="Components" unique_id=2090415566 node_paths=PackedStringArray("player")]
+script = ExtResource("6_tuyoq")
+player = NodePath("../..")
+
+[connection signal="invincibility_ended" from="Components/HealthComponent" to="Components/DamageDisplay" method="reappear"]
+[connection signal="invincibility_started" from="Components/HealthComponent" to="Components/DamageDisplay" method="disappear"]

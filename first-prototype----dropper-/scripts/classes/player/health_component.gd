@@ -3,6 +3,8 @@ class_name HealtComponent
 
 signal die
 signal health_changed(to : int)
+signal invincibility_started
+signal invincibility_ended
 
 @export_range(0, 10, 1, "suffix:hearts", "hide_slider") var max_hearts: int = 2
 var hearts := max_hearts
@@ -26,11 +28,12 @@ func apply_damage(damage:=1):
 		hearts = 0
 		die.emit()
 	health_changed.emit(hearts)
-	player.modulate.a = 0.6
+	invincibility_started.emit()
 	await get_tree().create_timer(invincibility_duration).timeout
-	player.modulate.a = 1
+	invincibility_ended.emit()
 	
 
 func reset():
+	invincibility_ended.emit()
 	hearts = max_hearts
 	last_damage_time = 0
