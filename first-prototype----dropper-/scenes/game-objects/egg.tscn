@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dc032duovs5cl"]
+
+[ext_resource type="Script" uid="uid://cmybbay858ne1" path="res://scripts/classes/player/egg/egg.gd" id="1_vg0rn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sg0in"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_usvy1"]
+material = SubResource("StandardMaterial3D_sg0in")
+radius = 2.89
+height = 8.912
+
+[node name="Node2D" type="Node2D" unique_id=797651716]
+script = ExtResource("1_vg0rn")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1159978923]
+mesh = SubResource("SphereMesh_usvy1")
