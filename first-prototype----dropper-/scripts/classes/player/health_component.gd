@@ -19,9 +19,11 @@ var last_damage_time : float
 
 func _ready() -> void:
 	hearts = max_hearts
-	health_changed.emit(hearts)
+	#health_changed.emit(hearts)
+	
+
 func apply_damage(damage:=1):
-	if(float(Time.get_ticks_msec())/1000 - last_damage_time <= invincibility_duration):
+	if(float(Time.get_ticks_msec())/1000 - last_damage_time < invincibility_duration):
 		return
 	
 	player.velocity.y *= velocity_multiplier_on_damage
@@ -31,12 +33,15 @@ func apply_damage(damage:=1):
 		hearts = 0
 		die.emit()
 	health_changed.emit(hearts)
+	SignalManager.on_player_health_changed.emit(max_hearts, hearts)
 	invincibility_started.emit()
 	await get_tree().create_timer(invincibility_duration).timeout
 	invincibility_ended.emit()
+	
+	print(hearts)
 	
 
 func reset():
 	invincibility_ended.emit()
 	hearts = max_hearts
-	last_damage_time = 0
+	SignalManager.on_player_health_changed.emit(max_hearts,max_hearts)

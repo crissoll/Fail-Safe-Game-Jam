@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://scenes/player.tscn" id="2_tipki"]
 [ext_resource type="PackedScene" uid="uid://bof75kl6wli8e" path="res://scenes/game-objects/pause_menu.tscn" id="3_85g3d"]
 [ext_resource type="PackedScene" uid="uid://f80vs5rbluqx" path="res://scenes/levels/basic_level.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cd76bet3itevc" path="res://scenes/GUI/GUI.tscn" id="5_tbgi4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4tl2j"]
 font_size = 32
@@ -27,3 +28,6 @@ offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_4tl2j")
 
 [node name="Level" parent="." unique_id=350627010 instance=ExtResource("4_jyhfs")]
+
+[node name="Gui" parent="." unique_id=706741470 node_paths=PackedStringArray("player") instance=ExtResource("5_tbgi4")]
+player = NodePath("../player")

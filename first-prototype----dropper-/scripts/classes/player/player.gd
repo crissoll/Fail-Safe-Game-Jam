@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-var health_comp: HealtComponent
+
 
 #vars
 @onready var camera: Camera2D = $Camera2D
@@ -22,6 +22,8 @@ var health_comp: HealtComponent
 @export var stamina_comp: StaminaComponent
 @export var brake_comp: BrakeComponent
 @export var spirit_comp: SpiritComponent
+@export var health_comp: HealtComponent
+@export var egg_comp : EggComponent
 
 var spawn_pos: Vector2
 
@@ -36,7 +38,7 @@ func _ready() -> void:
 	stamina_comp.stamina_changed.connect(_on_stamina_changed)
 	
 	health_comp.health_changed.connect(func(health: int): health_label.text = str(health))
-	health_comp.health_changed.emit(health_comp.hearts)
+	#health_comp.health_changed.emit(health_comp.hearts)
 	health_comp.die.connect(reset)
 	
 
@@ -122,14 +124,15 @@ func reset() -> void:
 	reverse_camera = false
 	
 	brake_comp.reset()
-
 	
 	if stamina_comp:
 		stamina_comp.reset()
-
 	if spirit_comp:
 		spirit_comp.reset(self)
 	if health_comp:
 		health_comp.reset()
+	if egg_comp:
+		egg_comp.reset()
+		
 	get_tree().call_group(&"Jellyfish", "reset")
 	get_tree().call_group(&"MoveComponents", "reset")
