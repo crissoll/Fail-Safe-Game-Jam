@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds6067ev8qkh7"]
 
-[ext_resource type="Script" uid="uid://lb7lilwrqt06" path="res://scripts/classes/level.gd" id="1_h2s0c"]
+[ext_resource type="Script" uid="uid://lb7lilwrqt06" path="res://scripts/classes/level_boundaries.gd" id="1_h2s0c"]
 [ext_resource type="Script" uid="uid://co0gxbvtwug1x" path="res://scripts/classes/player_flip_area.gd" id="2_jdsy5"]
 [ext_resource type="Script" uid="uid://cikl756ql5glf" path="res://scripts/classes/obstacle.gd" id="3_1yjtr"]
 [ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="3_jdsy5"]
@@ -52,6 +52,15 @@ offset_bottom = -200.33902
 scale = Vector2(1, 1000)
 color = Color(0.2716817, 0.2716817, 0.2716817, 1)
 
+[node name="RigidBody2D" type="RigidBody2D" parent="LeftWall" unique_id=1858348912]
+position = Vector2(-5, 0)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall/RigidBody2D" unique_id=1798866171]
+position = Vector2(3, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_u25ut")
+
 [node name="RightWall" type="Area2D" parent="." unique_id=679402046]
 position = Vector2(200, 0)
 collision_layer = 2
@@ -71,13 +80,22 @@ offset_bottom = -197.34299
 scale = Vector2(1, 1000)
 color = Color(0.2716817, 0.2716817, 0.2716817, 1)
 
+[node name="RigidBody2D" type="RigidBody2D" parent="RightWall" unique_id=1706093801]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall/RigidBody2D" unique_id=695879814]
+position = Vector2(1, 1)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_u25ut")
+
 [node name="SpawnMarker" type="Marker2D" parent="." unique_id=599212143]
 gizmo_extents = 32.9
 
-[node name="obstacle" parent="." unique_id=1329070235 instance=ExtResource("3_jdsy5")]
+[node name="End" parent="." unique_id=1329070235 instance=ExtResource("3_jdsy5")]
 position = Vector2(0, -253)
 scale = Vector2(100, 1)
 collision_mask = 24
+damage = 99
 
 [connection signal="body_entered" from="FlipPlayerArea" to="FlipPlayerArea" method="_on_body_entered"]
 [connection signal="player_entered" from="FlipPlayerArea" to="." method="_on_reverse_area_player_entered"]

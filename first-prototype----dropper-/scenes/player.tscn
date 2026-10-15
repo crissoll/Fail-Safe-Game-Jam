@@ -5,22 +5,19 @@
 [ext_resource type="Script" uid="uid://jycgcoff5opv" path="res://scripts/classes/player/stamina_component.gd" id="3_qlg0r"]
 [ext_resource type="Script" uid="uid://bfjwjugpd030u" path="res://scripts/classes/player/health_component.gd" id="4_tuyoq"]
 [ext_resource type="Script" uid="uid://wile04rv4ory" path="res://scripts/classes/player/spirit_component.gd" id="5_qlg0r"]
+[ext_resource type="Script" uid="uid://dtjmktvol3mbl" path="res://scripts/classes/player/damage_display_component.gd" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://dbwcldoqtbkmy" path="res://scripts/classes/player/spirit_display_component.gd" id="7_fjrip"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u25ut"]
 
-[node name="player" type="RigidBody2D" unique_id=440862904 node_paths=PackedStringArray("stamina_comp", "brake_comp", "spirit_comp", "health_comp")]
+[node name="player" type="CharacterBody2D" unique_id=314467872 node_paths=PackedStringArray("stamina_comp", "brake_comp", "spirit_comp")]
 collision_layer = 8
 collision_mask = 7
-gravity_scale = 0.1
-lock_rotation = true
-contact_monitor = true
-max_contacts_reported = 1
 script = ExtResource("1_3vyb7")
+move_speed = 200.0
 stamina_comp = NodePath("Components/StaminaComponent")
 brake_comp = NodePath("Components/BrakeComponent")
 spirit_comp = NodePath("Components/SpiritComponent")
-health_comp = NodePath("Components/HealthComponent")
-move_speed = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1453863984]
 shape = SubResource("CircleShape2D_u25ut")
@@ -45,18 +42,33 @@ offset_bottom = 16.0
 
 [node name="Components" type="Node" parent="." unique_id=972240952]
 
-[node name="BrakeComponent" type="Node" parent="Components" unique_id=1851768807 node_paths=PackedStringArray("paraglider", "stamina_comp")]
+[node name="BrakeComponent" type="Node" parent="Components" unique_id=1851768807 node_paths=PackedStringArray("stamina_comp")]
 script = ExtResource("2_dqkch")
-paraglider = NodePath("../../Paraglider")
 stamina_comp = NodePath("../StaminaComponent")
 
 [node name="StaminaComponent" type="Node" parent="Components" unique_id=1169024055 node_paths=PackedStringArray("player")]
 script = ExtResource("3_qlg0r")
 player = NodePath("../..")
 
-[node name="HealthComponent" type="Node" parent="Components" unique_id=1760932184]
+[node name="HealthComponent" type="Node" parent="Components" unique_id=1760932184 node_paths=PackedStringArray("player")]
 script = ExtResource("4_tuyoq")
+max_hearts = 5
+invincibility_duration = 1.0
+player = NodePath("../..")
 
-[node name="SpiritComponent" type="Node" parent="Components" unique_id=1616068299 node_paths=PackedStringArray("collision_shape")]
+[node name="SpiritComponent" type="Node" parent="Components" unique_id=1616068299]
 script = ExtResource("5_qlg0r")
+
+[node name="DamageDisplay" type="Node" parent="Components" unique_id=2090415566 node_paths=PackedStringArray("player")]
+script = ExtResource("6_tuyoq")
+player = NodePath("../..")
+
+[node name="SpiritDisplay" type="Node" parent="Components" unique_id=1965143683 node_paths=PackedStringArray("collision_shape")]
+script = ExtResource("7_fjrip")
 collision_shape = NodePath("../../CollisionShape2D")
+
+[connection signal="brake_ended" from="Components/BrakeComponent" to="Paraglider" method="hide"]
+[connection signal="brake_started" from="Components/BrakeComponent" to="Paraglider" method="show"]
+[connection signal="invincibility_ended" from="Components/HealthComponent" to="Components/DamageDisplay" method="reappear"]
+[connection signal="invincibility_started" from="Components/HealthComponent" to="Components/DamageDisplay" method="disappear"]
+[connection signal="dimension_switched" from="Components/SpiritComponent" to="Components/SpiritDisplay" method="display_transition"]

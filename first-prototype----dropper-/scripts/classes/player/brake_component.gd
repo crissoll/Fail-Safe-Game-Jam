@@ -7,20 +7,11 @@ signal brake_ended
 @export var brake_strength := 300.0
 @export var brake_stamina_consumption := 100.0
 
-@export var paraglider : Polygon2D
 @export var stamina_comp : StaminaComponent
 
 ## property used to avoid automatic brake usage on stamina recover while holding
 ## down the brake key
 var brake_jammed := false
-
-func _ready() -> void:
-	if(paraglider == null):
-		return
-	brake_started.connect(func(): paraglider.show())
-	brake_ended.connect(func(): 
-		paraglider.hide()
-	)
 
 func can_brake() -> bool:
 	return !stamina_comp.is_depleted && !brake_jammed
@@ -32,5 +23,4 @@ func start_braking() -> void:
 	brake_started.emit()
 
 func reset() -> void:
-	if paraglider:
-		paraglider.hide()
+	brake_ended.emit()
