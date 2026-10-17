@@ -27,7 +27,10 @@ egg_comp = NodePath("Components/EggComponent")
 shape = SubResource("CircleShape2D_u25ut")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=824191862]
-position = Vector2(4, 266)
+position = Vector2(4, 189.45)
+zoom = Vector2(1.4, 1.4)
+limit_left = -400
+limit_right = 400
 
 [node name="Paraglider" type="Polygon2D" parent="." unique_id=1485162993]
 visible = false
