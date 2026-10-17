@@ -22,7 +22,6 @@ signal flipped
 @export var brake_comp: BrakeComponent
 @export var spirit_comp: SpiritComponent
 @export var health_comp: HealtComponent
-@export var egg_comp : EggComponent
 
 var spawn_pos: Vector2
 
@@ -131,8 +130,6 @@ func reset() -> void:
 		spirit_comp.reset(self)
 	if health_comp:
 		health_comp.reset()
-	if egg_comp:
-		egg_comp.reset()
 		
 	get_tree().call_group(&"Jellyfish", "reset")
 	get_tree().call_group(&"MoveComponents", "reset")
