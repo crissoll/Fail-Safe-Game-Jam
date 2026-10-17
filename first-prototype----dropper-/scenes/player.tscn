@@ -7,11 +7,22 @@
 [ext_resource type="Script" uid="uid://wile04rv4ory" path="res://scripts/classes/player/spirit_component.gd" id="5_qlg0r"]
 [ext_resource type="Script" uid="uid://dtjmktvol3mbl" path="res://scripts/classes/player/damage_display_component.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://dbwcldoqtbkmy" path="res://scripts/classes/player/spirit_display_component.gd" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://deknaxf4oh7ho" path="res://scripts/classes/player/stamina_display_component.gd" id="9_d2wvv"]
 [ext_resource type="Script" uid="uid://dk5nkqc7lhmq8" path="res://scripts/classes/player/animation_component.gd" id="10_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://b3gsrxajsk6u" path="res://assets/Player/ray_falling.png" id="11_jej6c"]
 [ext_resource type="Texture2D" uid="uid://fpb62muqlre4" path="res://assets/Player/ray_gliding.png" id="12_f1ej7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u25ut"]
+
+[sub_resource type="Gradient" id="Gradient_3v2ag"]
+offsets = PackedFloat32Array(0, 0.67522323)
+colors = PackedColorArray(1, 1, 1, 0.75686276, 0, 0.38431373, 0.22352941, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u25ut"]
+gradient = SubResource("Gradient_3v2ag")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
 atlas = ExtResource("11_jej6c")
@@ -183,10 +194,10 @@ color = Color(1, 1, 0.19607843, 1)
 polygon = PackedVector2Array(0, -16, -4, -7, -13, -4, -4, -3, 0, 6, 3, -3, 11, -6, 2, -7)
 
 [node name="TempStaminaLabel" type="Label" parent="." unique_id=131832886]
-offset_left = -6.0
-offset_top = -7.0
-offset_right = 34.0
-offset_bottom = 16.0
+offset_left = -122.0
+offset_top = -71.0
+offset_right = -82.0
+offset_bottom = -48.0
 
 [node name="Components" type="Node" parent="." unique_id=972240952]
 
@@ -222,7 +233,17 @@ brake_comp = NodePath("../BrakeComponent")
 spirit_comp = NodePath("../SpiritComponent")
 player = NodePath("../..")
 
+[node name="StaminaDisplay" type="Node" parent="Components" unique_id=941882798 node_paths=PackedStringArray("stamina_comp")]
+script = ExtResource("9_d2wvv")
+texture = SubResource("GradientTexture2D_u25ut")
+stamina_comp = NodePath("../StaminaComponent")
+
+[node name="StaminaSprite" type="Sprite2D" parent="." unique_id=1968975936]
+scale = Vector2(1.3931124, 1.3931124)
+texture = SubResource("GradientTexture2D_u25ut")
+
 [node name="Animation" type="AnimatedSprite2D" parent="." unique_id=778203001]
+scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_u25ut")
 animation = &"falling_dark_upward"
 

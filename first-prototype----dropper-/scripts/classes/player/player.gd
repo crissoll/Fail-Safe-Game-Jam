@@ -4,7 +4,6 @@ extends CharacterBody2D
 signal flipped
 #vars
 @onready var camera: Camera2D = $Camera2D
-@onready var temp_stamina_label: Label = $TempStaminaLabel
 
 ## lateral movement speed
 @export var move_speed := 10.0
@@ -32,8 +31,6 @@ var reversed_camera_pos: Vector2
 func _ready() -> void:
 	reversed_camera_pos = camera.position
 	reversed_camera_pos.y *= -1
-	
-	stamina_comp.stamina_changed.connect(_on_stamina_changed)
 	
 	health_comp.health_changed.connect(func(health: int): health_label.text = str(health))
 	#health_comp.health_changed.emit(health_comp.hearts)
@@ -96,8 +93,6 @@ func _apply_gravity(delta: float) -> void:
 func apply_vertical_impulse(impulse_value):
 	velocity.y = -1 * impulse_value * (1 - 2 * int(upside_down))
 
-func _on_stamina_changed(current: float) -> void:
-	temp_stamina_label.text = str(int(current))
 
 func _handle_camera_transition(delta: float) -> void:
 	if camera:
