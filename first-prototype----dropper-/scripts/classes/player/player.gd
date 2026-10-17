@@ -1,8 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-
-
+signal flipped
 #vars
 @onready var camera: Camera2D = $Camera2D
 @onready var temp_stamina_label: Label = $TempStaminaLabel
@@ -112,6 +111,7 @@ func reverse_fall() -> void:
 	upside_down = true
 	velocity = Vector2.ZERO
 	reverse_camera = true
+	flipped.emit()
 
 func reset() -> void:
 	global_position = spawn_pos
