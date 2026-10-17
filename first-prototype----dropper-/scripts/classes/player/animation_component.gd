@@ -38,4 +38,5 @@ func _ready() -> void:
 	brake_comp.brake_ended.connect(play_falling)
 	player.flipped.connect(_set_flip_v)
 	spirit_comp.dimension_switched.connect(_set_modulate)
-	
+	_set_flip_v()
+	_set_modulate()
