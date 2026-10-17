@@ -15,3 +15,10 @@ metadata/_custom_type_script = "uid://cikl756ql5glf"
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_u25ut")
 debug_color = Color(0.062357135, 0.6328114, 0.43239224, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=480421467]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0, 0, 0, 1)
