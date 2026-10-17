@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://wile04rv4ory" path="res://scripts/classes/player/spirit_component.gd" id="5_qlg0r"]
 [ext_resource type="Script" uid="uid://dtjmktvol3mbl" path="res://scripts/classes/player/damage_display_component.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://dbwcldoqtbkmy" path="res://scripts/classes/player/spirit_display_component.gd" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://dk5nkqc7lhmq8" path="res://scripts/classes/player/animation_component.gd" id="10_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://b3gsrxajsk6u" path="res://assets/Player/ray_falling.png" id="11_jej6c"]
 [ext_resource type="Texture2D" uid="uid://fpb62muqlre4" path="res://assets/Player/ray_gliding.png" id="12_f1ej7"]
 
@@ -213,6 +214,13 @@ player = NodePath("../..")
 [node name="SpiritDisplay" type="Node" parent="Components" unique_id=1965143683 node_paths=PackedStringArray("collision_shape")]
 script = ExtResource("7_fjrip")
 collision_shape = NodePath("../../CollisionShape2D")
+
+[node name="AnimationComponent" type="Node" parent="Components" unique_id=951136652 node_paths=PackedStringArray("animation", "brake_comp", "spirit_comp", "player")]
+script = ExtResource("10_3v2ag")
+animation = NodePath("../../Animation")
+brake_comp = NodePath("../BrakeComponent")
+spirit_comp = NodePath("../SpiritComponent")
+player = NodePath("../..")
 
 [node name="Animation" type="AnimatedSprite2D" parent="." unique_id=778203001]
 sprite_frames = SubResource("SpriteFrames_u25ut")
