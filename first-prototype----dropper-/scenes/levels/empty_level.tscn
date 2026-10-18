@@ -28,6 +28,7 @@ position = Vector2(0, -253)
 scale = Vector2(100, 1)
 collision_mask = 24
 damage = 99
+spirit_display_mode = 2
 
 [node name="BackGround" type="ColorRect" parent="." unique_id=994664099]
 z_index = -100
