@@ -1,17 +1,10 @@
 [gd_scene format=3 uid="uid://ds6067ev8qkh7"]
 
 [ext_resource type="Script" uid="uid://lb7lilwrqt06" path="res://scripts/classes/level_boundaries.gd" id="1_h2s0c"]
-[ext_resource type="Texture2D" uid="uid://2scnnyq5thnd" path="res://assets/1.5x_zoom 5.png" id="2_fuay5"]
+[ext_resource type="PackedScene" uid="uid://cvf36xsuide6q" path="res://scenes/background.tscn" id="2_fuay5"]
 [ext_resource type="Script" uid="uid://co0gxbvtwug1x" path="res://scripts/classes/player_flip_area.gd" id="2_jdsy5"]
-[ext_resource type="Texture2D" uid="uid://b87sgrif7v40t" path="res://assets/1.5x_zoom 6.png" id="2_k7435"]
 [ext_resource type="Script" uid="uid://cikl756ql5glf" path="res://scripts/classes/obstacle.gd" id="3_1yjtr"]
 [ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="3_jdsy5"]
-
-[sub_resource type="Gradient" id="Gradient_1yjtr"]
-colors = PackedColorArray(0.8352941, 0.8980392, 0.9764706, 1, 0.67058825, 0.7372549, 0.9411765, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_au7uu"]
-gradient = SubResource("Gradient_1yjtr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m03m6"]
 size = Vector2(2574, 78)
@@ -21,48 +14,7 @@ size = Vector2(2574, 78)
 [node name="EmptyLevel" type="Node2D" unique_id=2117120648]
 script = ExtResource("1_h2s0c")
 
-[node name="ParallaxBackground2" type="ParallaxBackground" parent="." unique_id=442586511]
-layer = -356
-follow_viewport_enabled = true
-
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground2" unique_id=1910346460]
-offset_left = 414.96808
-offset_top = -41.414604
-offset_right = 4522.257
-offset_bottom = 781.2762
-rotation = 1.5707964
-texture = SubResource("GradientTexture2D_au7uu")
-
-[node name="ParallaxBackground3" type="ParallaxBackground" parent="." unique_id=1558225864]
-layer = -250
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3" unique_id=1013065441]
-motion_mirroring = Vector2(0, 465.69)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/ParallaxLayer" unique_id=786048192]
-position = Vector2(1.5258789e-05, 187.5)
-scale = Vector2(0.3559028, 0.35416666)
-texture = ExtResource("2_k7435")
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1268176986]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1164677378]
-motion_mirroring = Vector2(0, 465.69)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1453769591]
-position = Vector2(4.0000005, 190.99998)
-scale = Vector2(0.36, 0.36)
-texture = ExtResource("2_fuay5")
-
-[node name="BackGround" type="ColorRect" parent="." unique_id=994664099]
-visible = false
-z_index = -100
-offset_left = -1660.0
-offset_top = -632.99994
-offset_right = 1906.0
-offset_bottom = -171.36795
-scale = Vector2(1, 1000)
-color = Color(0.17825022, 0.11137282, 0.38750875, 1)
+[node name="Background" parent="." unique_id=1577599243 instance=ExtResource("2_fuay5")]
 
 [node name="FlipPlayerArea" type="Area2D" parent="." unique_id=283427393]
 position = Vector2(0, 4000)
@@ -87,7 +39,6 @@ rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_u25ut")
 
 [node name="ColorRect" type="ColorRect" parent="LeftWall" unique_id=1825452804]
-visible = false
 offset_left = -2032.0
 offset_top = -662.0
 offset_right = 1.0
@@ -116,7 +67,6 @@ rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_u25ut")
 
 [node name="ColorRect" type="ColorRect" parent="RightWall" unique_id=891017131]
-visible = false
 offset_left = -2.0
 offset_top = -659.0
 offset_right = 1768.0
