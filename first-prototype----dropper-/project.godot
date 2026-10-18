@@ -37,6 +37,8 @@ folder_colors={
 
 Jellyfish=""
 MoveComponents=""
+obstacles=""
+spirit_obstacles=""
 
 [input]
 

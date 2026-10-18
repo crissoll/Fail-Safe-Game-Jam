@@ -9,9 +9,17 @@ size = Vector2(16, 16)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("1_ist31")
+spirit_display_mode = 1
 metadata/_custom_type_script = "uid://cikl756ql5glf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=285459030]
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_u25ut")
 debug_color = Color(0.062357135, 0.6328114, 0.43239224, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=480421467 groups=["spirit_obstacles"]]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0, 0, 0, 1)

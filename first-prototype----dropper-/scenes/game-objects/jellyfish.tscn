@@ -1,17 +1,22 @@
 [gd_scene format=3 uid="uid://bfda0qeec7nmx"]
 
 [ext_resource type="Script" uid="uid://4s070rmivam7" path="res://scripts/classes/jellyfish.gd" id="1_7esg0"]
+[ext_resource type="Texture2D" uid="uid://d0nkhmiemt334" path="res://assets/Obstacles/jellyfish_neutral.png" id="2_jyieh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_usvy1"]
 
-[node name="Jellyfish" type="Node2D" unique_id=1929911465 groups=["Jellyfish"]]
-script = ExtResource("1_7esg0")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=1595808726]
+[node name="Jellyfish" type="Area2D" unique_id=1595808726]
 collision_mask = 8
+script = ExtResource("1_7esg0")
+spirit_display_mode = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1734178472]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1734178472]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_usvy1")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="JellyfishNeutral" type="Sprite2D" parent="." unique_id=1638624266]
+position = Vector2(1.000001, 12.000001)
+scale = Vector2(1.2833333, 1.2833333)
+texture = ExtResource("2_jyieh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -7,12 +7,168 @@
 [ext_resource type="Script" uid="uid://wile04rv4ory" path="res://scripts/classes/player/spirit_component.gd" id="5_qlg0r"]
 [ext_resource type="Script" uid="uid://dtjmktvol3mbl" path="res://scripts/classes/player/damage_display_component.gd" id="6_tuyoq"]
 [ext_resource type="Script" uid="uid://dbwcldoqtbkmy" path="res://scripts/classes/player/spirit_display_component.gd" id="7_fjrip"]
-[ext_resource type="Script" uid="uid://dbskedrkfmqj2" path="res://scripts/classes/player/egg_component.gd" id="8_ur7pv"]
-[ext_resource type="PackedScene" uid="uid://dc032duovs5cl" path="res://scenes/game-objects/egg.tscn" id="9_ur7pv"]
+[ext_resource type="Script" uid="uid://deknaxf4oh7ho" path="res://scripts/classes/player/stamina_display_component.gd" id="9_d2wvv"]
+[ext_resource type="Script" uid="uid://dk5nkqc7lhmq8" path="res://scripts/classes/player/animation_component.gd" id="10_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://b3gsrxajsk6u" path="res://assets/Player/ray_falling.png" id="11_jej6c"]
+[ext_resource type="Texture2D" uid="uid://fpb62muqlre4" path="res://assets/Player/ray_gliding.png" id="12_f1ej7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u25ut"]
 
-[node name="player" type="CharacterBody2D" unique_id=314467872 node_paths=PackedStringArray("stamina_comp", "brake_comp", "spirit_comp", "health_comp", "egg_comp")]
+[sub_resource type="Gradient" id="Gradient_3v2ag"]
+offsets = PackedFloat32Array(0, 0.67522323)
+colors = PackedColorArray(1, 1, 1, 0.75686276, 0, 0.38431373, 0.22352941, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u25ut"]
+gradient = SubResource("Gradient_3v2ag")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(0, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(32, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(64, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(96, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(128, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(0, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(32, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(64, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf23h"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(96, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt7fs"]
+atlas = ExtResource("11_jej6c")
+region = Rect2(128, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60mlk"]
+atlas = ExtResource("12_f1ej7")
+region = Rect2(0, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4ail"]
+atlas = ExtResource("12_f1ej7")
+region = Rect2(52, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
+atlas = ExtResource("12_f1ej7")
+region = Rect2(104, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
+atlas = ExtResource("12_f1ej7")
+region = Rect2(156, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l71n6"]
+atlas = ExtResource("12_f1ej7")
+region = Rect2(208, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke2ow"]
+atlas = ExtResource("12_f1ej7")
+region = Rect2(260, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujl30"]
+atlas = ExtResource("12_f1ej7")
+region = Rect2(312, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
+atlas = ExtResource("12_f1ej7")
+region = Rect2(364, 0, 52, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u25ut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fulsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}],
+"loop": 1,
+"name": &"falling_dark",
+"speed": 8.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf23h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt7fs")
+}],
+"loop": 1,
+"name": &"falling_dark_upward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ni07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l71n6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke2ow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujl30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31cv2")
+}],
+"loop": 1,
+"name": &"gliding_dark",
+"speed": 10.0
+}]
+
+[node name="player" type="CharacterBody2D" unique_id=314467872 node_paths=PackedStringArray("stamina_comp", "brake_comp", "spirit_comp", "health_comp")]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_3vyb7")
@@ -21,7 +177,6 @@ stamina_comp = NodePath("Components/StaminaComponent")
 brake_comp = NodePath("Components/BrakeComponent")
 spirit_comp = NodePath("Components/SpiritComponent")
 health_comp = NodePath("Components/HealthComponent")
-egg_comp = NodePath("Components/EggComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1453863984]
 shape = SubResource("CircleShape2D_u25ut")
@@ -39,10 +194,10 @@ color = Color(1, 1, 0.19607843, 1)
 polygon = PackedVector2Array(0, -16, -4, -7, -13, -4, -4, -3, 0, 6, 3, -3, 11, -6, 2, -7)
 
 [node name="TempStaminaLabel" type="Label" parent="." unique_id=131832886]
-offset_left = -6.0
-offset_top = -7.0
-offset_right = 34.0
-offset_bottom = 16.0
+offset_left = -122.0
+offset_top = -71.0
+offset_right = -82.0
+offset_bottom = -48.0
 
 [node name="Components" type="Node" parent="." unique_id=972240952]
 
@@ -71,11 +226,26 @@ player = NodePath("../..")
 script = ExtResource("7_fjrip")
 collision_shape = NodePath("../../CollisionShape2D")
 
-[node name="EggComponent" type="Node" parent="Components" unique_id=362771187]
-script = ExtResource("8_ur7pv")
-egg_scene = ExtResource("9_ur7pv")
-distance_delay = 3
-initial_offset = Vector2(5, -2)
+[node name="AnimationComponent" type="Node" parent="Components" unique_id=951136652 node_paths=PackedStringArray("animation", "brake_comp", "spirit_comp", "player")]
+script = ExtResource("10_3v2ag")
+animation = NodePath("../../Animation")
+brake_comp = NodePath("../BrakeComponent")
+spirit_comp = NodePath("../SpiritComponent")
+player = NodePath("../..")
+
+[node name="StaminaDisplay" type="Node" parent="Components" unique_id=941882798 node_paths=PackedStringArray("stamina_comp")]
+script = ExtResource("9_d2wvv")
+texture = SubResource("GradientTexture2D_u25ut")
+stamina_comp = NodePath("../StaminaComponent")
+
+[node name="StaminaSprite" type="Sprite2D" parent="." unique_id=1968975936]
+scale = Vector2(1.3931124, 1.3931124)
+texture = SubResource("GradientTexture2D_u25ut")
+
+[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=778203001]
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_u25ut")
+animation = &"falling_dark_upward"
 
 [connection signal="brake_ended" from="Components/BrakeComponent" to="Paraglider" method="hide"]
 [connection signal="brake_started" from="Components/BrakeComponent" to="Paraglider" method="show"]

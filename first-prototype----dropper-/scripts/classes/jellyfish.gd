@@ -1,22 +1,27 @@
-extends Node2D
+extends Obstacle
 class_name JellyFish
 
 @export var bounce_velocity : int = 90
-@onready var area_2d: Area2D = $Area2D
 
+func fade() -> void:
+	modulate.a = 0.1
 
+func materialize() -> void:
+	modulate.a = 1
 
 func _ready() -> void:
+	super()
 	add_to_group("Jellyfish")
+	
+func reset() -> void:
+	visible = true
+	set_deferred("monitoring", true)
 
+func _process(delta: float) -> void:
+	pass
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.apply_vertical_impulse(bounce_velocity)
 		visible = false
-		area_2d.set_deferred("monitoring", false)
-
-
-func reset() -> void:
-	visible = true
-	area_2d.set_deferred("monitoring", true)
+		set_deferred("monitoring", false)
