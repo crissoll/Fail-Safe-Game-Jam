@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://cvf36xsuide6q"]
 
 [ext_resource type="Texture2D" uid="uid://b87sgrif7v40t" path="res://assets/1.5x_zoom 6.png" id="1_y0upk"]
-[ext_resource type="Texture2D" uid="uid://2scnnyq5thnd" path="res://assets/1.5x_zoom 5.png" id="2_jougr"]
 
 [sub_resource type="Gradient" id="Gradient_1yjtr"]
 colors = PackedColorArray(0.8352941, 0.8980392, 0.9764706, 1, 0.67058825, 0.7372549, 0.9411765, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_au7uu"]
 gradient = SubResource("Gradient_1yjtr")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bkp1e"]
+load_path = "res://.godot/imported/1.5x_zoom 5.png-055ec5cc306166b8e71438e16ee3171e.ctex"
 
 [node name="Background" type="Node2D" unique_id=1577599243]
 
@@ -16,10 +18,10 @@ layer = -356
 follow_viewport_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground2" unique_id=192399172]
-offset_left = 414.96808
-offset_top = -41.414604
-offset_right = 4522.257
-offset_bottom = 781.2762
+offset_left = 393.0
+offset_top = -38.0
+offset_right = 4500.2886
+offset_bottom = 784.6908
 rotation = 1.5707964
 texture = SubResource("GradientTexture2D_au7uu")
 
@@ -30,8 +32,8 @@ layer = -250
 motion_mirroring = Vector2(0, 465.69)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/ParallaxLayer" unique_id=766140395]
-position = Vector2(1.5258789e-05, 187.5)
-scale = Vector2(0.3559028, 0.35416666)
+position = Vector2(-1.5000029, 185)
+scale = Vector2(0.34852433, 0.3510802)
 texture = ExtResource("1_y0upk")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=567201381]
@@ -41,6 +43,6 @@ layer = 100
 motion_mirroring = Vector2(0, 465.69)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1288392435]
-position = Vector2(4.0000005, 190.99998)
-scale = Vector2(0.36, 0.36)
-texture = ExtResource("2_jougr")
+position = Vector2(-18.929966, 192.99998)
+scale = Vector2(0.36278638, 0.36364204)
+texture = SubResource("CompressedTexture2D_bkp1e")
