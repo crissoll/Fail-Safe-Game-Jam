@@ -12,4 +12,4 @@ func display_transition(is_spirit:bool) -> void:
 		get_tree().call_group(&"spirit_obstacles", "fade")
 
 func _ready() -> void:
-	display_transition(false)
+	call_deferred(&"display_transition",false)
