@@ -29,5 +29,4 @@ label_settings = SubResource("LabelSettings_4tl2j")
 
 [node name="Level" parent="." unique_id=350627010 instance=ExtResource("4_jyhfs")]
 
-[node name="Gui" parent="." unique_id=706741470 node_paths=PackedStringArray("player") instance=ExtResource("5_tbgi4")]
-player = NodePath("../player")
+[node name="Gui" parent="." unique_id=706741470 instance=ExtResource("5_tbgi4")]

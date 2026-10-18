@@ -27,6 +27,7 @@ script = ExtResource("1_h2s0c")
 [node name="Background" parent="." unique_id=1577599243 instance=ExtResource("2_fuay5")]
 
 [node name="FlipPlayerArea" type="Area2D" parent="." unique_id=283427393]
+z_index = 10
 position = Vector2(0, 4000)
 collision_layer = 0
 collision_mask = 24
