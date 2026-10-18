@@ -55,6 +55,7 @@ position = Vector2(4, 255)
 texture = SubResource("NoiseTexture2D_u25ut")
 
 [node name="LeftWall" type="Area2D" parent="." unique_id=123936769]
+z_index = 10
 position = Vector2(-200, 0)
 collision_layer = 0
 collision_mask = 24
@@ -83,6 +84,7 @@ rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_u25ut")
 
 [node name="RightWall" type="Area2D" parent="." unique_id=679402046]
+z_index = 10
 position = Vector2(200, 0)
 collision_layer = 2
 collision_mask = 24
