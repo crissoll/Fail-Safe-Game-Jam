@@ -1,11 +1,9 @@
 class_name Player
 extends CharacterBody2D
 
-
-
+signal flipped
 #vars
 @onready var camera: Camera2D = $Camera2D
-@onready var temp_stamina_label: Label = $TempStaminaLabel
 
 ## lateral movement speed
 @export var move_speed := 10.0
@@ -23,7 +21,6 @@ extends CharacterBody2D
 @export var brake_comp: BrakeComponent
 @export var spirit_comp: SpiritComponent
 @export var health_comp: HealtComponent
-@export var egg_comp : EggComponent
 
 var spawn_pos: Vector2
 
@@ -34,8 +31,6 @@ var reversed_camera_pos: Vector2
 func _ready() -> void:
 	reversed_camera_pos = camera.position
 	reversed_camera_pos.y *= -1
-	
-	stamina_comp.stamina_changed.connect(_on_stamina_changed)
 	
 	health_comp.health_changed.connect(func(health: int): health_label.text = str(health))
 	#health_comp.health_changed.emit(health_comp.hearts)
@@ -98,8 +93,6 @@ func _apply_gravity(delta: float) -> void:
 func apply_vertical_impulse(impulse_value):
 	velocity.y = -1 * impulse_value * (1 - 2 * int(upside_down))
 
-func _on_stamina_changed(current: float) -> void:
-	temp_stamina_label.text = str(int(current))
 
 func _handle_camera_transition(delta: float) -> void:
 	if camera:
@@ -112,6 +105,7 @@ func reverse_fall() -> void:
 	upside_down = true
 	velocity = Vector2.ZERO
 	reverse_camera = true
+	flipped.emit()
 
 func reset() -> void:
 	global_position = spawn_pos
@@ -131,8 +125,6 @@ func reset() -> void:
 		spirit_comp.reset(self)
 	if health_comp:
 		health_comp.reset()
-	if egg_comp:
-		egg_comp.reset()
 		
 	get_tree().call_group(&"Jellyfish", "reset")
 	get_tree().call_group(&"MoveComponents", "reset")

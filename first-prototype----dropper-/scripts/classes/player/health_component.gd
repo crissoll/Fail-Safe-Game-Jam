@@ -19,7 +19,7 @@ var last_damage_time : float
 
 func _ready() -> void:
 	hearts = max_hearts
-	#health_changed.emit(hearts)
+	health_changed.emit(hearts)
 	
 
 func apply_damage(damage:=1):
