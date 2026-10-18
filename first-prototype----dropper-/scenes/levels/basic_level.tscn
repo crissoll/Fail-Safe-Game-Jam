@@ -69,3 +69,8 @@ scale = Vector2(5.014598, 1.521738)
 [node name="obstacle11" parent="EmptyLevel/obstacles" unique_id=494123716 instance=ExtResource("2_0e48y")]
 position = Vector2(238.00002, 1478.0001)
 scale = Vector2(5.014598, 1.521738)
+
+[connection signal="body_entered" from="EmptyLevel/Obstacles/Jellyfish" to="EmptyLevel/Obstacles/Jellyfish" method="_on_body_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@21927" to="EmptyLevel/Obstacles/@Area2D@21927" method="_on_body_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@21993" to="EmptyLevel/Obstacles/@Area2D@21993" method="_on_body_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@21994" to="EmptyLevel/Obstacles/@Area2D@21994" method="_on_body_entered"]

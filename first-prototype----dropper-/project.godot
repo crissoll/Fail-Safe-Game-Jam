@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="first prototype - \"dropper\""
-run/main_scene="uid://cxcjo8nolsj38"
+run/main_scene="uid://dqpsklc7kj3rl"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://dvu8e3616qcd1"
 SignalManager="*uid://dunq5o6bynxhg"
+MusicSettings="*uid://cmask7v3wjmim"
 
 [display]
 
