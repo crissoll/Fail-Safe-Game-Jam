@@ -10,7 +10,6 @@ colors = PackedColorArray(0.8352941, 0.8980392, 0.9764706, 1, 0.67058825, 0.7372
 gradient = SubResource("Gradient_1yjtr")
 
 [node name="Background" type="Node2D" unique_id=1577599243]
-z_index = -100
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="." unique_id=447838093]
 layer = -356
@@ -36,6 +35,7 @@ scale = Vector2(0.3559028, 0.35416666)
 texture = ExtResource("1_y0upk")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=567201381]
+layer = 100
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1690571788]
 motion_mirroring = Vector2(0, 465.69)
