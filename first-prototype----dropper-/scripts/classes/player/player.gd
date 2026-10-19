@@ -35,6 +35,7 @@ var jellyfish_bounce_active: bool = false
 
 
 func _ready() -> void:
+	GameManager.set_player(self)
 	reversed_camera_pos = camera.position
 	reversed_camera_pos.y *= -1
 

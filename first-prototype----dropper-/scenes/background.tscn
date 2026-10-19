@@ -19,10 +19,10 @@ layer = -356
 follow_viewport_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground2" unique_id=192399172]
-offset_left = 393.0
-offset_top = -38.0
-offset_right = 4500.2886
-offset_bottom = 784.6908
+offset_left = 416.70496
+offset_top = -35.036865
+offset_right = 4521.031
+offset_bottom = 798.02484
 rotation = 1.5707964
 texture = SubResource("GradientTexture2D_au7uu")
 
@@ -52,20 +52,20 @@ layer = 100
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1690571788]
 motion_scale = Vector2(1, 0.8)
-motion_mirroring = Vector2(0, 465.69)
+motion_mirroring = Vector2(0, 943.488)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1288392435]
-position = Vector2(-18.929966, 192.99998)
-scale = Vector2(0.36278638, 0.36364204)
+position = Vector2(0, 436)
+scale = Vector2(0.363, 0.364)
 texture = ExtResource("3_1tmhi")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=719228116]
 motion_scale = Vector2(1, 1.2)
-motion_mirroring = Vector2(0, 465.69)
+motion_mirroring = Vector2(0, 943.488)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=485829622]
-position = Vector2(-18.929966, 192.99998)
-scale = Vector2(0.36278638, 0.36364204)
+position = Vector2(0, 436)
+scale = Vector2(0.363, 0.364)
 texture = ExtResource("4_l5f8m")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2098930633]
