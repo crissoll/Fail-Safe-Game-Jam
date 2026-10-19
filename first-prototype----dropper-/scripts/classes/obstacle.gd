@@ -17,9 +17,10 @@ func materialize() -> void:
 	modulate.a = 1
 
 func _process(delta: float) -> void:
-	for body in get_overlapping_bodies():
-		if body is Player:
-			body.health_comp.apply_damage(damage)
+	if monitoring:
+		for body in get_overlapping_bodies():
+			if body is Player:
+				body.health_comp.apply_damage(damage)
 
 func _ready() -> void:
 	if spirit_display_mode == SpiritDisplayMode.SPIRIT:

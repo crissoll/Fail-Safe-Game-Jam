@@ -4,8 +4,8 @@ class_name LevelBoundaries
 extends Node2D
 
 @onready var spawn_marker: Marker2D = $SpawnMarker
-@onready var left_wall: Obstacle = $LeftWall
-@onready var right_wall: Obstacle = $RightWall
+@onready var left_wall: Area2D = $LeftWall
+@onready var right_wall: Area2D = $RightWall
 @onready var flip_player_area: PlayerFlipArea = $FlipPlayerArea
 
 @export var width := 400.0:
@@ -21,6 +21,7 @@ extends Node2D
 @export var height := 4000.0:
 	set(value):
 		height = value
+		GameManager.end_pos.y = height
 		if(flip_player_area == null):
 			if Engine.is_editor_hint():
 				return
