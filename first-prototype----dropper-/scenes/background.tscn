@@ -1,16 +1,80 @@
 [gd_scene format=3 uid="uid://cvf36xsuide6q"]
 
 [ext_resource type="Texture2D" uid="uid://khkgk0x540ty" path="res://assets/CloudsBack.png" id="1_wisxt"]
+[ext_resource type="Texture2D" uid="uid://ckyj8t7u7lxc5" path="res://assets/monster.png" id="2_1tmhi"]
 [ext_resource type="Texture2D" uid="uid://dplbkke0neg0l" path="res://assets/CloudsFront.png" id="2_wax1t"]
-[ext_resource type="Texture2D" uid="uid://uoob500h80mv" path="res://assets/WallsBack.png" id="3_1tmhi"]
-[ext_resource type="Texture2D" uid="uid://dmkxi0hc5wkbt" path="res://assets/WallsFront.png" id="4_l5f8m"]
+[ext_resource type="Texture2D" uid="uid://b2r0083tijmhj" path="res://assets/FishFinal copy.png" id="3_1tmhi"]
+[ext_resource type="Texture2D" uid="uid://kmmgejp26mfm" path="res://assets/WallsBL.png" id="4_l5f8m"]
 [ext_resource type="Texture2D" uid="uid://c2hwc7h6v1ua" path="res://assets/Light.png" id="5_6vm3t"]
+[ext_resource type="Texture2D" uid="uid://bicdftpepfcpv" path="res://assets/WallsFrontL.png" id="5_8efq7"]
 
 [sub_resource type="Gradient" id="Gradient_1yjtr"]
 colors = PackedColorArray(0.8352941, 0.8980392, 0.9764706, 1, 0.67058825, 0.7372549, 0.9411765, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_au7uu"]
 gradient = SubResource("Gradient_1yjtr")
+
+[sub_resource type="Animation" id="Animation_l5f8m"]
+resource_name = "FishSwim"
+length = 25.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishSchool:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.833333, 8.833333, 13.833333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-202, 416), Vector2(9, 242), Vector2(204, 106)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishSchool:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.833333, 6.366667, 10.8, 13.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.7019608), Color(1, 1, 1, 0.69803923), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6vm3t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishSchool:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-202, 416)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishSchool:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8efq7"]
+_data = {
+&"FishSwim": SubResource("Animation_l5f8m"),
+&"RESET": SubResource("Animation_6vm3t")
+}
 
 [node name="Background" type="Node2D" unique_id=1577599243]
 
@@ -29,20 +93,46 @@ texture = SubResource("GradientTexture2D_au7uu")
 [node name="ParallaxBackground3" type="ParallaxBackground" parent="." unique_id=343862528]
 layer = -250
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3" unique_id=1436661856]
+[node name="CloudsBack" type="ParallaxLayer" parent="ParallaxBackground3" unique_id=1436661856]
 motion_scale = Vector2(1, 0.1)
 motion_mirroring = Vector2(0, 465.69)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/ParallaxLayer" unique_id=766140395]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/CloudsBack" unique_id=766140395]
 position = Vector2(-1.5000029, 185)
 scale = Vector2(0.34852433, 0.3510802)
 texture = ExtResource("1_wisxt")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground3" unique_id=1419573344]
+[node name="Monster" type="ParallaxLayer" parent="ParallaxBackground3" unique_id=827258641]
+motion_scale = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/Monster" unique_id=723888116]
+modulate = Color(1, 1, 1, 0.48235294)
+position = Vector2(-1.5000029, 185)
+scale = Vector2(0.34852433, 0.3510802)
+texture = ExtResource("2_1tmhi")
+
+[node name="FishLayer" type="ParallaxLayer" parent="ParallaxBackground3" unique_id=1347385805]
+motion_scale = Vector2(1, 0)
+
+[node name="FishSchool" type="Node2D" parent="ParallaxBackground3/FishLayer" unique_id=1241656484]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-202, 416)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/FishLayer/FishSchool" unique_id=1089289971]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_1tmhi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground3/FishLayer" unique_id=523029293]
+libraries/ = SubResource("AnimationLibrary_8efq7")
+autoplay = &"FishSwim"
+speed_scale = 1.87
+
+[node name="CloudsFront" type="ParallaxLayer" parent="ParallaxBackground3" unique_id=1419573344]
+modulate = Color(1, 1, 1, 0.8352941)
 motion_scale = Vector2(1, 0.3)
 motion_mirroring = Vector2(0, 465.69)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/ParallaxLayer2" unique_id=1048403363]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/CloudsFront" unique_id=1048403363]
 position = Vector2(-1.5000029, 185)
 scale = Vector2(0.34852433, 0.3510802)
 texture = ExtResource("2_wax1t")
@@ -57,22 +147,24 @@ motion_mirroring = Vector2(0, 943.488)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1288392435]
 position = Vector2(0, 436)
 scale = Vector2(0.363, 0.364)
-texture = ExtResource("3_1tmhi")
+texture = ExtResource("4_l5f8m")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=719228116]
+[node name="WallsFront" type="ParallaxLayer" parent="ParallaxBackground" unique_id=719228116]
 motion_scale = Vector2(1, 1.2)
 motion_mirroring = Vector2(0, 943.488)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=485829622]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/WallsFront" unique_id=485829622]
 position = Vector2(0, 436)
 scale = Vector2(0.363, 0.364)
-texture = ExtResource("4_l5f8m")
+texture = ExtResource("5_8efq7")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2098930633]
+[node name="LightRay" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2098930633]
+visible = false
 motion_scale = Vector2(1, 0)
-motion_mirroring = Vector2(0, 465.69)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=1462990843]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/LightRay" unique_id=1462990843]
+modulate = Color(1, 1, 1, 0.7921569)
+light_mask = 5
 position = Vector2(-19.429943, 256.17993)
 scale = Vector2(0.36235237, 0.461142)
 texture = ExtResource("5_6vm3t")
