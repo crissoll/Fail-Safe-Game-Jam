@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bfda0qeec7nmx"]
 
 [ext_resource type="Script" uid="uid://4s070rmivam7" path="res://scripts/classes/jellyfish.gd" id="1_7esg0"]
+[ext_resource type="Texture2D" uid="uid://bafglxjiu8fit" path="res://assets/Obstacles/bouncing.png" id="2_6gosj"]
 [ext_resource type="Texture2D" uid="uid://dlusdtoy17q8t" path="res://assets/Obstacles/jellyfish_light_wobble_sheet.png" id="3_6gosj"]
+[ext_resource type="Texture2D" uid="uid://08i34pw4fsk3" path="res://assets/Obstacles/jellifish_dark_wobble_sheet.png" id="4_buwln"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_usvy1"]
 radius = 10.265
@@ -9,6 +11,22 @@ radius = 10.265
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nmvmi"]
 radius = 6.81
 height = 26.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne37n"]
+atlas = ExtResource("2_6gosj")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvhu7"]
+atlas = ExtResource("2_6gosj")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj65d"]
+atlas = ExtResource("2_6gosj")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ondkj"]
+atlas = ExtResource("2_6gosj")
+region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_buwln"]
 atlas = ExtResource("3_6gosj")
@@ -54,8 +72,69 @@ region = Rect2(1152, 0, 128, 128)
 atlas = ExtResource("3_6gosj")
 region = Rect2(1280, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3ml6"]
+atlas = ExtResource("4_buwln")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vgd8"]
+atlas = ExtResource("4_buwln")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5et5h"]
+atlas = ExtResource("4_buwln")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aftrc"]
+atlas = ExtResource("4_buwln")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_homxw"]
+atlas = ExtResource("4_buwln")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrhot"]
+atlas = ExtResource("4_buwln")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nus2j"]
+atlas = ExtResource("4_buwln")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28g48"]
+atlas = ExtResource("4_buwln")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6aax"]
+atlas = ExtResource("4_buwln")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5pq3"]
+atlas = ExtResource("4_buwln")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uii40"]
+atlas = ExtResource("4_buwln")
+region = Rect2(1280, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_usvy1"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne37n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvhu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj65d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ondkj")
+}],
+"loop": 0,
+"name": &"bounce",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_buwln")
@@ -91,7 +170,45 @@ animations = [{
 "texture": SubResource("AtlasTexture_r7sgv")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"default_white",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3ml6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vgd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5et5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aftrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_homxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrhot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nus2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28g48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6aax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5pq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uii40")
+}],
+"loop": 1,
+"name": &"wobble_black",
 "speed": 5.0
 }]
 
@@ -113,8 +230,9 @@ shape = SubResource("CapsuleShape2D_nmvmi")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=589239672]
 scale = Vector2(0.54, 0.54)
 sprite_frames = SubResource("SpriteFrames_usvy1")
-autoplay = "default"
-frame_progress = 0.39680886
+animation = &"wobble_black"
+autoplay = "default_white"
+frame_progress = 0.6764587
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
