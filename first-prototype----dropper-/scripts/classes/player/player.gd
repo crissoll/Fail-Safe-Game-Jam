@@ -36,6 +36,7 @@ var jellyfish_bounce_active: bool = false
 
 func _ready() -> void:
 	GameManager.set_player(self)
+	GameManager.set_ascension(false)
 	reversed_camera_pos = camera.position
 	reversed_camera_pos.y *= -1
 
@@ -160,10 +161,12 @@ func reverse_fall() -> void:
 	upside_down = true
 	velocity = Vector2.ZERO
 	reverse_camera = true
+	GameManager.set_ascension(true)
 	flipped.emit()
 
 
 func reset() -> void:
+	GameManager.set_ascension(false)
 	global_position = spawn_pos
 	velocity = Vector2.ZERO
 

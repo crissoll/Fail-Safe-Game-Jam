@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cxcjo8nolsj38"]
 
-[ext_resource type="Script" uid="uid://dvu8e3616qcd1" path="res://scripts/autoloads/game_manager.gd" id="1_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://scenes/player.tscn" id="2_tipki"]
 [ext_resource type="PackedScene" uid="uid://bof75kl6wli8e" path="res://scenes/game-objects/pause_menu.tscn" id="3_85g3d"]
 [ext_resource type="PackedScene" uid="uid://f80vs5rbluqx" path="res://scenes/levels/basic_level.tscn" id="4_jyhfs"]
@@ -10,10 +9,6 @@
 font_size = 32
 
 [node name="Main" type="Node2D" unique_id=1478944514]
-
-[node name="GameManager" type="Node2D" parent="." unique_id=326495801 node_paths=PackedStringArray("player")]
-script = ExtResource("1_o6xl0")
-player = NodePath("../player")
 
 [node name="player" parent="." unique_id=440862904 node_paths=PackedStringArray("health_label") instance=ExtResource("2_tipki")]
 position = Vector2(149, 33)

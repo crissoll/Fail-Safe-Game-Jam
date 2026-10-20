@@ -16,7 +16,7 @@ gradient = SubResource("Gradient_1yjtr")
 
 [sub_resource type="Animation" id="Animation_l5f8m"]
 resource_name = "FishSwim"
-length = 25.0
+length = 19.166666
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -28,7 +28,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(3.833333, 8.833333, 13.833333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-202, 416), Vector2(9, 242), Vector2(204, 106)]
+"values": [Vector2(-202, 1200), Vector2(9, 700), Vector2(204, 350)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -41,6 +41,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.7019608), Color(1, 1, 1, 0.69803923), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishSchool2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(10.299998, 12.833332, 16, 19.066668),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.7019608), Color(1, 1, 1, 0.69803923), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FishSchool2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(10.166666, 12.233334, 12.833333, 14.833333, 16.666666, 18.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(204, 1800), Vector2(98.597, 1900), Vector2(79.552, 1888.524), Vector2(13.862, 1800), Vector2(-96.192, 1870.983), Vector2(-202, 1900)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FishSchool2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(10.2, 12.6, 14.733334, 18.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-1.213003830136059, -0.6544984694978736, -0.5340707511102653, -0.825540736193318]
 }
 
 [sub_resource type="Animation" id="Animation_6vm3t"]
@@ -55,7 +91,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-202, 416)]
+"values": [Vector2(-202, 800)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -68,6 +104,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FishSchool2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-81.02666, 913.3333)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FishSchool2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8efq7"]
@@ -103,7 +163,6 @@ scale = Vector2(0.34852433, 0.3510802)
 texture = ExtResource("1_wisxt")
 
 [node name="Monster" type="ParallaxLayer" parent="ParallaxBackground3" unique_id=827258641]
-motion_scale = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/Monster" unique_id=723888116]
 modulate = Color(1, 1, 1, 0.48235294)
@@ -112,17 +171,32 @@ scale = Vector2(0.34852433, 0.3510802)
 texture = ExtResource("2_1tmhi")
 
 [node name="FishLayer" type="ParallaxLayer" parent="ParallaxBackground3" unique_id=1347385805]
-motion_scale = Vector2(1, 0)
 
 [node name="FishSchool" type="Node2D" parent="ParallaxBackground3/FishLayer" unique_id=1241656484]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(-202, 416)
+position = Vector2(-202, 800)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/FishLayer/FishSchool" unique_id=1089289971]
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("3_1tmhi")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground3/FishLayer" unique_id=523029293]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground3/FishLayer/FishSchool" unique_id=523029293]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_8efq7")
+autoplay = &"FishSwim"
+speed_scale = 1.87
+
+[node name="FishSchool2" type="Node2D" parent="ParallaxBackground3/FishLayer" unique_id=1699370712]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-81.02666, 913.3333)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/FishLayer/FishSchool2" unique_id=1945381140]
+scale = Vector2(-0.35, 0.35)
+texture = ExtResource("3_1tmhi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground3/FishLayer/FishSchool2" unique_id=1446293102]
+root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_8efq7")
 autoplay = &"FishSwim"
 speed_scale = 1.87
@@ -159,7 +233,6 @@ scale = Vector2(0.363, 0.364)
 texture = ExtResource("5_8efq7")
 
 [node name="LightRay" type="ParallaxLayer" parent="ParallaxBackground" unique_id=2098930633]
-visible = false
 motion_scale = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/LightRay" unique_id=1462990843]
