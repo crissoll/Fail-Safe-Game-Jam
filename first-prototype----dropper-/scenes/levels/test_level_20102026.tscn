@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://6x7hcea0gvwr"]
+
+[ext_resource type="PackedScene" uid="uid://ds6067ev8qkh7" path="res://scenes/levels/empty_level.tscn" id="1_o0v40"]
+[ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="3_j4vh2"]
+[ext_resource type="Script" uid="uid://cxm3gc2desgsl" path="res://scripts/classes/move_component.gd" id="4_ckun2"]
+
+[node name="TestLevel20102026" type="Node2D" unique_id=2063629885]
+
+[node name="EmptyLevel" parent="." unique_id=2117120648 instance=ExtResource("1_o0v40")]
+width = 372.615
+height = 2500.0
+
+[node name="obstacles" type="Node2D" parent="EmptyLevel" unique_id=692569311]
+position = Vector2(-151, -156)
+
+[node name="obstacle" parent="EmptyLevel/obstacles" unique_id=1118835633 instance=ExtResource("3_j4vh2")]
+position = Vector2(18, 135)
+
+[node name="obstacle2" parent="EmptyLevel/obstacles" unique_id=862721245 instance=ExtResource("3_j4vh2")]
+position = Vector2(248, 332.00003)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="MoveTowardTargetComponent" type="Node2D" parent="EmptyLevel/obstacles/obstacle2" unique_id=2006007857 node_paths=PackedStringArray("target")]
+script = ExtResource("4_ckun2")
+target = NodePath("Target")
+metadata/_custom_type_script = "uid://cxm3gc2desgsl"
+
+[node name="Target" type="Node2D" parent="EmptyLevel/obstacles/obstacle2/MoveTowardTargetComponent" unique_id=457470181]
+position = Vector2(-44.27075, -22.342896)
+scale = Vector2(0.19941783, 0.65714335)
+
+[node name="obstacle3" parent="EmptyLevel/obstacles" unique_id=1428091014 instance=ExtResource("3_j4vh2")]
+position = Vector2(68.999985, 408)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle4" parent="EmptyLevel/obstacles" unique_id=143536080 instance=ExtResource("3_j4vh2")]
+position = Vector2(245, 503.00003)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle5" parent="EmptyLevel/obstacles" unique_id=1829866048 instance=ExtResource("3_j4vh2")]
+position = Vector2(77.99997, 684)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle6" parent="EmptyLevel/obstacles" unique_id=1583345923 instance=ExtResource("3_j4vh2")]
+position = Vector2(257, 800.00006)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle7" parent="EmptyLevel/obstacles" unique_id=108587191 instance=ExtResource("3_j4vh2")]
+position = Vector2(82.999985, 936.00006)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle8" parent="EmptyLevel/obstacles" unique_id=1516540482 instance=ExtResource("3_j4vh2")]
+position = Vector2(117, 1089)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle9" parent="EmptyLevel/obstacles" unique_id=391745824 instance=ExtResource("3_j4vh2")]
+position = Vector2(239, 1324)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle10" parent="EmptyLevel/obstacles" unique_id=10031549 instance=ExtResource("3_j4vh2")]
+position = Vector2(81.99997, 1430.0001)
+scale = Vector2(5.014598, 1.521738)
+
+[node name="obstacle11" parent="EmptyLevel/obstacles" unique_id=453379931 instance=ExtResource("3_j4vh2")]
+position = Vector2(238.00002, 1478.0001)
+scale = Vector2(5.014598, 1.521738)
