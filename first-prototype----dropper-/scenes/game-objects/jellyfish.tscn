@@ -1,22 +1,120 @@
 [gd_scene format=3 uid="uid://bfda0qeec7nmx"]
 
 [ext_resource type="Script" uid="uid://4s070rmivam7" path="res://scripts/classes/jellyfish.gd" id="1_7esg0"]
-[ext_resource type="Texture2D" uid="uid://d0nkhmiemt334" path="res://assets/Obstacles/jellyfish_neutral.png" id="2_jyieh"]
+[ext_resource type="Texture2D" uid="uid://dlusdtoy17q8t" path="res://assets/Obstacles/jellyfish_light_wobble_sheet.png" id="3_6gosj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_usvy1"]
+radius = 10.265
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nmvmi"]
+radius = 6.81
+height = 26.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buwln"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2y66"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye440"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3tm7"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ece2"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icwti"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pks6q"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0dun"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pigx"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt4ya"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7sgv"]
+atlas = ExtResource("3_6gosj")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usvy1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buwln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2y66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye440")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3tm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ece2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icwti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pks6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0dun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pigx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt4ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7sgv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Jellyfish" type="Area2D" unique_id=1595808726]
 collision_mask = 8
 script = ExtResource("1_7esg0")
 spirit_display_mode = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1734178472]
+[node name="CollisionShapeHead" type="CollisionShape2D" parent="." unique_id=1734178472]
+position = Vector2(-0.895, -5.45)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_usvy1")
 
-[node name="JellyfishNeutral" type="Sprite2D" parent="." unique_id=1638624266]
-position = Vector2(1.000001, 12.000001)
-scale = Vector2(1.2833333, 1.2833333)
-texture = ExtResource("2_jyieh")
+[node name="CollisionShapeTentacles" type="CollisionShape2D" parent="." unique_id=1653937033]
+position = Vector2(-2, 10)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_nmvmi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=589239672]
+scale = Vector2(0.54, 0.54)
+sprite_frames = SubResource("SpriteFrames_usvy1")
+autoplay = "default"
+frame_progress = 0.39680886
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

@@ -21,7 +21,8 @@ extends Node2D
 @export var height := 4000.0:
 	set(value):
 		height = value
-		GameManager.end_pos.y = height
+		if not Engine.is_editor_hint():
+			GameManager.set_end_pos(Vector2(0,height))
 		if(flip_player_area == null):
 			if Engine.is_editor_hint():
 				return
