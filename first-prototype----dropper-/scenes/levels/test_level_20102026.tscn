@@ -8,7 +8,7 @@
 
 [node name="EmptyLevel" parent="." unique_id=2117120648 instance=ExtResource("1_o0v40")]
 width = 372.615
-height = 2500.0
+height = 48000.0
 
 [node name="obstacles" type="Node2D" parent="EmptyLevel" unique_id=692569311]
 position = Vector2(-151, -156)
