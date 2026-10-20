@@ -16,7 +16,7 @@ func fade() -> void:
 func materialize() -> void:
 	modulate.a = 1
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if monitoring:
 		for body in get_overlapping_bodies():
 			if body is Player:
