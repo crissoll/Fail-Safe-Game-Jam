@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://r7b7frvrxs76" path="res://assets/UI/IconHeart.png" id="2_idl4l"]
 [ext_resource type="Script" uid="uid://dppc3rmh5nj6i" path="res://scripts/UI/texture_progress_bar.gd" id="3_d7rg1"]
 [ext_resource type="Script" uid="uid://cjppdlkwkvcfa" path="res://scripts/UI/depth_progress_bar.gd" id="4_idl4l"]
-[ext_resource type="Texture2D" uid="uid://dkgtxj8crk4bq" path="res://assets/Obstacles/ink.png" id="5_d7rg1"]
-[ext_resource type="Script" uid="uid://vqtuum0g3ish" path="res://scripts/UI/ink.gd" id="6_q1o6s"]
 
 [node name="Gui" type="Control" unique_id=706741470]
 layout_mode = 3
@@ -54,16 +52,3 @@ grow_horizontal = 0
 grow_vertical = 2
 fill_mode = 2
 script = ExtResource("4_idl4l")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=716645332]
-visible = false
-offset_left = 232.0
-offset_top = -6.0
-offset_right = 944.0
-offset_bottom = 650.0
-texture = ExtResource("5_d7rg1")
-expand_mode = 3
-stretch_mode = 4
-script = ExtResource("6_q1o6s")
-time_show_ink = 2.5
-fade_duration = 1.0
