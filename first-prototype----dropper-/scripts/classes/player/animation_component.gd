@@ -17,20 +17,16 @@ var bright_color: Color = Color(3.225, 3.225, 3.225)
 
 func _set_modulate(_arg=null) -> void:
 	if(spirit_comp.is_spirit):
-		print("animazione da nero a bianco")
 		animation.play("ray_phasing")
 	else:
-		print("animazione da bianco a nero")
 		animation.play("ray_phasing_to_dark")
 	await animation.animation_finished
 	play_falling()
 
 func _set_flip_v() -> void:
-	print("player flippato")
 	animation.flip_v = player.upside_down
 
 func play_falling() -> void:
-	print("animazione caduta")
 	if spirit_comp.is_spirit:
 		animation.play("ray_falling_light")
 	else:
@@ -39,7 +35,6 @@ func play_falling() -> void:
 	#_set_modulate()
 
 func play_gliding() -> void:
-	print("animazione detaplano")
 	if spirit_comp.is_spirit:
 		animation.play("ray_gliding_light")
 	else:

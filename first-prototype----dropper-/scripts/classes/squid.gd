@@ -6,7 +6,8 @@ func _ready() -> void:
 
 var hittable := true
 func _on_body_entered(player: Player) -> void:
-	SignalManager.squid_hit.emit()
+	if(hittable):
+		SignalManager.squid_hit.emit()
 	visible = false
 	hittable = false
 

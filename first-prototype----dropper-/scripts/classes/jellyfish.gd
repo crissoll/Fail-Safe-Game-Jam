@@ -63,7 +63,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, 
 		
 		if shape_colpita == collision_shape_head and !GameManager.ascension:
 			animated_sprite_2d.play("bounce")
-			print("colpita la testa")
+			print("jellyfish hit")
 			
 			body.lock_brake_until_falling()
 
@@ -82,7 +82,6 @@ func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, 
 			
 func set_animation(ascension : bool):
 	if !ascension:
-		print("descend")
 		animated_sprite_2d.play("default_white")
 	else:
 		animated_sprite_2d.play("wobble_black")

@@ -24,6 +24,7 @@ layer = 100
 
 [node name="Ink" type="TextureRect" parent="Ink" unique_id=1761531807]
 visible = false
+modulate = Color(1, 1, 1, 0.83137256)
 offset_left = 232.0
 offset_top = -6.0
 offset_right = 944.0
@@ -33,7 +34,7 @@ expand_mode = 3
 stretch_mode = 4
 script = ExtResource("3_o6xl0")
 time_show_ink = 2.5
-fade_duration = 1.0
+fade_duration = 5.0
 
 [node name="CanvasLayer" parent="." unique_id=1674361281 instance=ExtResource("3_85g3d")]
 layer = 1000
