@@ -43,6 +43,8 @@ func _ready() -> void:
 	health_comp.health_changed.connect(
 		func(health: int): health_label.text = str(health)
 	)
+
+	
 	health_comp.die.connect(reset)
 
 
@@ -61,7 +63,7 @@ func _handle_input() -> void:
 		reset()
 		return
 
-	if Input.is_action_just_pressed(&"switch_dimension"):
+	if Input.is_action_just_pressed(&"switch_dimension") and GameManager.ascension: #you can switch dimension only in the ascension part
 		spirit_comp.switch_dimension(self)
 
 
@@ -163,7 +165,7 @@ func reverse_fall() -> void:
 	reverse_camera = true
 	GameManager.set_ascension(true)
 	flipped.emit()
-
+	
 
 func reset() -> void:
 	GameManager.set_ascension(false)

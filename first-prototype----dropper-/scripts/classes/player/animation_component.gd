@@ -9,34 +9,60 @@ extends Node
 @export var animation : AnimatedSprite2D
 @export var brake_comp : BrakeComponent
 @export var spirit_comp : SpiritComponent
+@export var health_comp : HealtComponent
+
 @export var player : Player
 
 var bright_color: Color = Color(3.225, 3.225, 3.225)
 
 func _set_modulate(_arg=null) -> void:
 	if(spirit_comp.is_spirit):
-		animation.modulate = Color.WHITE
+		print("animazione da nero a bianco")
+		animation.play("ray_phasing")
 	else:
-		animation.modulate = bright_color
+		print("animazione da bianco a nero")
+		animation.play("ray_phasing_to_dark")
+	await animation.animation_finished
+	play_falling()
 
 func _set_flip_v() -> void:
+	print("player flippato")
 	animation.flip_v = player.upside_down
 
 func play_falling() -> void:
-	animation.play("falling_dark")
+	print("animazione caduta")
+	if spirit_comp.is_spirit:
+		animation.play("ray_falling_light")
+	else:
+		animation.play("falling_dark")
 	_set_flip_v()
-	_set_modulate()
+	#_set_modulate()
 
 func play_gliding() -> void:
-	animation.play("gliding_dark")
+	print("animazione detaplano")
+	if spirit_comp.is_spirit:
+		animation.play("ray_gliding_light")
+	else:
+		animation.play("gliding_dark")
 	_set_flip_v()
-	_set_modulate()
+	#_set_modulate()
+
+
+func play_damage(_arg = null) -> void:
+	if spirit_comp.is_spirit:
+		animation.play("ray_damaged_falling_light")
+	else:
+		animation.play("ray_damaged_falling_dark")
+	await animation.animation_finished
+	play_falling()
+		
 
 func _ready() -> void:
 	animation.play("falling_dark")
-	brake_comp.brake_started.connect(func():animation.play("gliding_dark"))
+	brake_comp.brake_started.connect(play_gliding)
 	brake_comp.brake_ended.connect(play_falling)
 	player.flipped.connect(_set_flip_v)
 	spirit_comp.dimension_switched.connect(_set_modulate)
+	health_comp.health_changed.connect(play_damage)
 	_set_flip_v()
-	_set_modulate()
+	#_set_modulate()
