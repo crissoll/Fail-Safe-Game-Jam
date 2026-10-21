@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://q3j3uok7b8di"]
+
+[ext_resource type="Script" uid="uid://binyot18x4dx1" path="res://scripts/classes/squid.gd" id="1_dmpnq"]
+[ext_resource type="Texture2D" uid="uid://d0bk63n3r0aul" path="res://assets/Obstacles/squid_obstacle.png" id="2_3hv13"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxs1n"]
+atlas = ExtResource("2_3hv13")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow0qs"]
+atlas = ExtResource("2_3hv13")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htg5y"]
+atlas = ExtResource("2_3hv13")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndmxd"]
+atlas = ExtResource("2_3hv13")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mxwf"]
+atlas = ExtResource("2_3hv13")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_310ne"]
+atlas = ExtResource("2_3hv13")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usvy1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxs1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow0qs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htg5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndmxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mxwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_310ne")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_usvy1"]
+radius = 17.0
+
+[node name="Squid" type="Area2D" unique_id=173807972]
+scale = Vector2(1.335, 1.335)
+collision_layer = 0
+collision_mask = 24
+script = ExtResource("1_dmpnq")
+damage = 0
+spirit_display_mode = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=431752201]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_usvy1")
+autoplay = "default"
+frame_progress = 0.06643421
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2053307746]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_usvy1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

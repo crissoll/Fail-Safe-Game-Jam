@@ -25,5 +25,14 @@ func _physics_process(delta: float) -> void:
 func _ready() -> void:
 	if spirit_display_mode == SpiritDisplayMode.SPIRIT:
 		add_to_group(&"spirit_obstacles")
+		set_collision_mask_value(5,true)
+		set_collision_mask_value(4,false)
 	elif spirit_display_mode == SpiritDisplayMode.PHYSICAL:
+		set_collision_mask_value(5,false)
+		set_collision_mask_value(4,true)
 		add_to_group(&"obstacles")
+	else:
+		set_collision_mask_value(5,true)
+		set_collision_mask_value(4,true)
+		#add_to_group(&"obstacles")
+		#add_to_group(&"spirit_obstacles")

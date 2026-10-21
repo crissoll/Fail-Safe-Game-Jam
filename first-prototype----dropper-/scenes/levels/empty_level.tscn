@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://lb7lilwrqt06" path="res://scripts/classes/level_boundaries.gd" id="1_h2s0c"]
 [ext_resource type="PackedScene" uid="uid://cvf36xsuide6q" path="res://scenes/background.tscn" id="2_fuay5"]
 [ext_resource type="Script" uid="uid://co0gxbvtwug1x" path="res://scripts/classes/player_flip_area.gd" id="2_jdsy5"]
-[ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="3_jdsy5"]
+[ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacles/obstacle.tscn" id="3_jdsy5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m03m6"]
 size = Vector2(2574, 78)

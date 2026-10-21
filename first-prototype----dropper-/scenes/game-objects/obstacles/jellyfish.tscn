@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bfda0qeec7nmx"]
 
-[ext_resource type="Script" uid="uid://4s070rmivam7" path="res://scripts/classes/jellyfish.gd" id="1_7esg0"]
-[ext_resource type="Texture2D" uid="uid://bafglxjiu8fit" path="res://assets/Obstacles/bouncing.png" id="2_6gosj"]
-[ext_resource type="Texture2D" uid="uid://dlusdtoy17q8t" path="res://assets/Obstacles/jellyfish_light_wobble_sheet.png" id="3_6gosj"]
-[ext_resource type="Texture2D" uid="uid://08i34pw4fsk3" path="res://assets/Obstacles/jellifish_dark_wobble_sheet.png" id="4_buwln"]
+[ext_resource type="Script" uid="uid://4s070rmivam7" path="res://scripts/classes/jellyfish.gd" id="1_gafwv"]
+[ext_resource type="Texture2D" uid="uid://bafglxjiu8fit" path="res://assets/Obstacles/bouncing.png" id="2_sffh1"]
+[ext_resource type="Texture2D" uid="uid://dlusdtoy17q8t" path="res://assets/Obstacles/jellyfish_light_wobble_sheet.png" id="3_wslwe"]
+[ext_resource type="Texture2D" uid="uid://08i34pw4fsk3" path="res://assets/Obstacles/jellifish_dark_wobble_sheet.png" id="4_ltjhe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_usvy1"]
 radius = 10.265
@@ -13,107 +13,107 @@ radius = 6.81
 height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ne37n"]
-atlas = ExtResource("2_6gosj")
+atlas = ExtResource("2_sffh1")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yvhu7"]
-atlas = ExtResource("2_6gosj")
+atlas = ExtResource("2_sffh1")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sj65d"]
-atlas = ExtResource("2_6gosj")
+atlas = ExtResource("2_sffh1")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ondkj"]
-atlas = ExtResource("2_6gosj")
+atlas = ExtResource("2_sffh1")
 region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_buwln"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c2y66"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ye440"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v3tm7"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ece2"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_icwti"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pks6q"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o0dun"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4pigx"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(1024, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yt4ya"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(1152, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r7sgv"]
-atlas = ExtResource("3_6gosj")
+atlas = ExtResource("3_wslwe")
 region = Rect2(1280, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3ml6"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vgd8"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5et5h"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aftrc"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_homxw"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vrhot"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nus2j"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28g48"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g6aax"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(1024, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x5pq3"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(1152, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uii40"]
-atlas = ExtResource("4_buwln")
+atlas = ExtResource("4_ltjhe")
 region = Rect2(1280, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_usvy1"]
@@ -213,8 +213,8 @@ animations = [{
 }]
 
 [node name="Jellyfish" type="Area2D" unique_id=1595808726]
-collision_mask = 8
-script = ExtResource("1_7esg0")
+collision_mask = 0
+script = ExtResource("1_gafwv")
 spirit_display_mode = 0
 
 [node name="CollisionShapeHead" type="CollisionShape2D" parent="." unique_id=1734178472]
