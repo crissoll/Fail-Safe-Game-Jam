@@ -1,7 +1,15 @@
 extends Obstacle
 class_name Squid
 
+func _ready() -> void:
+	add_to_group("Jellyfish")
 
+var hittable := true
 func _on_body_entered(player: Player) -> void:
 	SignalManager.squid_hit.emit()
-	queue_free()
+	visible = false
+	hittable = false
+
+func reset():
+	visible = true
+	hittable = true
