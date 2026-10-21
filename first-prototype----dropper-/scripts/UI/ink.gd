@@ -7,6 +7,7 @@ extends TextureRect
 func _ready() -> void:
 	hide()
 	SignalManager.squid_hit.connect(show_ink)
+	add_to_group("Jellyfish")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,3 +28,6 @@ func fade_out():
 	await tween.finished
 	hide()
 	modulate.a = 1
+
+func reset():
+	hide()
