@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://tgx16albcjgu"]
+
+[ext_resource type="Script" uid="uid://cikl756ql5glf" path="res://scripts/classes/obstacle.gd" id="1_r1dap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u25ut"]
+size = Vector2(16, 16)
+
+[node name="obstacle" type="Area2D" unique_id=1118835633]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_r1dap")
+spirit_display_mode = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=285459030]
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_u25ut")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=123767704]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0.4677382, 0.46773827, 0.4677382, 1)

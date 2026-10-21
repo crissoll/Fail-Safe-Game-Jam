@@ -12,7 +12,7 @@ width = 372.615
 height = 2500.0
 
 [node name="Obstacles" type="TileMapLayer" parent="EmptyLevel" unique_id=1679749912]
-tile_map_data = PackedByteArray("AAABAA8AAgAAAAAAAQD+/x8AAgAAAAAAAQD7/xsAAAAAAAAAAQD8/xsAAAAAAAAAAQD8/xoAAAAAAAAAAQD9/xoAAAAAAAAAAQD+/xoAAAAAAAAAAQD//xoAAAAAAAAAAQD//xsAAAAAAAAAAQAAABsAAAAAAAAAAQABABsAAAAAAAAAAQABABoAAAAAAAAAAQDy/y4AAAAAAAAAAQDz/y4AAAAAAAAAAQD0/y4AAAAAAAAAAQD1/y4AAAAAAAAAAQD2/y4AAAAAAAAAAQD3/y4AAAAAAAAAAQD4/y4AAAAAAAAAAQDy/zQAAQAAAAAAAQDz/zQAAQAAAAAAAQD0/zQAAQAAAAAAAQD1/zQAAQAAAAAAAQD2/zQAAQAAAAAAAQD3/zQAAQAAAAAAAQD4/zQAAQAAAAAAAQDy/zwAAAAAAAAAAQDz/zwAAAAAAAAAAQD0/zwAAAAAAAAAAQD1/zwAAAAAAAAAAQD2/zwAAAAAAAAAAQD3/zwAAAAAAAAAAQD4/zwAAAAAAAAAAQDy/0QAAQAAAAAAAQDz/0QAAQAAAAAAAQD0/0QAAQAAAAAAAQD1/0QAAQAAAAAAAQD2/0QAAQAAAAAAAQD3/0QAAQAAAAAAAQD4/0QAAQAAAAAAAQDy/0wAAAAAAAAAAQDz/0wAAAAAAAAAAQD0/0wAAAAAAAAAAQD1/0wAAAAAAAAAAQD2/0wAAAAAAAAAAQD3/0wAAAAAAAAAAQD4/0wAAAAAAAAAAQDy/1QAAQAAAAAAAQDz/1QAAQAAAAAAAQD0/1QAAQAAAAAAAQD1/1QAAQAAAAAAAQD2/1QAAQAAAAAAAQD3/1QAAQAAAAAAAQD4/1QAAQAAAAAAAQDy/1oAAAAAAAAAAQDz/1oAAAAAAAAAAQD0/1oAAAAAAAAAAQD1/1oAAAAAAAAAAQD2/1oAAAAAAAAAAQD3/1oAAAAAAAAAAQD4/1oAAAAAAAAAAQDy/2AAAQAAAAAAAQDz/2AAAQAAAAAAAQD0/2AAAQAAAAAAAQD1/2AAAQAAAAAAAQD2/2AAAQAAAAAAAQD3/2AAAQAAAAAAAQD4/2AAAQAAAAAAAQADAB8AAgAAAAAAAQD1/xoAAgAAAAAAAQD1/xwAAgAAAAAAAgD1/x4AAgAAAAAAAwAJACMAAgAAAAAAAwAKABUAAgAAAAAAAwADADEAAwAAAAAAAQD3/ygAAwAAAAAAAQAGADwAAwAAAAAAAQD7/wUAAwAAAAAAAQD8/wUAAwAAAAAAAQD9/wUAAwAAAAAAAQD+/wUAAwAAAAAAAQD//wUAAwAAAAAAAQAAAAUAAwAAAAAAAQABAAUAAwAAAAAAAQACAAUAAwAAAAAAAQADAAUAAwAAAAAAAQAEAAUAAwAAAAAAAQAFAAUAAwAAAAAAAQAFAAQAAwAAAAAAAQAGAAQAAwAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAABAA8AAgAAAAAAAQD+/x8AAgAAAAAAAQD7/xsAAAAAAAAAAQD8/xsAAAAAAAAAAQD8/xoAAAAAAAAAAQD9/xoAAAAAAAAAAQD+/xoAAAAAAAAAAQD//xoAAAAAAAAAAQD//xsAAAAAAAAAAQAAABsAAAAAAAAAAQABABsAAAAAAAAAAQABABoAAAAAAAAAAQDy/y4AAAAAAAAAAQDz/y4AAAAAAAAAAQD0/y4AAAAAAAAAAQD1/y4AAAAAAAAAAQD2/y4AAAAAAAAAAQD3/y4AAAAAAAAAAQD4/y4AAAAAAAAAAQDy/zQAAQAAAAAAAQDz/zQAAQAAAAAAAQD0/zQAAQAAAAAAAQD1/zQAAQAAAAAAAQD2/zQAAQAAAAAAAQD3/zQAAQAAAAAAAQD4/zQAAQAAAAAAAQDy/zwAAAAAAAAAAQDz/zwAAAAAAAAAAQD0/zwAAAAAAAAAAQD1/zwAAAAAAAAAAQD2/zwAAAAAAAAAAQD3/zwAAAAAAAAAAQD4/zwAAAAAAAAAAQDy/0QAAQAAAAAAAQDz/0QAAQAAAAAAAQD0/0QAAQAAAAAAAQD1/0QAAQAAAAAAAQD2/0QAAQAAAAAAAQD3/0QAAQAAAAAAAQD4/0QAAQAAAAAAAQDy/0wAAAAAAAAAAQDz/0wAAAAAAAAAAQD0/0wAAAAAAAAAAQD1/0wAAAAAAAAAAQD2/0wAAAAAAAAAAQD3/0wAAAAAAAAAAQD4/0wAAAAAAAAAAQDy/1QAAQAAAAAAAQDz/1QAAQAAAAAAAQD0/1QAAQAAAAAAAQD1/1QAAQAAAAAAAQD2/1QAAQAAAAAAAQD3/1QAAQAAAAAAAQD4/1QAAQAAAAAAAQDy/1oAAAAAAAAAAQDz/1oAAAAAAAAAAQD0/1oAAAAAAAAAAQD1/1oAAAAAAAAAAQD2/1oAAAAAAAAAAQD3/1oAAAAAAAAAAQD4/1oAAAAAAAAAAQDy/2AAAQAAAAAAAQDz/2AAAQAAAAAAAQD0/2AAAQAAAAAAAQD1/2AAAQAAAAAAAQD2/2AAAQAAAAAAAQD3/2AAAQAAAAAAAQD4/2AAAQAAAAAAAQADAB8AAgAAAAAAAQD1/xoAAgAAAAAAAQD1/xwAAgAAAAAAAgD1/x4AAgAAAAAAAwAJACMAAgAAAAAAAwAKABUAAgAAAAAAAwADADEAAwAAAAAAAQD3/ygAAwAAAAAAAQAGADwAAwAAAAAAAQD//wUAAwAAAAAAAQA=")
 tile_set = ExtResource("5_m7iyv")
 
 [node name="obstacles" type="Node2D" parent="EmptyLevel" unique_id=1516684180]
@@ -72,25 +72,13 @@ scale = Vector2(5.014598, 1.521738)
 
 [connection signal="body_entered" from="EmptyLevel/Obstacles/Jellyfish" to="EmptyLevel/Obstacles/Jellyfish" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="EmptyLevel/Obstacles/Jellyfish" to="EmptyLevel/Obstacles/Jellyfish" method="_on_body_shape_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@80074" to="EmptyLevel/Obstacles/@Area2D@80074" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@80074" to="EmptyLevel/Obstacles/@Area2D@80074" method="_on_body_shape_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@80140" to="EmptyLevel/Obstacles/@Area2D@80140" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@80140" to="EmptyLevel/Obstacles/@Area2D@80140" method="_on_body_shape_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@80141" to="EmptyLevel/Obstacles/@Area2D@80141" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@80141" to="EmptyLevel/Obstacles/@Area2D@80141" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@94204" to="EmptyLevel/Obstacles/@Area2D@94204" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@94204" to="EmptyLevel/Obstacles/@Area2D@94204" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@94270" to="EmptyLevel/Obstacles/@Area2D@94270" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@94270" to="EmptyLevel/Obstacles/@Area2D@94270" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@94271" to="EmptyLevel/Obstacles/@Area2D@94271" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@94271" to="EmptyLevel/Obstacles/@Area2D@94271" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="EmptyLevel/Obstacles/Squid" to="EmptyLevel/Obstacles/Squid" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@80145" to="EmptyLevel/Obstacles/@Area2D@80145" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@80146" to="EmptyLevel/Obstacles/@Area2D@80146" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81115" to="EmptyLevel/Obstacles/@Area2D@81115" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81116" to="EmptyLevel/Obstacles/@Area2D@81116" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81117" to="EmptyLevel/Obstacles/@Area2D@81117" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81118" to="EmptyLevel/Obstacles/@Area2D@81118" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81119" to="EmptyLevel/Obstacles/@Area2D@81119" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81120" to="EmptyLevel/Obstacles/@Area2D@81120" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81121" to="EmptyLevel/Obstacles/@Area2D@81121" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81122" to="EmptyLevel/Obstacles/@Area2D@81122" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81123" to="EmptyLevel/Obstacles/@Area2D@81123" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81124" to="EmptyLevel/Obstacles/@Area2D@81124" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81125" to="EmptyLevel/Obstacles/@Area2D@81125" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81126" to="EmptyLevel/Obstacles/@Area2D@81126" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@81127" to="EmptyLevel/Obstacles/@Area2D@81127" method="_on_body_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@94275" to="EmptyLevel/Obstacles/@Area2D@94275" method="_on_body_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@94276" to="EmptyLevel/Obstacles/@Area2D@94276" method="_on_body_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@94281" to="EmptyLevel/Obstacles/@Area2D@94281" method="_on_body_entered"]
