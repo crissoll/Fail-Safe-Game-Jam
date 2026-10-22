@@ -85,4 +85,3 @@ func set_animation(ascension : bool):
 		animated_sprite_2d.play("default_white")
 	else:
 		animated_sprite_2d.play("wobble_black")
-		print("ascension")
