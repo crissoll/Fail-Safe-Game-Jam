@@ -7,9 +7,12 @@ func display_transition(is_spirit:bool) -> void:
 	if is_spirit: 
 		get_tree().call_group(&"spirit_obstacles", "materialize")
 		get_tree().call_group(&"obstacles", "fade")
-	else: 
+	elif !is_spirit: 
 		get_tree().call_group(&"obstacles", "materialize")
 		get_tree().call_group(&"spirit_obstacles", "fade")
+	else:
+		get_tree().call_group(&"obstacles", "materialize")
+		get_tree().call_group(&"spirit_obstacles", "materialize")
 
 func _ready() -> void:
 	call_deferred(&"display_transition",true)

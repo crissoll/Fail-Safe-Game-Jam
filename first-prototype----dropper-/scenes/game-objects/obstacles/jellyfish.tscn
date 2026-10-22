@@ -215,7 +215,6 @@ animations = [{
 [node name="Jellyfish" type="Area2D" unique_id=1595808726]
 collision_mask = 0
 script = ExtResource("1_gafwv")
-spirit_display_mode = 1
 
 [node name="CollisionShapeHead" type="CollisionShape2D" parent="." unique_id=1734178472]
 position = Vector2(-0.895, -5.45)

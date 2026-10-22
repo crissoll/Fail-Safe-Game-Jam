@@ -86,6 +86,7 @@ position = Vector2(0, -253)
 scale = Vector2(100, 1)
 collision_mask = 24
 damage = 99
+spirit_display_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=670141692]
 position = Vector2(4, 189.45)
