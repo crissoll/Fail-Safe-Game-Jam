@@ -1,8 +1,9 @@
 [gd_scene format=4 uid="uid://f80vs5rbluqx"]
 
-[ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacle.tscn" id="2_0e48y"]
-[ext_resource type="Script" uid="uid://bxi61oxerbvvw" path="res://scenes/levels/level_creator_bello.gd" id="2_7fkf7"]
 [ext_resource type="PackedScene" uid="uid://ds6067ev8qkh7" path="res://scenes/levels/empty_level.tscn" id="3_56njm"]
+[ext_resource type="Script" uid="uid://d1vcxflm86for" path="res://scenes/levels/genLevel.gd" id="3_cv06b"]
+[ext_resource type="PackedScene" uid="uid://bfda0qeec7nmx" path="res://scenes/game-objects/jellyfish.tscn" id="4_7fkf7"]
+[ext_resource type="PackedScene" uid="uid://dj4qjscf858bb" path="res://scenes/game-objects/moving obstacle.tscn" id="5_7fkf7"]
 [ext_resource type="TileSet" uid="uid://drk1jqq2sjpsv" path="res://resources/obstacles_tile_set.tres" id="5_m7iyv"]
 
 [node name="Level" type="Node2D" unique_id=350627010]
@@ -11,22 +12,18 @@
 width = 372.615
 height = 48000.0
 
-[node name="LEVEL CREATOR BELLO" type="Node2D" parent="EmptyLevel" unique_id=406848510]
+[node name="Obstacles" type="TileMapLayer" parent="EmptyLevel" unique_id=1679749912]
 position = Vector2(-226, 0)
-script = ExtResource("2_7fkf7")
-block_scale = Vector2(4, 4)
-center_blocks = true
-obstacle_1 = ExtResource("2_0e48y")
-
-[node name="Obstacles" type="TileMapLayer" parent="EmptyLevel/LEVEL CREATOR BELLO" unique_id=1679749912]
-tile_map_data = PackedByteArray("AAABAA8AAgAAAAAAAQD+/x8AAgAAAAAAAQD7/xsAAAAAAAAAAQD8/xsAAAAAAAAAAQD8/xoAAAAAAAAAAQD9/xoAAAAAAAAAAQD+/xoAAAAAAAAAAQD//xoAAAAAAAAAAQD//xsAAAAAAAAAAQAAABsAAAAAAAAAAQABABsAAAAAAAAAAQABABoAAAAAAAAAAQDy/y4AAAAAAAAAAQDz/y4AAAAAAAAAAQD0/y4AAAAAAAAAAQD1/y4AAAAAAAAAAQD2/y4AAAAAAAAAAQD3/y4AAAAAAAAAAQD4/y4AAAAAAAAAAQDy/zQAAQAAAAAAAQDz/zQAAQAAAAAAAQD0/zQAAQAAAAAAAQD1/zQAAQAAAAAAAQD2/zQAAQAAAAAAAQD3/zQAAQAAAAAAAQD4/zQAAQAAAAAAAQDy/zwAAAAAAAAAAQDz/zwAAAAAAAAAAQD0/zwAAAAAAAAAAQD1/zwAAAAAAAAAAQD2/zwAAAAAAAAAAQD3/zwAAAAAAAAAAQD4/zwAAAAAAAAAAQDy/0QAAQAAAAAAAQDz/0QAAQAAAAAAAQD0/0QAAQAAAAAAAQD1/0QAAQAAAAAAAQD2/0QAAQAAAAAAAQD3/0QAAQAAAAAAAQD4/0QAAQAAAAAAAQDy/0wAAAAAAAAAAQDz/0wAAAAAAAAAAQD0/0wAAAAAAAAAAQD1/0wAAAAAAAAAAQD2/0wAAAAAAAAAAQD3/0wAAAAAAAAAAQD4/0wAAAAAAAAAAQDy/1QAAQAAAAAAAQDz/1QAAQAAAAAAAQD0/1QAAQAAAAAAAQD1/1QAAQAAAAAAAQD2/1QAAQAAAAAAAQD3/1QAAQAAAAAAAQD4/1QAAQAAAAAAAQDy/1oAAAAAAAAAAQDz/1oAAAAAAAAAAQD0/1oAAAAAAAAAAQD1/1oAAAAAAAAAAQD2/1oAAAAAAAAAAQD3/1oAAAAAAAAAAQD4/1oAAAAAAAAAAQDy/2AAAQAAAAAAAQDz/2AAAQAAAAAAAQD0/2AAAQAAAAAAAQD1/2AAAQAAAAAAAQD2/2AAAQAAAAAAAQD3/2AAAQAAAAAAAQD4/2AAAQAAAAAAAQADAB8AAgAAAAAAAQD1/xoAAgAAAAAAAQD1/xwAAgAAAAAAAgD1/x4AAgAAAAAAAwAJACMAAgAAAAAAAwAKABUAAgAAAAAAAwA=")
+scale = Vector2(2.6, 2.6)
+tile_map_data = PackedByteArray("AAADAA8AAAAAAAAAAQACAA8AAAAAAAAAAQAEAA8AAAAAAAAAAQAFAA8AAAAAAAAAAQAGAA8AAAAAAAAAAQAHAA8AAAAAAAAAAQAIAA8AAAAAAAAAAQAJAA8AAAAAAAAAAQAKAA8AAAAAAAAAAQABAAsAAAAAAAAAAQABAAoAAAAAAAAAAQABAAkAAAAAAAAAAQABAAgAAAAAAAAAAQABAAAAAAAAAAAAAQABAAEAAAAAAAAAAQABAAIAAAAAAAAAAQABAAMAAAAAAAAAAQACAAAAAAAAAAAAAQADAAAAAAAAAAAAAQAEAAAAAAAAAAAAAQAFAAAAAAAAAAAAAQAGAAAAAAAAAAAAAQAHAAAAAAAAAAAAAQAIAAAAAAAAAAAAAQAJAAAAAAAAAAAAAQA=")
 tile_set = ExtResource("5_m7iyv")
+script = ExtResource("3_cv06b")
+block_1 = ExtResource("4_7fkf7")
 
-[connection signal="body_entered" from="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/Jellyfish" to="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/Jellyfish" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/Jellyfish" to="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/Jellyfish" method="_on_body_shape_entered"]
-[connection signal="body_entered" from="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99028" to="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99028" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99028" to="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99028" method="_on_body_shape_entered"]
-[connection signal="body_entered" from="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99094" to="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99094" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99094" to="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99094" method="_on_body_shape_entered"]
-[connection signal="body_entered" from="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99095" to="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99095" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99095" to="EmptyLevel/LEVEL CREATOR BELLO/Obstacles/@Area2D@99095" method="_on_body_shape_entered"]
+[node name="MovingObstacle" parent="." unique_id=1118835633 instance=ExtResource("5_7fkf7")]
+position = Vector2(-219, 658)
+
+[node name="Target" parent="MovingObstacle" index="2" unique_id=1326149610]
+position = Vector2(400, 0)
+
+[editable path="MovingObstacle"]

@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://deknaxf4oh7ho" path="res://scripts/classes/player/stamina_display_component.gd" id="9_d2wvv"]
 [ext_resource type="Script" uid="uid://dk5nkqc7lhmq8" path="res://scripts/classes/player/animation_component.gd" id="10_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://b3gsrxajsk6u" path="res://assets/Player/ray_falling.png" id="11_jej6c"]
+[ext_resource type="Script" uid="uid://bfpxkjym5b5xi" path="res://scenes/make_pos.gd" id="12_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://fpb62muqlre4" path="res://assets/Player/ray_gliding.png" id="12_f1ej7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u25ut"]
@@ -168,11 +169,13 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_fdm2o"]
+
 [node name="player" type="CharacterBody2D" unique_id=314467872 node_paths=PackedStringArray("stamina_comp", "brake_comp", "spirit_comp", "health_comp")]
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_3vyb7")
-move_speed = 200.0
+move_speed = 300.0
 stamina_comp = NodePath("Components/StaminaComponent")
 brake_comp = NodePath("Components/BrakeComponent")
 spirit_comp = NodePath("Components/SpiritComponent")
@@ -249,6 +252,12 @@ texture = SubResource("GradientTexture2D_u25ut")
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_u25ut")
 animation = &"falling_dark_upward"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1940138104]
+script = ExtResource("12_3v2ag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=102833255]
+shape = SubResource("CircleShape2D_fdm2o")
 
 [connection signal="brake_ended" from="Components/BrakeComponent" to="Paraglider" method="hide"]
 [connection signal="brake_started" from="Components/BrakeComponent" to="Paraglider" method="show"]
