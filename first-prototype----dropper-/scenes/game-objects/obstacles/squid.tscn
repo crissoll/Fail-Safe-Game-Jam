@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://binyot18x4dx1" path="res://scripts/classes/squid.gd" id="1_dmpnq"]
 [ext_resource type="Texture2D" uid="uid://d0bk63n3r0aul" path="res://assets/Obstacles/squid_obstacle.png" id="2_3hv13"]
+[ext_resource type="Texture2D" uid="uid://bwcubnujtu7d" path="res://assets/Obstacles/squid_obstacle_dark.png" id="2_lxs1n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lxs1n"]
 atlas = ExtResource("2_3hv13")
@@ -27,6 +28,42 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("2_3hv13")
 region = Rect2(160, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx6xv"]
+atlas = ExtResource("2_lxs1n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7lc7"]
+atlas = ExtResource("2_lxs1n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5obk"]
+atlas = ExtResource("2_lxs1n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nol7y"]
+atlas = ExtResource("2_lxs1n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnddd"]
+atlas = ExtResource("2_lxs1n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20340"]
+atlas = ExtResource("2_lxs1n")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wh8o"]
+atlas = ExtResource("2_lxs1n")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bf0y"]
+atlas = ExtResource("2_lxs1n")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vx6t"]
+atlas = ExtResource("2_lxs1n")
+region = Rect2(256, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_usvy1"]
 animations = [{
 "frames": [{
@@ -49,7 +86,39 @@ animations = [{
 "texture": SubResource("AtlasTexture_310ne")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"default_white",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx6xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7lc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5obk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nol7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnddd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20340")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wh8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bf0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vx6t")
+}],
+"loop": 1,
+"name": &"wobble_black",
 "speed": 8.0
 }]
 
@@ -62,13 +131,14 @@ collision_layer = 0
 collision_mask = 24
 script = ExtResource("1_dmpnq")
 damage = 0
-spirit_display_mode = 0
+spirit_display_mode = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=431752201]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_usvy1")
-autoplay = "default"
-frame_progress = 0.06643421
+animation = &"wobble_black"
+autoplay = "default_white"
+frame_progress = 0.69585735
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2053307746]
 position = Vector2(0, 1)

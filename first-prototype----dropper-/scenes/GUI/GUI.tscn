@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dt3ekvby87hhd" path="res://assets/UI/IconHeartEmpty.png" id="1_ugkik"]
 [ext_resource type="Texture2D" uid="uid://r7b7frvrxs76" path="res://assets/UI/IconHeart.png" id="2_idl4l"]
 [ext_resource type="Script" uid="uid://dppc3rmh5nj6i" path="res://scripts/UI/texture_progress_bar.gd" id="3_d7rg1"]
+[ext_resource type="Script" uid="uid://k7lo6lr4kpir" path="res://scripts/UI/v_box_container.gd" id="4_d7rg1"]
 [ext_resource type="Script" uid="uid://cjppdlkwkvcfa" path="res://scripts/UI/depth_progress_bar.gd" id="4_idl4l"]
 
 [node name="Gui" type="Control" unique_id=706741470]
@@ -20,15 +21,13 @@ layer = 500
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -993.0
-offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/MarginContainer" unique_id=1546115860]
 layout_mode = 2
@@ -38,6 +37,12 @@ fill_mode = 5
 texture_under = ExtResource("1_ugkik")
 texture_progress = ExtResource("2_idl4l")
 script = ExtResource("3_d7rg1")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=1637782319]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("4_d7rg1")
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1233312224]
 anchors_preset = 6

@@ -53,7 +53,7 @@ func play_damage(_arg = null) -> void:
 		
 
 func _ready() -> void:
-	animation.play("falling_dark")
+	animation.play("ray_falling_light")
 	brake_comp.brake_started.connect(play_gliding)
 	brake_comp.brake_ended.connect(play_falling)
 	player.flipped.connect(_set_flip_v)
