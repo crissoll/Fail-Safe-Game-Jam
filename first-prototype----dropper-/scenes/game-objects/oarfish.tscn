@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d0cxihylo5e2l"]
+
+[ext_resource type="Script" uid="uid://dgc71w7oniuku" path="res://scripts/classes/oarfish.gd" id="1_yddcc"]
+[ext_resource type="Texture2D" uid="uid://cr04b6a0tqj10" path="res://assets/Obstacles/oarfish (1).png" id="2_qss88"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_usvy1"]
+radius = 14.0
+height = 108.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nmvmi"]
+height = 57.738953
+
+[node name="Oarfish" type="Area2D" unique_id=1292596826]
+scale = Vector2(0.665, 0.665)
+collision_layer = 0
+collision_mask = 24
+script = ExtResource("1_yddcc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=381968312]
+position = Vector2(57, 1)
+texture = ExtResource("2_qss88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1805032769]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_usvy1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=423999804]
+position = Vector2(-32, 1.9999995)
+rotation = -0.10154538
+shape = SubResource("CapsuleShape2D_nmvmi")

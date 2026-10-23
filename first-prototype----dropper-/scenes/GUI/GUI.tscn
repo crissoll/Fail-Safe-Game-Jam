@@ -1,8 +1,5 @@
 [gd_scene format=3 uid="uid://cd76bet3itevc"]
 
-[ext_resource type="Texture2D" uid="uid://dt3ekvby87hhd" path="res://assets/UI/IconHeartEmpty.png" id="1_ugkik"]
-[ext_resource type="Texture2D" uid="uid://r7b7frvrxs76" path="res://assets/UI/IconHeart.png" id="2_idl4l"]
-[ext_resource type="Script" uid="uid://dppc3rmh5nj6i" path="res://scripts/UI/texture_progress_bar.gd" id="3_d7rg1"]
 [ext_resource type="Script" uid="uid://k7lo6lr4kpir" path="res://scripts/UI/v_box_container.gd" id="4_d7rg1"]
 [ext_resource type="Script" uid="uid://cjppdlkwkvcfa" path="res://scripts/UI/depth_progress_bar.gd" id="4_idl4l"]
 
@@ -29,15 +26,6 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/MarginContainer" unique_id=1546115860]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-fill_mode = 5
-texture_under = ExtResource("1_ugkik")
-texture_progress = ExtResource("2_idl4l")
-script = ExtResource("3_d7rg1")
-
 [node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=1637782319]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -45,15 +33,17 @@ size_flags_vertical = 0
 script = ExtResource("4_d7rg1")
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1233312224]
+modulate = Color(0.6914329, 0.6154077, 1, 1)
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -85.0
+offset_left = -41.0
 offset_top = -226.0
 offset_bottom = 226.0
 grow_horizontal = 0
 grow_vertical = 2
 fill_mode = 2
+show_percentage = false
 script = ExtResource("4_idl4l")
