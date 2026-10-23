@@ -10,10 +10,12 @@
 [ext_resource type="Script" uid="uid://deknaxf4oh7ho" path="res://scripts/classes/player/stamina_display_component.gd" id="9_d2wvv"]
 [ext_resource type="Script" uid="uid://dk5nkqc7lhmq8" path="res://scripts/classes/player/animation_component.gd" id="10_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://b3gsrxajsk6u" path="res://assets/Player/ray_falling.png" id="11_jej6c"]
+[ext_resource type="Texture2D" uid="uid://sy86yofw460f" path="res://assets/Obstacles/ray_gliding_up.png" id="12_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://dhboybxgya3fm" path="res://assets/Player/ray_falling_light.png" id="12_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://fpb62muqlre4" path="res://assets/Player/ray_gliding.png" id="12_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://khrmb40ujnhr" path="res://assets/Player/ray_gliding_light.png" id="12_oprun"]
 [ext_resource type="Texture2D" uid="uid://b3grx7l67c5et" path="res://assets/Player/ray_damaged_falling.png" id="12_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://hjppj4d206o2" path="res://assets/Obstacles/ray_gliding_up_light.png" id="13_60mlk"]
 [ext_resource type="Texture2D" uid="uid://cxdytqd17k77e" path="res://assets/Player/ray_phasing.png" id="13_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://bi1u55fro00py" path="res://assets/Player/ray_damaged_falling_light.png" id="13_fulsm"]
 [ext_resource type="Texture2D" uid="uid://6u14u1ynbcht" path="res://assets/Player/ray_phasing_to_dark.png" id="14_qfm1y"]
@@ -101,6 +103,38 @@ region = Rect2(312, 0, 52, 46)
 [sub_resource type="AtlasTexture" id="AtlasTexture_31cv2"]
 atlas = ExtResource("12_f1ej7")
 region = Rect2(364, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdulj"]
+atlas = ExtResource("12_4r5pv")
+region = Rect2(0, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vau08"]
+atlas = ExtResource("12_4r5pv")
+region = Rect2(52, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsb7e"]
+atlas = ExtResource("12_4r5pv")
+region = Rect2(104, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjsmb"]
+atlas = ExtResource("12_4r5pv")
+region = Rect2(156, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwp2n"]
+atlas = ExtResource("13_60mlk")
+region = Rect2(0, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0yhus"]
+atlas = ExtResource("13_60mlk")
+region = Rect2(52, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlll7"]
+atlas = ExtResource("13_60mlk")
+region = Rect2(104, 0, 52, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk6i7"]
+atlas = ExtResource("13_60mlk")
+region = Rect2(156, 0, 52, 46)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bj30b"]
 atlas = ExtResource("12_qfm1y")
@@ -339,6 +373,40 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vdulj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vau08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsb7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjsmb")
+}],
+"loop": 1,
+"name": &"gliding_up_dark",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwp2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0yhus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlll7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk6i7")
+}],
+"loop": 1,
+"name": &"gliding_up_light",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bj30b")
 }, {
 "duration": 1.0,
@@ -572,7 +640,9 @@ texture = SubResource("GradientTexture2D_u25ut")
 [node name="Animation" type="AnimatedSprite2D" parent="." unique_id=778203001]
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_u25ut")
-animation = &"ray_falling_light"
+animation = &"gliding_up_light"
+frame = 3
+frame_progress = 0.5801308
 
 [connection signal="brake_ended" from="Components/BrakeComponent" to="Paraglider" method="hide"]
 [connection signal="brake_started" from="Components/BrakeComponent" to="Paraglider" method="show"]

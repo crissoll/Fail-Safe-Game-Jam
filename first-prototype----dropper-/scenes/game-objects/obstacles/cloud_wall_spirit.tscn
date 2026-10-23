@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dalroslu4fj8w"]
+
+[ext_resource type="PackedScene" uid="uid://d3f76t3h7lvo8" path="res://scenes/game-objects/obstacles/spirit-obstacle.tscn" id="1_base"]
+
+[node name="CloudWallSpirit" instance=ExtResource("1_base")]
+
+[node name="ColorRect" parent="." index="1"]
+visible = false

@@ -4,16 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://r7k1qw2pa4l7" path="res://scenes/player.tscn" id="2_tipki"]
 [ext_resource type="PackedScene" uid="uid://bof75kl6wli8e" path="res://scenes/game-objects/pause_menu.tscn" id="3_85g3d"]
 [ext_resource type="Script" uid="uid://vqtuum0g3ish" path="res://scripts/UI/ink.gd" id="3_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://f80vs5rbluqx" path="res://scenes/levels/basic_level.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cd76bet3itevc" path="res://scenes/GUI/GUI.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://b60wcccrh7jac" path="res://scenes/levels/flappy_level.tscn" id="7_o6xl0"]
 
 [node name="Main" type="Node2D" unique_id=1478944514]
 
 [node name="player" parent="." unique_id=440862904 instance=ExtResource("2_tipki")]
 position = Vector2(149, 33)
 camera_change_speed = 600.0
-
-[node name="Level" parent="." unique_id=350627010 instance=ExtResource("4_jyhfs")]
 
 [node name="Ink" type="CanvasLayer" parent="." unique_id=1493064095]
 layer = 100
@@ -35,3 +33,5 @@ fade_duration = 5.0
 layer = 1000
 
 [node name="Gui" parent="." unique_id=706741470 instance=ExtResource("5_tbgi4")]
+
+[node name="Level2" parent="." unique_id=1475013918 instance=ExtResource("7_o6xl0")]

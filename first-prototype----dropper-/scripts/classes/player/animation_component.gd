@@ -35,10 +35,17 @@ func play_falling() -> void:
 	#_set_modulate()
 
 func play_gliding() -> void:
-	if spirit_comp.is_spirit:
-		animation.play("ray_gliding_light")
+	
+	if !GameManager.ascension:
+		if spirit_comp.is_spirit:
+			animation.play("ray_gliding_light")
+		else:
+			animation.play("gliding_dark")
 	else:
-		animation.play("gliding_dark")
+		if spirit_comp.is_spirit:
+			animation.play("gliding_up_light")
+		else:
+			animation.play("gliding_up_dark")
 	_set_flip_v()
 	#_set_modulate()
 

@@ -1,8 +1,8 @@
 extends Obstacle
 class_name Oarfish
 
-@onready var oarfish_black: Sprite2D = $oarfishBlack
-@onready var oarfish_white: Sprite2D = $oarfishWhite
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 
 func _ready() -> void:
 	add_to_group("Jellyfish")
@@ -22,8 +22,6 @@ func reset():
 	
 func set_animation(ascension : bool):
 	if !ascension:
-		oarfish_white.show()
-		oarfish_black.hide()
+		animated_sprite_2d.play("white")
 	else:
-		oarfish_white.hide()
-		oarfish_black.show()
+		animated_sprite_2d.play("black")
