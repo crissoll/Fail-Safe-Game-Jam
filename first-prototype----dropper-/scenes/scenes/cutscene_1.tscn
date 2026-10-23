@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dbwgm73fhhcr7" path="res://assets/cutscene_1/cutscene_5left.png" id="10_qwh53"]
 [ext_resource type="Texture2D" uid="uid://bsyt2he1l1jxi" path="res://assets/cutscene_1/cutscene_5right.png" id="11_62hqq"]
 [ext_resource type="Texture2D" uid="uid://pfyhygftamjc" path="res://assets/cutscene_1/cutscene_5ray.png" id="12_unlxt"]
+[ext_resource type="Script" uid="uid://jcdfjyd6phpx" path="res://scripts/classes/cutscene_player.gd" id="20_cutscn"]
 
 [sub_resource type="Animation" id="Animation_5b40d"]
 length = 0.001
@@ -460,6 +461,7 @@ _data = {
 }
 
 [node name="Cutscene1" type="Node2D" unique_id=844683764]
+script = ExtResource("20_cutscn")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1415397604]
 offset_left = -1424.0

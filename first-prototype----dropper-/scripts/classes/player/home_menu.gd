@@ -2,6 +2,8 @@
 extends Control
 
 const GAME_SCENE_PATH := "res://scenes/main.tscn"
+## Cutscene mostrata dopo Play; a fine cutscene si passa a GAME_SCENE_PATH.
+const INTRO_CUTSCENE_PATH := "res://scenes/scenes/cutscene_1.tscn"
 const SAVE_PATH := "user://settings.cfg"
 const MUSIC_BUS_NAME: StringName = &"Music"
 const DEFAULT_MUSIC_VOLUME := 80.0
@@ -106,11 +108,15 @@ func _make_button(button_text: String) -> Button:
 
 
 func _on_play_pressed() -> void:
-	if not ResourceLoader.exists(GAME_SCENE_PATH):
-		push_error("Scena di gioco non trovata: " + GAME_SCENE_PATH)
+	# Prima la cutscene (che poi carica il gioco); se manca, direttamente il gioco.
+	var target := INTRO_CUTSCENE_PATH
+	if not ResourceLoader.exists(target):
+		target = GAME_SCENE_PATH
+	if not ResourceLoader.exists(target):
+		push_error("Scena di gioco non trovata: " + target)
 		return
 
-	var error := get_tree().change_scene_to_file(GAME_SCENE_PATH)
+	var error := get_tree().change_scene_to_file(target)
 
 	if error != OK:
 		push_error(

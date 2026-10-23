@@ -9,14 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://dpqd1v10nx5xa" path="res://scenes/game-objects/eel.tscn" id="7_c0ucp"]
 [ext_resource type="PackedScene" uid="uid://d0cxihylo5e2l" path="res://scenes/game-objects/oarfish.tscn" id="8_kp5kf"]
 [ext_resource type="PackedScene" uid="uid://cuf61f0n2y3yy" path="res://scenes/game-objects/pufferfish.tscn" id="9_py4jg"]
+[ext_resource type="PackedScene" uid="uid://dalroslu4fj8w" path="res://scenes/game-objects/obstacles/cloud_wall_spirit.tscn" id="10_cws"]
+[ext_resource type="PackedScene" uid="uid://bg6j7i16t71mb" path="res://scenes/game-objects/obstacles/cloud_wall_physical.tscn" id="11_cwp"]
+[ext_resource type="PackedScene" uid="uid://3k4n7dcjspog" path="res://scenes/game-objects/obstacles/cloud_wall_spirit_return.tscn" id="12_cwr"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m7iyv"]
 resource_name = "Spritual Obstacles"
 scenes/1/scene = ExtResource("1_s6pe6")
+scenes/2/scene = ExtResource("10_cws")
+scenes/3/scene = ExtResource("12_cwr")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_tn7vo"]
 resource_name = "Obstacles"
 scenes/1/scene = ExtResource("2_c0ucp")
+scenes/2/scene = ExtResource("11_cwp")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4tl2j"]
 resource_name = "Jellyfish"

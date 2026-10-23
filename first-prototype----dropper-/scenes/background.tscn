@@ -145,8 +145,8 @@ follow_viewport_enabled = true
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground2" unique_id=192399172]
 offset_left = 416.70496
 offset_top = -35.036865
-offset_right = 4521.031
-offset_bottom = 798.02484
+offset_right = 32416.705
+offset_bottom = 798.02515
 rotation = 1.5707964
 texture = SubResource("GradientTexture2D_au7uu")
 
