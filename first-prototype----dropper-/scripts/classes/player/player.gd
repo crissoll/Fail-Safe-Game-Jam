@@ -44,8 +44,7 @@ func _physics_process(delta: float) -> void:
 	if reverse_camera:
 		_handle_camera_transition(delta)
 		return
-	print("normal layer : ", get_collision_layer_value(4))
-	print("spirit layer : ", get_collision_layer_value(5))
+
 
 		
 	_handle_input()

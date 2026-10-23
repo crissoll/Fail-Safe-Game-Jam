@@ -2,8 +2,246 @@
 
 [ext_resource type="PackedScene" uid="uid://boiq8madn315w" path="res://scenes/game-objects/obstacles/obstacle.tscn" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://ds6067ev8qkh7" path="res://scenes/levels/empty_level.tscn" id="3_56njm"]
+[ext_resource type="Script" uid="uid://c3vouvgg3vsur" path="res://scripts/classes/pufferfish.gd" id="3_m7iyv"]
+[ext_resource type="Texture2D" uid="uid://csxlwwbx5sxfa" path="res://assets/Obstacles/pufferfish_obstacles_dark-Sheet.png" id="4_1ak8g"]
+[ext_resource type="Texture2D" uid="uid://cs1oy5r8oanph" path="res://assets/Obstacles/pufferfish_obstacles.png" id="5_aperb"]
 [ext_resource type="TileSet" uid="uid://drk1jqq2sjpsv" path="res://resources/obstacles_tile_set.tres" id="5_m7iyv"]
 [ext_resource type="Script" uid="uid://cxm3gc2desgsl" path="res://scripts/classes/move_component.gd" id="7_1ak8g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn6nf"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr0km"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd413"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldjor"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bphjc"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsp03"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0fx0"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuhbm"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f1oy"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5akse"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkkk1"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_856w8"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyn42"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ndrhy"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mq4x3"]
+atlas = ExtResource("4_1ak8g")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2rqn"]
+atlas = ExtResource("5_aperb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu40o"]
+atlas = ExtResource("5_aperb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqp7x"]
+atlas = ExtResource("5_aperb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twehb"]
+atlas = ExtResource("5_aperb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fse6h"]
+atlas = ExtResource("5_aperb")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mawa"]
+atlas = ExtResource("5_aperb")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul60y"]
+atlas = ExtResource("5_aperb")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8qdj"]
+atlas = ExtResource("5_aperb")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thl1a"]
+atlas = ExtResource("5_aperb")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0o7d"]
+atlas = ExtResource("5_aperb")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54onp"]
+atlas = ExtResource("5_aperb")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vcoy"]
+atlas = ExtResource("5_aperb")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5pls"]
+atlas = ExtResource("5_aperb")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g7jb"]
+atlas = ExtResource("5_aperb")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qma43"]
+atlas = ExtResource("5_aperb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_au7uu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn6nf")
+}],
+"loop": 0,
+"name": &"black",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr0km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd413")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ldjor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bphjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsp03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0fx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuhbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f1oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5akse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkkk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_856w8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyn42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ndrhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mq4x3")
+}],
+"loop": 0,
+"name": &"black_anim",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2rqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu40o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqp7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twehb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fse6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mawa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul60y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8qdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thl1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0o7d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54onp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vcoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5pls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g7jb")
+}],
+"loop": 0,
+"name": &"default_white_anim",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qma43")
+}],
+"loop": 0,
+"name": &"white",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gepqh"]
 
 [node name="Level" type="Node2D" unique_id=350627010]
 
@@ -12,11 +250,36 @@ width = 372.615
 height = 2500.0
 
 [node name="Obstacles" type="TileMapLayer" parent="EmptyLevel" unique_id=1679749912]
-tile_map_data = PackedByteArray("AAABAA8AAgAAAAAAAQD+/x8AAgAAAAAAAQD7/xsAAAAAAAAAAQD8/xsAAAAAAAAAAQD8/xoAAAAAAAAAAQD9/xoAAAAAAAAAAQD+/xoAAAAAAAAAAQD//xoAAAAAAAAAAQD//xsAAAAAAAAAAQAAABsAAAAAAAAAAQABABsAAAAAAAAAAQABABoAAAAAAAAAAQDy/y4AAAAAAAAAAQDz/y4AAAAAAAAAAQD0/y4AAAAAAAAAAQD1/y4AAAAAAAAAAQD2/y4AAAAAAAAAAQD3/y4AAAAAAAAAAQD4/y4AAAAAAAAAAQDy/zQAAQAAAAAAAQDz/zQAAQAAAAAAAQD0/zQAAQAAAAAAAQD1/zQAAQAAAAAAAQD2/zQAAQAAAAAAAQD3/zQAAQAAAAAAAQD4/zQAAQAAAAAAAQDy/zwAAAAAAAAAAQDz/zwAAAAAAAAAAQD0/zwAAAAAAAAAAQD1/zwAAAAAAAAAAQD2/zwAAAAAAAAAAQD3/zwAAAAAAAAAAQD4/zwAAAAAAAAAAQDy/0QAAQAAAAAAAQDz/0QAAQAAAAAAAQD0/0QAAQAAAAAAAQD1/0QAAQAAAAAAAQD2/0QAAQAAAAAAAQD3/0QAAQAAAAAAAQD4/0QAAQAAAAAAAQDy/0wAAAAAAAAAAQDz/0wAAAAAAAAAAQD0/0wAAAAAAAAAAQD1/0wAAAAAAAAAAQD2/0wAAAAAAAAAAQD3/0wAAAAAAAAAAQD4/0wAAAAAAAAAAQDy/1QAAQAAAAAAAQDz/1QAAQAAAAAAAQD0/1QAAQAAAAAAAQD1/1QAAQAAAAAAAQD2/1QAAQAAAAAAAQD3/1QAAQAAAAAAAQD4/1QAAQAAAAAAAQDy/1oAAAAAAAAAAQDz/1oAAAAAAAAAAQD0/1oAAAAAAAAAAQD1/1oAAAAAAAAAAQD2/1oAAAAAAAAAAQD3/1oAAAAAAAAAAQD4/1oAAAAAAAAAAQDy/2AAAQAAAAAAAQDz/2AAAQAAAAAAAQD0/2AAAQAAAAAAAQD1/2AAAQAAAAAAAQD2/2AAAQAAAAAAAQD3/2AAAQAAAAAAAQD4/2AAAQAAAAAAAQADAB8AAgAAAAAAAQD1/xoAAgAAAAAAAQD1/xwAAgAAAAAAAgD1/x4AAgAAAAAAAwAJACMAAgAAAAAAAwAKABUAAgAAAAAAAwADADEAAwAAAAAAAQD3/ygAAwAAAAAAAQAGADwAAwAAAAAAAQD//wUAAwAAAAAAAQD+/ykAAQAAAAAAAQD+/yoAAQAAAAAAAQD//yoAAQAAAAAAAQD//ysAAQAAAAAAAQAAACsAAQAAAAAAAQAAACoAAQAAAAAAAQD//ykAAQAAAAAAAQD+/ysAAQAAAAAAAQACAEMAAAAAAAAAAQABAEMAAAAAAAAAAQADAEMAAAAAAAAAAQADAEQAAAAAAAAAAQAEAEQAAAAAAAAAAQAFAEMAAAAAAAAAAQAGAEMAAAAAAAAAAQAGAEQAAAAAAAAAAQAFAEQAAAAAAAAAAQAEAEMAAAAAAAAAAQAEAEIAAAAAAAAAAQAFAEIAAAAAAAAAAQACAEQAAAAAAAAAAQABAEIAAAAAAAAAAQACAEIAAAAAAAAAAQADAEIAAAAAAAAAAQAGAEIAAAAAAAAAAQABAEQAAAAAAAAAAQD//00AAAAAAAAAAQD//0wAAAAAAAAAAQD//0sAAAAAAAAAAQADAGIAAAAAAAAAAQADAGEAAAAAAAAAAQD1/wkABAAAAAAAAQD1/woABAAAAAAAAQAHAAUABAAAAAAAAQD8/xQABQAAAAAAAQAKABAABQAAAAAAAQAEAIoABQAAAAAAAQD2/4EABQAAAAAAAQAKAJQABQAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAABAA8AAgAAAAAAAQD+/x8AAgAAAAAAAQD7/xsAAAAAAAAAAQD8/xsAAAAAAAAAAQD8/xoAAAAAAAAAAQD9/xoAAAAAAAAAAQD+/xoAAAAAAAAAAQD//xoAAAAAAAAAAQD//xsAAAAAAAAAAQAAABsAAAAAAAAAAQABABsAAAAAAAAAAQABABoAAAAAAAAAAQDy/y4AAAAAAAAAAQDz/y4AAAAAAAAAAQD0/y4AAAAAAAAAAQD1/y4AAAAAAAAAAQD2/y4AAAAAAAAAAQD3/y4AAAAAAAAAAQD4/y4AAAAAAAAAAQDy/zQAAQAAAAAAAQDz/zQAAQAAAAAAAQD0/zQAAQAAAAAAAQD1/zQAAQAAAAAAAQD2/zQAAQAAAAAAAQD3/zQAAQAAAAAAAQD4/zQAAQAAAAAAAQDy/zwAAAAAAAAAAQDz/zwAAAAAAAAAAQD0/zwAAAAAAAAAAQD1/zwAAAAAAAAAAQD2/zwAAAAAAAAAAQD3/zwAAAAAAAAAAQD4/zwAAAAAAAAAAQDy/0QAAQAAAAAAAQDz/0QAAQAAAAAAAQD0/0QAAQAAAAAAAQD1/0QAAQAAAAAAAQD2/0QAAQAAAAAAAQD3/0QAAQAAAAAAAQD4/0QAAQAAAAAAAQDy/0wAAAAAAAAAAQDz/0wAAAAAAAAAAQD0/0wAAAAAAAAAAQD1/0wAAAAAAAAAAQD2/0wAAAAAAAAAAQD3/0wAAAAAAAAAAQD4/0wAAAAAAAAAAQDy/1QAAQAAAAAAAQDz/1QAAQAAAAAAAQD0/1QAAQAAAAAAAQD1/1QAAQAAAAAAAQD2/1QAAQAAAAAAAQD3/1QAAQAAAAAAAQD4/1QAAQAAAAAAAQDy/1oAAAAAAAAAAQDz/1oAAAAAAAAAAQD0/1oAAAAAAAAAAQD1/1oAAAAAAAAAAQD2/1oAAAAAAAAAAQD3/1oAAAAAAAAAAQD4/1oAAAAAAAAAAQDy/2AAAQAAAAAAAQDz/2AAAQAAAAAAAQD0/2AAAQAAAAAAAQD1/2AAAQAAAAAAAQD2/2AAAQAAAAAAAQD3/2AAAQAAAAAAAQD4/2AAAQAAAAAAAQADAB8AAgAAAAAAAQD1/xoAAgAAAAAAAQD1/xwAAgAAAAAAAgD1/x4AAgAAAAAAAwAJACMAAgAAAAAAAwAKABUAAgAAAAAAAwADADEAAwAAAAAAAQD3/ygAAwAAAAAAAQAGADwAAwAAAAAAAQD+/ykAAQAAAAAAAQD+/yoAAQAAAAAAAQD//yoAAQAAAAAAAQD//ysAAQAAAAAAAQAAACsAAQAAAAAAAQAAACoAAQAAAAAAAQD//ykAAQAAAAAAAQD+/ysAAQAAAAAAAQACAEMAAAAAAAAAAQABAEMAAAAAAAAAAQADAEMAAAAAAAAAAQADAEQAAAAAAAAAAQAEAEQAAAAAAAAAAQAFAEMAAAAAAAAAAQAGAEMAAAAAAAAAAQAGAEQAAAAAAAAAAQAFAEQAAAAAAAAAAQAEAEMAAAAAAAAAAQAEAEIAAAAAAAAAAQAFAEIAAAAAAAAAAQACAEQAAAAAAAAAAQABAEIAAAAAAAAAAQACAEIAAAAAAAAAAQADAEIAAAAAAAAAAQAGAEIAAAAAAAAAAQABAEQAAAAAAAAAAQD//00AAAAAAAAAAQD//0wAAAAAAAAAAQD//0sAAAAAAAAAAQADAGIAAAAAAAAAAQADAGEAAAAAAAAAAQD1/wkABAAAAAAAAQD1/woABAAAAAAAAQD8/xQABQAAAAAAAQAKABAABQAAAAAAAQAEAIoABQAAAAAAAQD2/4EABQAAAAAAAQAKAJQABQAAAAAAAQAFAC0ABgAAAAAAAQA=")
 tile_set = ExtResource("5_m7iyv")
 
 [node name="obstacles" type="Node2D" parent="EmptyLevel" unique_id=1516684180]
 position = Vector2(-151, -156)
+
+[node name="Pufferfish" type="Area2D" parent="EmptyLevel/obstacles" unique_id=1418302380]
+texture_filter = 1
+position = Vector2(35, 232)
+collision_layer = 0
+collision_mask = 24
+script = ExtResource("3_m7iyv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EmptyLevel/obstacles/Pufferfish" unique_id=75008365]
+sprite_frames = SubResource("SpriteFrames_au7uu")
+animation = &"default_white_anim"
+autoplay = "white"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EmptyLevel/obstacles/Pufferfish" unique_id=594198628]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_gepqh")
+
+[node name="MoveTowardTargetComponent" type="Node2D" parent="EmptyLevel/obstacles/Pufferfish" unique_id=292885386 node_paths=PackedStringArray("target")]
+script = ExtResource("7_1ak8g")
+target = NodePath("Target")
+metadata/_custom_type_script = "uid://cxm3gc2desgsl"
+
+[node name="Target" type="Node2D" parent="EmptyLevel/obstacles/Pufferfish/MoveTowardTargetComponent" unique_id=1267258824]
+position = Vector2(251, 0.99999803)
+scale = Vector2(0.19941783, 0.65714335)
 
 [node name="obstacle" parent="EmptyLevel/obstacles" unique_id=1118835633 instance=ExtResource("2_0e48y")]
 position = Vector2(18, 135)
@@ -72,13 +335,14 @@ scale = Vector2(5.014598, 1.521738)
 
 [connection signal="body_entered" from="EmptyLevel/Obstacles/Jellyfish" to="EmptyLevel/Obstacles/Jellyfish" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="EmptyLevel/Obstacles/Jellyfish" to="EmptyLevel/Obstacles/Jellyfish" method="_on_body_shape_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@201608" to="EmptyLevel/Obstacles/@Area2D@201608" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@201608" to="EmptyLevel/Obstacles/@Area2D@201608" method="_on_body_shape_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@201674" to="EmptyLevel/Obstacles/@Area2D@201674" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@201674" to="EmptyLevel/Obstacles/@Area2D@201674" method="_on_body_shape_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@201675" to="EmptyLevel/Obstacles/@Area2D@201675" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@201675" to="EmptyLevel/Obstacles/@Area2D@201675" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@87174" to="EmptyLevel/Obstacles/@Area2D@87174" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@87174" to="EmptyLevel/Obstacles/@Area2D@87174" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@87240" to="EmptyLevel/Obstacles/@Area2D@87240" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@87240" to="EmptyLevel/Obstacles/@Area2D@87240" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@87241" to="EmptyLevel/Obstacles/@Area2D@87241" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="EmptyLevel/Obstacles/@Area2D@87241" to="EmptyLevel/Obstacles/@Area2D@87241" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="EmptyLevel/Obstacles/Squid" to="EmptyLevel/Obstacles/Squid" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@201679" to="EmptyLevel/Obstacles/@Area2D@201679" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@201680" to="EmptyLevel/Obstacles/@Area2D@201680" method="_on_body_entered"]
-[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@201681" to="EmptyLevel/Obstacles/@Area2D@201681" method="_on_body_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@87245" to="EmptyLevel/Obstacles/@Area2D@87245" method="_on_body_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/@Area2D@87246" to="EmptyLevel/Obstacles/@Area2D@87246" method="_on_body_entered"]
+[connection signal="body_entered" from="EmptyLevel/Obstacles/Pufferfish" to="EmptyLevel/Obstacles/Pufferfish" method="_on_body_entered"]
+[connection signal="body_entered" from="EmptyLevel/obstacles/Pufferfish" to="EmptyLevel/obstacles/Pufferfish" method="_on_body_entered"]

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://q3j3uok7b8di" path="res://scenes/game-objects/obstacles/squid.tscn" id="6_3v57c"]
 [ext_resource type="PackedScene" uid="uid://dpqd1v10nx5xa" path="res://scenes/game-objects/eel.tscn" id="7_c0ucp"]
 [ext_resource type="PackedScene" uid="uid://d0cxihylo5e2l" path="res://scenes/game-objects/oarfish.tscn" id="8_kp5kf"]
+[ext_resource type="PackedScene" uid="uid://cuf61f0n2y3yy" path="res://scenes/game-objects/pufferfish.tscn" id="9_py4jg"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m7iyv"]
 resource_name = "Spritual Obstacles"
@@ -35,6 +36,10 @@ scenes/1/scene = ExtResource("7_c0ucp")
 resource_name = "Oarfish"
 scenes/1/scene = ExtResource("8_kp5kf")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gb0ts"]
+resource_name = "Pufferfish"
+scenes/1/scene = ExtResource("9_py4jg")
+
 [resource]
 sources/1 = SubResource("TileSetScenesCollectionSource_tn7vo")
 sources/0 = SubResource("TileSetScenesCollectionSource_m7iyv")
@@ -42,3 +47,4 @@ sources/2 = SubResource("TileSetScenesCollectionSource_4tl2j")
 sources/3 = SubResource("TileSetScenesCollectionSource_7dsm5")
 sources/4 = SubResource("TileSetScenesCollectionSource_kp5kf")
 sources/5 = SubResource("TileSetScenesCollectionSource_py4jg")
+sources/6 = SubResource("TileSetScenesCollectionSource_gb0ts")

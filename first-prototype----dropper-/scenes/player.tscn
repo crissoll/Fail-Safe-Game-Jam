@@ -505,7 +505,7 @@ health_comp = NodePath("Components/HealthComponent")
 shape = SubResource("CircleShape2D_u25ut")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=824191862]
-position = Vector2(4, 189.45)
+position = Vector2(4, 120)
 zoom = Vector2(1.4, 1.4)
 limit_left = -400
 limit_right = 400
