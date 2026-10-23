@@ -15,8 +15,6 @@ signal flipped
 @export var g := 200.0
 @export var camera_change_speed := 1000.0
 
-@export var health_label: Label
-
 @export_group("Components")
 @export var stamina_comp: StaminaComponent
 @export var brake_comp: BrakeComponent
@@ -39,12 +37,6 @@ func _ready() -> void:
 	GameManager.set_ascension(false)
 	reversed_camera_pos = camera.position
 	reversed_camera_pos.y *= -1
-
-	health_comp.health_changed.connect(
-		func(health: int): health_label.text = str(health)
-	)
-
-	
 	health_comp.die.connect(reset)
 
 

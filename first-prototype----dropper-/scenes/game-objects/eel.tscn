@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dpqd1v10nx5xa"]
+
+[ext_resource type="Texture2D" uid="uid://dnj3flhwagkji" path="res://assets/Obstacles/eel_black.png" id="1_2i5jr"]
+[ext_resource type="Script" uid="uid://bceiwjvrb467o" path="res://scripts/classes/eel.gd" id="1_iksw8"]
+[ext_resource type="Texture2D" uid="uid://cktge8g33kj0" path="res://assets/Obstacles/eel_white.png" id="2_iksw8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_usvy1"]
+radius = 13.66
+height = 106.0
+
+[node name="Eel" type="Area2D" unique_id=1806482109]
+scale = Vector2(0.74, 0.74)
+collision_layer = 0
+collision_mask = 24
+script = ExtResource("1_iksw8")
+
+[node name="black" type="Sprite2D" parent="." unique_id=766288215]
+texture_filter = 1
+texture = ExtResource("1_2i5jr")
+
+[node name="white" type="Sprite2D" parent="." unique_id=584549493]
+texture_filter = 1
+texture = ExtResource("2_iksw8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1864526991]
+position = Vector2(5, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_usvy1")
