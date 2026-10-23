@@ -1,3 +1,84 @@
 [gd_scene format=3 uid="uid://ba14qn0shg3ax"]
 
+[ext_resource type="Texture2D" uid="uid://bkkljtcmsi4sg" path="res://assets/cutscene_1/cutscene_1_color.png" id="1_eoo1b"]
+[ext_resource type="Texture2D" uid="uid://d2tckt40jhhu2" path="res://assets/cutscene_1/cutscene_1_clouds.png" id="2_rhj2p"]
+[ext_resource type="Texture2D" uid="uid://cbimcydup2uww" path="res://assets/cutscene_1/cutscene_1_ground.png" id="3_tclaf"]
+[ext_resource type="Texture2D" uid="uid://b2l2uvo8wg4bv" path="res://assets/cutscene_1/cutscene_1_egg.png" id="4_vl4t2"]
+
+[sub_resource type="Animation" id="Animation_5b40d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shot1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ow1ra"]
+resource_name = "cutscene"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shot1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yhrg"]
+_data = {
+&"RESET": SubResource("Animation_5b40d"),
+&"cutscene": SubResource("Animation_ow1ra")
+}
+
 [node name="Cutscene1" type="Node2D" unique_id=844683764]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1415397604]
+offset_left = -1424.0
+offset_top = -1176.0
+offset_right = 2576.0
+offset_bottom = 1824.0
+color = Color(0, 0, 0, 1)
+
+[node name="Shot1" type="Node2D" parent="." unique_id=1766419952]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Cutscene1Color" type="Sprite2D" parent="Shot1" unique_id=92089182]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_eoo1b")
+
+[node name="Cutscene1Clouds" type="Sprite2D" parent="Shot1" unique_id=870172221]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rhj2p")
+
+[node name="Cutscene1Ground" type="Sprite2D" parent="Shot1" unique_id=1732678497]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_tclaf")
+
+[node name="EggPivot" type="Node2D" parent="Shot1" unique_id=852841622]
+
+[node name="Cutscene1Egg" type="Sprite2D" parent="Shot1/EggPivot" unique_id=699106993]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vl4t2")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=307949115]
+position = Vector2(576, 324)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2087045218]
+libraries/ = SubResource("AnimationLibrary_2yhrg")
+autoplay = &"cutscene"
