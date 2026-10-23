@@ -539,6 +539,16 @@ func _has_scene_tile(source_id: int, scene_id: int) -> bool:
 # Grafica a nuvola (ricostruita dai tile)
 # --------------------------------------------------------------------------
 
+## Ridisegna le nuvole dai tile (da chiamare dopo aver cambiato dei tile mentre il gioco gira).
+func rebuild_visuals() -> void:
+	_rebuild_visuals()
+
+
+## Colonne/righe della griglia dentro l'area di gioco: col_min, col_max, row_top, row_bottom.
+func grid_bounds() -> Dictionary:
+	return _grid_bounds()
+
+
 func _queue_visual_rebuild() -> void:
 	if _visuals_dirty:
 		return

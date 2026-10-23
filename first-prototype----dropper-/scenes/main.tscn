@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://vqtuum0g3ish" path="res://scripts/UI/ink.gd" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cd76bet3itevc" path="res://scenes/GUI/GUI.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b60wcccrh7jac" path="res://scenes/levels/flappy_level.tscn" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://bkfrrtvrv1874" path="res://scripts/classes/level_cutscene_trigger.gd" id="8_ctrig"]
+[ext_resource type="PackedScene" uid="uid://l1o8wjg415xy" path="res://scenes/scenes/cutscene_2.tscn" id="9_cut2"]
+[ext_resource type="Script" uid="uid://c2eq23tiap3sf" path="res://scripts/classes/tutorial/in_game_tutorial.gd" id="10_tutor"]
 
 [node name="Main" type="Node2D" unique_id=1478944514]
 
@@ -35,3 +38,12 @@ layer = 1000
 [node name="Gui" parent="." unique_id=706741470 instance=ExtResource("5_tbgi4")]
 
 [node name="Level2" parent="." unique_id=1475013918 instance=ExtResource("7_o6xl0")]
+
+[node name="BottomCutscene" type="Node" parent="."]
+script = ExtResource("8_ctrig")
+cutscene = ExtResource("9_cut2")
+
+[node name="Tutorial" type="Node" parent="." node_paths=PackedStringArray("player", "bottom_cutscene")]
+script = ExtResource("10_tutor")
+player = NodePath("../player")
+bottom_cutscene = NodePath("../BottomCutscene")

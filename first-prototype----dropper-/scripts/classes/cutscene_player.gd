@@ -1,9 +1,15 @@
 class_name CutscenePlayer
 extends Node
-## Fa partire l'animazione della cutscene e, quando finisce, carica la scena di gioco.
-## Si può saltare con Invio/Spazio/Esc o un clic.
+## Fa partire l'animazione della cutscene e, quando finisce:
+## - se [member next_scene] è impostato, carica quella scena (es. cutscene iniziale -> gioco);
+## - se [member next_scene] è vuoto, emette [signal finished] e basta
+##   (cutscene mostrata dentro il gioco da un [LevelCutsceneTrigger]).
+## Si può saltare con Invio/Spazio/Esc o un clic (se [member can_skip]).
 
-## Scena da caricare a fine cutscene.
+## Emesso quando la cutscene finisce (o viene saltata).
+signal finished
+
+## Scena da caricare a fine cutscene. Lascialo vuoto per una cutscene dentro il gioco.
 @export_file("*.tscn") var next_scene := "res://scenes/main.tscn"
 ## AnimationPlayer della cutscene (se vuoto lo cerca tra i figli).
 @export var animation_player: AnimationPlayer
@@ -17,10 +23,12 @@ var _leaving := false
 
 func _ready() -> void:
 	if animation_player == null:
-		animation_player = find_children("*", "AnimationPlayer", true, false).front() as AnimationPlayer
+		var found := find_children("*", "AnimationPlayer", true, false)
+		if not found.is_empty():
+			animation_player = found.front() as AnimationPlayer
 	if animation_player == null or not animation_player.has_animation(animation_name):
-		push_warning("Cutscene: animazione '%s' non trovata, passo al gioco." % animation_name)
-		_go_to_next_scene()
+		push_warning("Cutscene: animazione '%s' non trovata, la salto." % animation_name)
+		_go_to_next_scene.call_deferred()
 		return
 	animation_player.animation_finished.connect(_on_animation_finished)
 	if animation_player.current_animation != animation_name:
@@ -47,4 +55,6 @@ func _go_to_next_scene() -> void:
 	if _leaving:
 		return
 	_leaving = true
-	get_tree().change_scene_to_file.call_deferred(next_scene)
+	finished.emit()
+	if not next_scene.is_empty():
+		get_tree().change_scene_to_file.call_deferred(next_scene)

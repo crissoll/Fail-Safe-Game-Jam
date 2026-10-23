@@ -8,6 +8,7 @@ const SAVE_PATH := "user://settings.cfg"
 const MUSIC_BUS_NAME: StringName = &"Music"
 const DEFAULT_MUSIC_VOLUME := 80.0
 
+var image = preload("res://assets/Obstacles/Untitled_Artwork.png")
 var menu_container: VBoxContainer
 var settings_container: VBoxContainer
 var music_slider: HSlider
@@ -28,8 +29,8 @@ func _ready() -> void:
 func _build_menu() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
-	var background := ColorRect.new()
-	background.color = Color(0.08, 0.10, 0.16, 1.0)
+	var background := TextureRect.new()
+	background.texture = image
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(background)
@@ -47,7 +48,7 @@ func _build_menu() -> void:
 	pages.add_child(menu_container)
 
 	var title := Label.new()
-	title.text = "DROPPER"
+	title.text = "RAY"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 40)
 	menu_container.add_child(title)
@@ -60,7 +61,7 @@ func _build_menu() -> void:
 	settings_button.pressed.connect(_on_settings_pressed)
 	menu_container.add_child(settings_button)
 
-	var quit_button := _make_button("Esci")
+	var quit_button := _make_button("Exit")
 	quit_button.pressed.connect(_on_quit_pressed)
 	menu_container.add_child(quit_button)
 
@@ -69,13 +70,13 @@ func _build_menu() -> void:
 	pages.add_child(settings_container)
 
 	var settings_title := Label.new()
-	settings_title.text = "IMPOSTAZIONI"
+	settings_title.text = "SETTINGS"
 	settings_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	settings_title.add_theme_font_size_override("font_size", 28)
 	settings_container.add_child(settings_title)
 
 	var music_label := Label.new()
-	music_label.text = "Volume musica"
+	music_label.text = "Music Volume"
 	settings_container.add_child(music_label)
 
 	music_slider = HSlider.new()
