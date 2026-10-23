@@ -15,9 +15,9 @@ scale = Vector2(2.6, 2.6)
 tile_set = ExtResource("1_sw3ms")
 script = ExtResource("2_y7e7p")
 level_file = "res://scenes/levels/level1.json"
-block_1 = ExtResource("3_6usar")
-block_2 = ExtResource("4_6usar")
-block_4 = ExtResource("5_pyebw")
+source_id = 0
+clear_before = false
+tiles = null
 
 [node name="obstacle-BIG3" parent="." unique_id=208868434 instance=ExtResource("3_6usar")]
 position = Vector2(104, 424)

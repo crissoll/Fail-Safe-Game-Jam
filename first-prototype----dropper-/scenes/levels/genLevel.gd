@@ -7,116 +7,65 @@ extends TileMapLayer
 			generate_level()
 		generate = false
 
-@export_file("*.json")
-var level_file: String
+@export_file("*.json") var level_file: String
 
-# Cella della TileMap che corrisponde a matrix[0][0]
-@export var matrix_origin: Vector2i = Vector2i.ZERO
+## Cella del layer dove viene disegnato matrix[0][0]
+@export var matrix_origin := Vector2i.ZERO
 
-# Scene associate ai valori 1..6
-@export var block_1: PackedScene
-@export var block_2: PackedScene
-@export var block_3: PackedScene
-@export var block_4: PackedScene
-@export var block_5: PackedScene
-@export var block_6: PackedScene
+## Se attivo, svuota il layer prima di disegnare
+@export var clear_before := true
 
-const GENERATED_GROUP := "generated_level"
+## Valore nella matrice -> Vector2i(ID sorgente del TileSet, ID della scena nella raccolta)
+## ESEMPIO: da adattare ai tuoi ID reali
+@export var tiles := {
+	1: Vector2i(2, 1), # jellyfish
+	2: Vector2i(2, 2), # jellyfish - medium bounce
+	3: Vector2i(2, 3), # jellyfish - strong bounce
+	# 4: Vector2i(1, 1), # un tile della sorgente "Obstacles"
+	# 5: Vector2i(0, 1), # un tile della sorgente "Spiritual Obstacles"
+}
 
-
-func generate_level():
-
+func generate_level() -> void:
 	if not Engine.is_editor_hint():
 		return
 
-	print("Generazione livello")
-
 	var matrix := _load_matrix()
-
 	if matrix.is_empty():
 		push_error("JSON vuoto o non valido")
 		return
 
-	_clear_previous()
+	if clear_before:
+		clear()
 
-	var scene_map := {
-		1: block_1,
-		2: block_2,
-		3: block_3,
-		4: block_4,
-		5: block_5,
-		6: block_6
-	}
-
-	var root := get_tree().edited_scene_root
-
-	if root == null:
-		push_error("edited_scene_root nullo")
-		return
-
-	for y in range(matrix.size()):
-
-		for x in range(matrix[y].size()):
-
+	for y in matrix.size():
+		for x in matrix[y].size():
 			var value := int(matrix[y][x])
+			var cell := matrix_origin + Vector2i(x, y)
 
 			if value == 0:
+				erase_cell(cell)
 				continue
 
-			var packed_scene: PackedScene = scene_map.get(value)
-
-			if packed_scene == null:
-				push_warning("Nessun prefab assegnato per ID %d" % value)
+			if not tiles.has(value):
+				push_warning("Nessun tile assegnato per il valore %d" % value)
 				continue
 
-			var instance := packed_scene.instantiate()
-
-			var map_cell := matrix_origin + Vector2i(2*x, 2*y)
-
-			if instance is Node2D:
-				instance.position = map_to_local(map_cell)
-
-			root.add_child(instance)
-			instance.owner = root
-			instance.add_to_group(GENERATED_GROUP)
+			var entry: Vector2i = tiles[value]
+			# raccolta di scene: atlas_coords sempre (0,0), la scena è l'alternative_tile
+			set_cell(cell, entry.x, Vector2i.ZERO, entry.y)
 
 	print("Livello generato")
 
-
 func _load_matrix() -> Array:
-
-	if level_file.is_empty():
-		return []
-
-	if not FileAccess.file_exists(level_file):
+	if level_file.is_empty() or not FileAccess.file_exists(level_file):
 		return []
 
 	var file := FileAccess.open(level_file, FileAccess.READ)
-
 	if file == null:
 		return []
 
-	var text := file.get_as_text()
-
-	var data = JSON.parse_string(text)
-
-	if typeof(data) != TYPE_DICTIONARY:
-		return []
-
-	if not data.has("matrix"):
+	var data = JSON.parse_string(file.get_as_text())
+	if typeof(data) != TYPE_DICTIONARY or not data.has("matrix"):
 		return []
 
 	return data["matrix"]
-
-
-func _clear_previous():
-
-	var root := get_tree().edited_scene_root
-
-	if root == null:
-		return
-
-	for node in root.get_children():
-
-		if node.is_in_group(GENERATED_GROUP):
-			node.free()
