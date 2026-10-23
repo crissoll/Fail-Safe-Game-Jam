@@ -20,7 +20,8 @@ var music_value_label: Label
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	layer = 100
+	# Sopra a tutto: muri dello sfondo (100), GUI (500) e cutscene in gioco (600).
+	layer = 1000
 
 	_load_music_volume()
 	_create_interface()

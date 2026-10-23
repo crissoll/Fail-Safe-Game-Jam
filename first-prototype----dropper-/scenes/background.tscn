@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://kmmgejp26mfm" path="res://assets/WallsBL.png" id="4_l5f8m"]
 [ext_resource type="Texture2D" uid="uid://c2hwc7h6v1ua" path="res://assets/Light.png" id="5_6vm3t"]
 [ext_resource type="Texture2D" uid="uid://bicdftpepfcpv" path="res://assets/WallsFrontL.png" id="5_8efq7"]
+[ext_resource type="Script" uid="uid://dl1g83ql06v72" path="res://scripts/classes/background_phase.gd" id="10_bgph"]
+[ext_resource type="Texture2D" uid="uid://dl78mkgafycpi" path="res://assets/UI/back_clouds_ascensions.png" id="11_acb"]
+[ext_resource type="Texture2D" uid="uid://dgrwg4smllvwn" path="res://assets/UI/front_cclouds_ascenscion.png" id="12_acf"]
+[ext_resource type="Texture2D" uid="uid://byy3bn7yr4ama" path="res://assets/UI/back_wall_ascension.png" id="13_awb"]
+[ext_resource type="Texture2D" uid="uid://coljtkl6yirsr" path="res://assets/UI/front_wall_ascenscion.png" id="14_awf"]
 
 [sub_resource type="Gradient" id="Gradient_1yjtr"]
 colors = PackedColorArray(0.8352941, 0.8980392, 0.9764706, 1, 0.67058825, 0.7372549, 0.9411765, 1)
@@ -136,7 +141,17 @@ _data = {
 &"RESET": SubResource("Animation_6vm3t")
 }
 
-[node name="Background" type="Node2D" unique_id=1577599243]
+[node name="Background" type="Node2D" unique_id=1577599243 node_paths=PackedStringArray("clouds_back", "clouds_front", "walls_back", "walls_front", "gradient_rect")]
+script = ExtResource("10_bgph")
+ascension_clouds_back = ExtResource("11_acb")
+ascension_clouds_front = ExtResource("12_acf")
+ascension_walls_back = ExtResource("13_awb")
+ascension_walls_front = ExtResource("14_awf")
+clouds_back = NodePath("ParallaxBackground3/CloudsBack/Sprite2D")
+clouds_front = NodePath("ParallaxBackground3/CloudsFront/Sprite2D")
+walls_back = NodePath("ParallaxBackground/ParallaxLayer/Sprite2D")
+walls_front = NodePath("ParallaxBackground/WallsFront/Sprite2D")
+gradient_rect = NodePath("ParallaxBackground2/TextureRect")
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="." unique_id=447838093]
 layer = -356
@@ -144,9 +159,9 @@ follow_viewport_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground2" unique_id=192399172]
 offset_left = 416.70496
-offset_top = -35.036865
-offset_right = 32416.705
-offset_bottom = 798.02515
+offset_top = -203.55167
+offset_right = 32585.22
+offset_bottom = 629.5104
 rotation = 1.5707964
 texture = SubResource("GradientTexture2D_au7uu")
 
@@ -163,6 +178,7 @@ scale = Vector2(0.34852433, 0.3510802)
 texture = ExtResource("1_wisxt")
 
 [node name="Monster" type="ParallaxLayer" parent="ParallaxBackground3" unique_id=827258641]
+motion_scale = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground3/Monster" unique_id=723888116]
 modulate = Color(1, 1, 1, 0.48235294)
