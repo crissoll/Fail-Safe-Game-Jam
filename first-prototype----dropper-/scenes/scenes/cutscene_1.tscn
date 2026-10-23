@@ -1,0 +1,558 @@
+[gd_scene format=3 uid="uid://ba14qn0shg3ax"]
+
+[ext_resource type="Texture2D" uid="uid://bkkljtcmsi4sg" path="res://assets/cutscene_1/cutscene_1_color.png" id="1_eoo1b"]
+[ext_resource type="Texture2D" uid="uid://d2tckt40jhhu2" path="res://assets/cutscene_1/cutscene_1_clouds.png" id="2_rhj2p"]
+[ext_resource type="Texture2D" uid="uid://cbimcydup2uww" path="res://assets/cutscene_1/cutscene_1_ground.png" id="3_tclaf"]
+[ext_resource type="Texture2D" uid="uid://cvlkks3yvj6lp" path="res://assets/cutscene_1/RayCracked.png" id="4_tclaf"]
+[ext_resource type="Texture2D" uid="uid://b2l2uvo8wg4bv" path="res://assets/cutscene_1/cutscene_1_egg.png" id="4_vl4t2"]
+[ext_resource type="Texture2D" uid="uid://bijyemxugcce3" path="res://assets/cutscene_1/EggCracked.png" id="5_rhj2p"]
+[ext_resource type="Texture2D" uid="uid://cq7v777uubkgx" path="res://assets/cutscene_1/fourth_scene_back.png" id="6_o3yhu"]
+[ext_resource type="Texture2D" uid="uid://cliplmkcu44fc" path="res://assets/cutscene_1/fourth_scene_vlouds.png" id="7_vatn3"]
+[ext_resource type="Texture2D" uid="uid://df71wfunpbskd" path="res://assets/cutscene_1/fourth_sceneray.png" id="8_tt6ms"]
+[ext_resource type="Texture2D" uid="uid://wfck0la8upbl" path="res://assets/cutscene_1/cutscene_5back.png" id="9_givkm"]
+[ext_resource type="Texture2D" uid="uid://dbwgm73fhhcr7" path="res://assets/cutscene_1/cutscene_5left.png" id="10_qwh53"]
+[ext_resource type="Texture2D" uid="uid://bsyt2he1l1jxi" path="res://assets/cutscene_1/cutscene_5right.png" id="11_62hqq"]
+[ext_resource type="Texture2D" uid="uid://pfyhygftamjc" path="res://assets/cutscene_1/cutscene_5ray.png" id="12_unlxt"]
+
+[sub_resource type="Animation" id="Animation_5b40d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shot123:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shot123/EggPivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shot123/EggPivot/Cutscene1Egg:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_vl4t2")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shot123/RayCracked:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shot123/EggPivot/Cutscene1Egg:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Shot123/Flash:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Shot4:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(579, 324)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Shot4/Cutscene1Color:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(750, 324)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Shot4/FourthSceneVlouds:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(550, 324)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Shot5/Cutscene5Left:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Shot5/Cutscene5Right:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Shot5:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Shot5/Cutscene5Ray:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(576, 324)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Shot5:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Shot123:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Shot4:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ow1ra"]
+resource_name = "cutscene"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shot123:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shot123/EggPivot:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 1.7, 1.9, 2.1, 2.3, 3, 3.2, 3.4, 3.6, 3.8, 4.5, 4.7, 4.9, 5.1, 5.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.10471976, -0.10471976, 0.06981317, 0.0, 0.0, 0.20943951023931956, -0.20943951023931956, 0.06981317, 0.0, 0.0, 0.3490658503988659, -0.3490658503988659, 0.13962634015954636, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5.5, 7, 13.4, 13.733334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.45, 1.45), Vector2(1.45, 1.45), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shot123/EggPivot/Cutscene1Egg:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 7.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_vl4t2"), ExtResource("5_rhj2p")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shot123/RayCracked:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shot123/EggPivot/Cutscene1Egg:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 10.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Shot123/Flash:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(10.133333, 10.433333, 10.833333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.89411765), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Shot4:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 13.4, 19.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 5.5, 7, 13.4, 13.7, 20, 28),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(579, 324), Vector2(579, 324), Vector2(579, 423), Vector2(579, 423), Vector2(576, 324), Vector2(576, 400), Vector2(576, 400)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Shot4/Cutscene1Color:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(13.433333, 19.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(750, 324), Vector2(402, 324)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Shot4/FourthSceneVlouds:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(13.4, 19.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(700, 324), Vector2(550, 324)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Shot5/Cutscene5Left:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(20.4, 20.55, 21.4, 24.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(568, 324), Vector2(568, 324), Vector2(376, 324)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Shot5/Cutscene5Right:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(20.4, 20.55, 21.4, 24.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(584, 324), Vector2(584, 324), Vector2(776, 324)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Shot5:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 19.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Shot5/Cutscene5Ray:position")
+tracks/14/interp = 2
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(21.9, 25.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(576, 324), Vector2(576, 200)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Shot5:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(19.4, 20, 26.4, 27.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Shot123:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 19.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Shot4:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(13.4, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yhrg"]
+_data = {
+&"RESET": SubResource("Animation_5b40d"),
+&"cutscene": SubResource("Animation_ow1ra")
+}
+
+[node name="Cutscene1" type="Node2D" unique_id=844683764]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1415397604]
+offset_left = -1424.0
+offset_top = -1176.0
+offset_right = 2576.0
+offset_bottom = 1824.0
+color = Color(0, 0, 0, 1)
+
+[node name="Shot123" type="Node2D" parent="." unique_id=1766419952]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 1)
+
+[node name="Cutscene1Color" type="Sprite2D" parent="Shot123" unique_id=92089182]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_eoo1b")
+
+[node name="Cutscene1Clouds" type="Sprite2D" parent="Shot123" unique_id=870172221]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rhj2p")
+
+[node name="Cutscene1Ground" type="Sprite2D" parent="Shot123" unique_id=1732678497]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_tclaf")
+
+[node name="RayCracked" type="Sprite2D" parent="Shot123" unique_id=1861731537]
+visible = false
+position = Vector2(576, 325)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_tclaf")
+
+[node name="EggPivot" type="Node2D" parent="Shot123" unique_id=852841622]
+position = Vector2(577, 550)
+
+[node name="Cutscene1Egg" type="Sprite2D" parent="Shot123/EggPivot" unique_id=699106993]
+position = Vector2(-1, -226)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_vl4t2")
+
+[node name="Flash" type="ColorRect" parent="Shot123" unique_id=93657336]
+modulate = Color(1, 1, 1, 0)
+offset_right = 3000.0
+offset_bottom = 4000.0
+
+[node name="Shot4" type="Node2D" parent="." unique_id=298151989]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Cutscene1Color" type="Sprite2D" parent="Shot4" unique_id=1391125913]
+position = Vector2(750, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_o3yhu")
+
+[node name="FourthSceneVlouds" type="Sprite2D" parent="Shot4" unique_id=1959112487]
+position = Vector2(550, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_vatn3")
+
+[node name="FourthSceneray" type="Sprite2D" parent="Shot4" unique_id=1320124948]
+position = Vector2(576, 326)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_tt6ms")
+
+[node name="Shot5" type="Node2D" parent="." unique_id=1440070487]
+visible = false
+modulate = Color(1, 1, 1, 0)
+
+[node name="Cutscene5Back" type="Sprite2D" parent="Shot5" unique_id=608595939]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_givkm")
+
+[node name="Cutscene5Left" type="Sprite2D" parent="Shot5" unique_id=1851586286]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_qwh53")
+
+[node name="Cutscene5Right" type="Sprite2D" parent="Shot5" unique_id=1006270195]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_62hqq")
+
+[node name="Cutscene5Ray" type="Sprite2D" parent="Shot5" unique_id=783674607]
+position = Vector2(576, 324)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_unlxt")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=307949115]
+position = Vector2(579, 324)
+enabled = false
+zoom = Vector2(1.5, 1.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2087045218]
+libraries/ = SubResource("AnimationLibrary_2yhrg")
+autoplay = &"cutscene"
