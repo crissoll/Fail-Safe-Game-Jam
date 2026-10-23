@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d0cxihylo5e2l"]
 
 [ext_resource type="Script" uid="uid://dgc71w7oniuku" path="res://scripts/classes/oarfish.gd" id="1_yddcc"]
+[ext_resource type="Texture2D" uid="uid://c5ytts5kc4a7q" path="res://assets/Obstacles/oarfish_dark.png" id="2_jiyni"]
 [ext_resource type="Texture2D" uid="uid://cr04b6a0tqj10" path="res://assets/Obstacles/oarfish (1).png" id="2_qss88"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_usvy1"]
@@ -16,7 +17,11 @@ collision_layer = 0
 collision_mask = 24
 script = ExtResource("1_yddcc")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=381968312]
+[node name="oarfishBlack" type="Sprite2D" parent="." unique_id=1798993285]
+visible = false
+texture = ExtResource("2_jiyni")
+
+[node name="oarfishWhite" type="Sprite2D" parent="." unique_id=381968312]
 position = Vector2(57, 1)
 texture = ExtResource("2_qss88")
 
