@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ctunwob733sk6"]
+[gd_scene format=3 uid="uid://c8m2lylx7tl85"]
 
 [ext_resource type="Texture2D" uid="uid://dc1jqhk4isv5f" path="res://assets/cutscene_3/Untitled_Artwork 22.png" id="1_m30db"]
 [ext_resource type="Texture2D" uid="uid://b0t6qduct85o6" path="res://assets/cutscene_3/beam.png" id="2_tykh2"]
@@ -339,5 +339,7 @@ offset_right = 1537.0
 offset_bottom = 834.0
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1199307640]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 41.0
+offset_bottom = 41.0
