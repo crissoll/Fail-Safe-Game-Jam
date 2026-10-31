@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://dfrg3h325wlqj" path="res://assets/cutscene_3/rightclouds.png" id="6_f8wx0"]
 [ext_resource type="Texture2D" uid="uid://dmfjxajydee4x" path="res://assets/cutscene_3/Raycut3.png" id="7_h5fr8"]
 [ext_resource type="Texture2D" uid="uid://dp68b3kvgglfd" path="res://assets/cutscene_3/eye clo.png" id="8_4hhkx"]
+[ext_resource type="Texture2D" uid="uid://8sox2egry3wt" path="res://assets/cutscene_3/photo_5972199480641654921_y.jpg" id="9_rdltd"]
+[ext_resource type="Texture2D" uid="uid://phbmcxbpj5c0" path="res://assets/cutscene_3/photo_5972199480641654925_y.jpg" id="10_214q0"]
+[ext_resource type="Texture2D" uid="uid://3cxxa4nyhqom" path="res://assets/cutscene_3/photo_5972199480641654926_y.jpg" id="11_f8wx0"]
 
 [sub_resource type="Animation" id="Animation_35f0l"]
 length = 0.001
@@ -122,26 +125,26 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Camera2D:zoom")
+tracks/9/path = NodePath("Shot1:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": [true]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Shot1:visible")
+tracks/10/path = NodePath("AnimatedSprite2D:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_i2h6b"]
@@ -154,7 +157,7 @@ tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 8, 10, 11),
+"times": PackedFloat32Array(0, 1, 8, 10, 11.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -205,7 +208,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(6, 7.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(569, 551), Vector2(568, 293)]
+"values": [Vector2(564.44446, 634.44446), Vector2(568, 293)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -258,26 +261,26 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Camera2D:zoom")
+tracks/9/path = NodePath("Shot1:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 6, 10),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.4, 1.4)]
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Shot1:visible")
+tracks/10/path = NodePath("AnimatedSprite2D:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 11),
+"times": PackedFloat32Array(0, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hrnv1"]
@@ -286,9 +289,27 @@ _data = {
 &"cutscene": SubResource("Animation_i2h6b")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_77qcy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_rdltd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_214q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_f8wx0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
+
 [node name="Cutscene3" type="Node2D" unique_id=467356647]
 
 [node name="Shot1" type="Node2D" parent="." unique_id=1702673771]
+scale = Vector2(0.9, 0.9)
 
 [node name="UntitledArtwork22" type="Sprite2D" parent="Shot1" unique_id=885632972]
 position = Vector2(576, 324)
@@ -328,18 +349,22 @@ texture = ExtResource("7_h5fr8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1865569186]
 libraries/ = SubResource("AnimationLibrary_hrnv1")
+autoplay = &"cutscene"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1815747548]
 position = Vector2(576, 324)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=254666781]
-offset_left = -264.0
-offset_top = -171.0
-offset_right = 1537.0
-offset_bottom = 834.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1695834625]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_77qcy")
+autoplay = "default"
+frame = 2
+frame_progress = 0.44159916
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1199307640]
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 41.0
-offset_bottom = 41.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=254666781]
+offset_left = -265.0
+offset_top = -132.0
+offset_right = 1536.0
+offset_bottom = 873.0
